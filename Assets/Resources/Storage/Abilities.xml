@@ -2,6 +2,7 @@
 <XMLAbilityStorage>
   <Abilities>
     <XMLAbility>
+      <Guid>1b9c9146-1cc5-4b65-8462-ed7abc793e58</Guid>
       <Name>Fireball</Name>
       <Description>Shoots a fireball at the closest target</Description>
       <PrefabName>FireballProj</PrefabName>
@@ -21,6 +22,7 @@
       <ProjSpeed>10</ProjSpeed>
     </XMLAbility>
     <XMLAbility>
+      <Guid>48c9aa46-527e-4079-a372-c2ddf93678a4</Guid>
       <Name>Ice Wave</Name>
       <Description>Shoots an ice wave at a random target</Description>
       <PrefabName>FrostwaveProj</PrefabName>
@@ -40,9 +42,10 @@
       <ProjSpeed>15</ProjSpeed>
     </XMLAbility>
     <XMLAbility>
-      <Name>Lightning Bolt</Name>
-      <Description>Shoots a lightning bolt in a random direction</Description>
-      <PrefabName>LightningBolt</PrefabName>
+      <Guid>4c2666fe-1697-49ab-8624-633347dab11c</Guid>
+      <Name>Lightning Arc</Name>
+      <Description>Shoots an arc of lightning in a random direction</Description>
+      <PrefabName>LightningArc</PrefabName>
       <TargetingStyle>RandomTarget</TargetingStyle>
       <PrimaryTag>Lightning</PrimaryTag>
       <Tags>
@@ -58,6 +61,7 @@
       <Timeout>.5</Timeout>
     </XMLAbility>
     <XMLAbility>
+      <Guid>9b00992e-59b8-4caa-a356-18898540d26b</Guid>
       <Name>Righteous Fire</Name>
       <Description>Wraps the player in flames that damage all enemies around you</Description>
       <PrefabName>RighteousFire</PrefabName>

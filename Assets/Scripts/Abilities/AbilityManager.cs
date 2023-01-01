@@ -8,10 +8,9 @@ public class AbilityManager : MonoBehaviour
 {
     public EntityStats EntityStats { get; set; }
 
-    public List<Ability> abilities { get; private set; } = new List<Ability>();
+    private List<Ability> _abilities = new List<Ability>();
 
-    public GameObject fireballProj;
-    public GameObject frostwaveProj;
+    public List<Ability> SelectedAbilities { get; private set; } = new List<Ability>();
 
     private GameObject projParent;
 
@@ -22,7 +21,18 @@ public class AbilityManager : MonoBehaviour
 
     public void Init(List<AbilityDefinition> abilities)
     {
-        this.abilities = abilities.Select(p => new Ability(p)).ToList();
+        this._abilities = abilities.Select(p => new Ability(p)).ToList();
+    }
+
+    public void AddAbility(Guid abilityGuid)
+    {
+        var ability = this._abilities.Where(p => p.Info.Guid == abilityGuid).FirstOrDefault();
+
+        if (ability == null)
+            throw new KeyNotFoundException($"Ability matching the guid: {abilityGuid} not found. Has it been defined in Abilities.xml & AbilityConstants?");
+
+        // do max abilities check
+        this._abilities.Add(ability);
     }
 
     void Update()
@@ -33,7 +43,7 @@ public class AbilityManager : MonoBehaviour
             EntityStats = this.EntityStats,
         };
 
-        this.abilities.ForEach(ability =>
+        this.SelectedAbilities.ForEach(ability =>
         {
             var result = ability.Update(updateInfo);
             if (result.ShouldActivate)
@@ -118,6 +128,7 @@ public class AbilityManager : MonoBehaviour
                 break;
         }
 
+        // Vector3.positiveInfinity does not equal Vector3.positiveInfinity... Why? who knows.
         if (target.x != Vector3.positiveInfinity.x)
         {
             var diff = target - transform.position;

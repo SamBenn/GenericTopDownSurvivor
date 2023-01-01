@@ -24,6 +24,9 @@ public class PlayerManager : MonoBehaviour
         this.GatherClasses();
         this.ApplyToChildren();
         this.Enable();
+
+        // To be rewritten once "classes" exist
+        this.abilityManager.AddAbility(Constants.Abilities.Fireball);
     }
 
     private void GetManagers()

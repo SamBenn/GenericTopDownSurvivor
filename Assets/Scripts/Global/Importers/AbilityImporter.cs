@@ -26,6 +26,7 @@ public class AbilityImporter : MonoBehaviour
         {
             var abilityDef = new AbilityDefinition()
             {
+                Guid = new Guid(ability.Guid),
                 Name = ability.Name,
                 Description = ability.Description,
                 Tags = new List<AbilityTag>(),
@@ -80,6 +81,7 @@ public class XMLAbilityFile
 [Serializable, XmlRoot("XMLAbility")]
 public class XMLAbility
 {
+    public string Guid;
     public string Name;
     public string Description;
     public string TargetingStyle;

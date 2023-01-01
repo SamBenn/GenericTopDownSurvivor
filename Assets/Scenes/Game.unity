@@ -1455,10 +1455,10 @@ RectTransform:
   m_Father: {fileID: 1730068621}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 463.7}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &795245953
 MonoBehaviour:
@@ -1510,7 +1510,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: -389.5}
-  m_SizeDelta: {x: 882, y: 17}
+  m_SizeDelta: {x: -198, y: 17}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &815282678
 MonoBehaviour:
@@ -2194,8 +2194,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a23be3b5d2bd7904799995e0475ccbd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireballProj: {fileID: 6534894714431624602, guid: f067e9fa99e10b949880c7cd7eadea4e, type: 3}
-  frostwaveProj: {fileID: 466023831209983517, guid: 86b2a3e662f1ed842bfbc444feb09e6b, type: 3}
 --- !u!114 &1552941568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2755,7 +2753,7 @@ MonoBehaviour:
     StartTime: 0
     EndTime: 9999999
     EnemyObject: {fileID: 4770043429259377623, guid: a8b7230685705594cbd08f0178de9885, type: 3}
-    Frequency: 0.01
+    Frequency: 0.2
     SinceSpawn: 0
   - Name: Faster 30-60
     StartTime: 30
@@ -2877,7 +2875,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: -389.5}
-  m_SizeDelta: {x: 880, y: 15}
+  m_SizeDelta: {x: -200, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1893630271
 MonoBehaviour:

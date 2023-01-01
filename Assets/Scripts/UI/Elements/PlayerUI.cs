@@ -49,7 +49,7 @@ public class PlayerUI : MonoBehaviour
         this.abilityInfos = new List<GameObject>();
         var index = 0;
 
-        this.abilities.abilities.ForEach(ability => { 
+        this.abilities.SelectedAbilities.ForEach(ability => { 
             var newInfo = GameObject.Instantiate(abilityInfoPrefab, this.abilityWrapper.transform);
 
             // fuck all of this.
