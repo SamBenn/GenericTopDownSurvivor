@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<XMLAbilityStorage>
+  <Abilities>
+    <XMLAbility>
+      <Name>Fireball</Name>
+      <Description>Shoots a fireball at the closest target</Description>
+      <PrefabName>FireballProj</PrefabName>
+      <TargetingStyle>Closest</TargetingStyle>
+      <PrimaryTag>Fire</PrimaryTag>
+      <Tags>
+        Projectile,
+        Damage,
+        Fire
+      </Tags>
+      <BaseDamage>6</BaseDamage>
+      <BaseFrequency>3</BaseFrequency>
+      <MaxPierce>0</MaxPierce>
+      <AdditionalProjectiles>2</AdditionalProjectiles>
+      <AdditionalProjAngle>15</AdditionalProjAngle>
+      <Timeout>2</Timeout>
+      <ProjSpeed>10</ProjSpeed>
+    </XMLAbility>
+    <XMLAbility>
+      <Name>Ice Wave</Name>
+      <Description>Shoots an ice wave at a random target</Description>
+      <PrefabName>FrostwaveProj</PrefabName>
+      <TargetingStyle>RandomTarget</TargetingStyle>
+      <PrimaryTag>Ice</PrimaryTag>
+      <Tags>
+        Projectile,
+        Damage,
+        Ice
+      </Tags>
+      <BaseDamage>1</BaseDamage>
+      <BaseFrequency>2</BaseFrequency>
+      <MaxPierce>999</MaxPierce>
+      <AdditionalProjectiles>4</AdditionalProjectiles>
+      <AdditionalProjAngle>5</AdditionalProjAngle>
+      <Timeout>1</Timeout>
+      <ProjSpeed>15</ProjSpeed>
+    </XMLAbility>
+    <XMLAbility>
+      <Name>Lightning Bolt</Name>
+      <Description>Shoots a lightning bolt in a random direction</Description>
+      <PrefabName>LightningBolt</PrefabName>
+      <TargetingStyle>RandomTarget</TargetingStyle>
+      <PrimaryTag>Lightning</PrimaryTag>
+      <Tags>
+        Duration,
+        Damage,
+        Lightning
+      </Tags>
+      <BaseDamage>1</BaseDamage>
+      <BaseFrequency>2.5</BaseFrequency>
+      <Multistrike>true</Multistrike>
+      <MultistrikeTimeout>.2</MultistrikeTimeout>
+      <MaxPierce>999</MaxPierce>
+      <Timeout>.5</Timeout>
+    </XMLAbility>
+    <XMLAbility>
+      <Name>Righteous Fire</Name>
+      <Description>Wraps the player in flames that damage all enemies around you</Description>
+      <PrefabName>RighteousFire</PrefabName>
+      <PrimaryTag>Fire</PrimaryTag>
+      <Tags>
+        AreaOfEffect,
+        Duration,
+        AlwaysActive,
+        Damage,
+        Fire
+      </Tags>
+      <BaseDamage>1</BaseDamage>
+      <Multistrike>true</Multistrike>
+      <MultistrikeTimeout>.2</MultistrikeTimeout>
+      <LocationHost>Caster</LocationHost>
+    </XMLAbility>
+  </Abilities>
+</XMLAbilityStorage>
