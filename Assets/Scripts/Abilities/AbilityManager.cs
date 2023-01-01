@@ -14,6 +14,8 @@ public class AbilityManager : MonoBehaviour
 
     private GameObject projParent;
 
+    private int AbilityLimit = 6;
+
     private void Start()
     {
         this.projParent = GameObject.FindGameObjectWithTag("ProjectileParent");
@@ -32,7 +34,21 @@ public class AbilityManager : MonoBehaviour
             throw new KeyNotFoundException($"Ability matching the guid: {abilityGuid} not found. Has it been defined in Abilities.xml & AbilityConstants?");
 
         // do max abilities check
-        this._abilities.Add(ability);
+        this.SelectedAbilities.Add(ability);
+    }
+
+    public List<AbilityDefinition> GetAbilitiesForSelection()
+    {
+        var existingGuids = this.SelectedAbilities.Select(p => p.Info.Guid).ToList();
+
+        var toReturn = new List<AbilityDefinition>();
+
+        if(existingGuids.Count >= this.AbilityLimit)
+            return toReturn;
+
+        toReturn = this._abilities.Where(p => !existingGuids.Contains(p.Info.Guid)).Select(p => p.Info).ToList();
+
+        return toReturn;
     }
 
     void Update()

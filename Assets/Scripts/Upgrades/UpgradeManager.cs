@@ -36,12 +36,12 @@ public class UpgradeManager : MonoBehaviour
         var statTagsAndLevels = entityStats.StatTagsAndLevels;
 
         // get 3 (or 4) random ability tags (cannot be duplicates)
-        toReturn = this.GetUpgradesForLevels(statTagsAndLevels, 3);
+        toReturn = this.GetUpgradesForLevels(statTagsAndLevels);
 
         return toReturn;
     }
 
-    private List<UpgradeDefinition> GetUpgradesForLevels(Dictionary<AbilityTag, int> tagLevelDict, int count)
+    private List<UpgradeDefinition> GetUpgradesForLevels(Dictionary<AbilityTag, int> tagLevelDict)
     {
         var upgradesToChooseFrom = new List<UpgradeDefinition>();
 
@@ -54,36 +54,7 @@ public class UpgradeManager : MonoBehaviour
             upgradesToChooseFrom.AddRange(upgrades);
         });
 
-        var toReturn = new List<UpgradeDefinition>();
-
-        var indexes = new List<int>();
-
-        void addUniqueRandomIndex()
-        {
-            if (upgradesToChooseFrom.Count <= indexes.Count)
-                return;
-
-            int getRandomIndex() => UnityEngine.Random.Range(0, upgradesToChooseFrom.Count);
-
-            var chosenIndex = -1;
-            while (indexes.Contains(chosenIndex) || chosenIndex == -1)
-            {
-                chosenIndex = getRandomIndex();
-            }
-
-            indexes.Add(chosenIndex);
-        }
-
-        for (int i = 0; i < count; i++)
-        {
-            addUniqueRandomIndex();
-        }
-
-        indexes = indexes.Distinct().ToList();
-
-        indexes.ForEach(index => toReturn.Add(upgradesToChooseFrom[index]));
-
-        return toReturn;
+        return upgradesToChooseFrom;
     }
 }
 

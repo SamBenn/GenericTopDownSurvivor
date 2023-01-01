@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3232648673292377308}
   - component: {fileID: 3232648673292377309}
   m_Layer: 0
-  m_Name: LightningBolt
+  m_Name: LightningArc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,7 +72,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9ea2005ca7908f43be38629b47b52aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 0
+  EntityStats: {fileID: 0}
 --- !u!1 &3232648673979877120
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +15,10 @@ public class LevelUpMenu : MonoBehaviour
 
     private EntityStats StatsToLevel;
     private List<UpgradeDefinition> Upgrades;
+    private List<AbilityDefinition> Abilities;
+
+    // to become random based on luck?
+    private readonly int upgradeCount = 3;
 
     public void Init(int levelsRemaining)
     {
@@ -37,25 +42,33 @@ public class LevelUpMenu : MonoBehaviour
 
         this.SetTitleText();
         this.GetUpgradesForLevelUp();
+        this.GetAbilitiesForLevelUp();
 
-        var index = 0;
-        this.Upgrades.ForEach(upgrade =>
+        T CreateListItem<T>(int index)
+            where T : LevelUpListItem
         {
             var obj = GameObject.Instantiate(this.LevelUpListItemPrefab, this.LevelUpListWrapper.transform);
+            obj.AddComponent<T>();
+            
+            var component = obj.GetComponent<T>();
 
-            // figure out obj.y
             var offset = 10;
             var height = 80;
             var t = (offset * index + 1) + height * index;
             obj.transform.localPosition = new Vector3(0.0f, t * -1 + 258.5f);
 
-            var stat = this.StatsToLevel.GetStatForPrimaryTag(upgrade.PrimaryTag);
-            var listItem = obj.GetComponent<LevelUpListItem>();
-
-            listItem.Menu = this;
-            listItem.Init(stat, upgrade);
-
             this.LevelUpListItems.Add(obj);
+            return component;
+        }
+
+        var globalIndexes = RandomUtil.UniqueRandomsBetween(0, this.Abilities.Count + this.Upgrades.Count, this.upgradeCount);
+
+        var index = 0;
+
+        globalIndexes.ForEach(globalIndex =>
+        {
+            // what do
+
             index++;
         });
     }
@@ -83,6 +96,13 @@ public class LevelUpMenu : MonoBehaviour
         var manager = GameObject.FindGameObjectWithTag("UpgradeManager").GetComponent<UpgradeManager>();
 
         this.Upgrades = manager.GetUpgradesForEntityStats(this.StatsToLevel);
+    }
+
+    private void GetAbilitiesForLevelUp()
+    {
+        var manager = GameObject.FindGameObjectWithTag("Player").GetComponent<AbilityManager>();
+
+        this.Abilities = manager.GetAbilitiesForSelection();
     }
 
     private void DisplayCheck()
