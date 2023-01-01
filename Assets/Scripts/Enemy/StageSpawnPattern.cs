@@ -7,10 +7,18 @@ using UnityEngine;
 public class StageSpawnPattern : MonoBehaviour
 {
     public List<SpawnPattern> Patterns = new List<SpawnPattern>();
+    public List<SpawnPattern> SpecialEvents = new List<SpawnPattern>();
 
     public List<SpawnPattern> GetPatternsFor(float time)
     {
         var toReturn = this.Patterns.Where(p => p.StartTime < time && p.EndTime > time).ToList();
+
+        var specialEvents = this.SpecialEvents.Where(p => p.StartTime < time).ToList();
+        specialEvents.ForEach(ev => {
+            toReturn.Add(ev);
+            this.SpecialEvents.Remove(ev);
+        });
+
         return toReturn;
     }
 }
