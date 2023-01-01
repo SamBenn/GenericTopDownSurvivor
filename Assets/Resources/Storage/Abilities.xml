@@ -26,7 +26,7 @@
       <Name>Ice Wave</Name>
       <Description>Shoots an ice wave at a random target</Description>
       <PrefabName>FrostwaveProj</PrefabName>
-      <TargetingStyle>RandomTarget</TargetingStyle>
+      <TargetingStyle>Closest</TargetingStyle>
       <PrimaryTag>Ice</PrimaryTag>
       <Tags>
         Projectile,

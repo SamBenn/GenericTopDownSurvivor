@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -13,6 +14,9 @@ public class Damage : MonoBehaviour
     private float timeSinceCleanupCheck = 0f;
     private float timeout = 0f;
 
+    private float damageCalcTimeout = 2f;
+    private float calcedDamage = 0f;
+
     private int pierceCount = 0;
     private Dictionary<int, float> piercedEntities = new Dictionary<int, float>();
 
@@ -20,6 +24,7 @@ public class Damage : MonoBehaviour
     {
         this.timeSinceCleanupCheck += Time.deltaTime;
         this.timeout += Time.deltaTime;
+        this.damageCalcTimeout += Time.deltaTime;
 
         if (this.Info.Multistrike)
         {
@@ -100,6 +105,17 @@ public class Damage : MonoBehaviour
 
     private float GetDamage()
     {
-        return (float)this.EntityStats.GetAppliedValueForTag(this.Info.BaseDamage, this.Info.PrimaryTag, this.Info.Tags);
+        if (this.damageCalcTimeout > 1f)
+        {
+            this.damageCalcTimeout = 0f;
+            this.calcedDamage = (float)this.EntityStats.GetAppliedValueForTag(this.Info.BaseDamage, this.Info.PrimaryTag, this.Info.Tags);
+        }
+
+        if(this.calcedDamage <= 0f)
+        {
+            Debug.Log("damage no work pal");
+        }
+
+        return this.calcedDamage;
     }
 }

@@ -13,7 +13,7 @@ public class AbilityInfo : MonoBehaviour
 
     public void Init()
     {
-        this.AbilityImage.texture = Resources.Load<Texture>($"Sprites/Abilities/{Ability.Info.Name}");
+        this.AbilityImage.texture = Resources.Load<Texture>($"Sprites/AbilityIcons/{Ability.Info.Name}");
         this.gameObject.name = $"{Ability.Info.Name}Info";
     }
 

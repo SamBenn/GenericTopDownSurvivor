@@ -14,7 +14,7 @@ public class AbilityListItem : LevelUpListItem
 
     protected override void SetTexture()
     {
-        this.Icon.texture = Resources.Load<Texture>($"Sprites/Abilities/{this.abilityDefinition.Name}");
+        this.Icon.texture = Resources.Load<Texture>($"Sprites/AbilityIcons/{this.abilityDefinition.Name}");
     }
 
     protected override void SetUpgradeInfo()

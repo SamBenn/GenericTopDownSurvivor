@@ -2779,7 +2779,7 @@ MonoBehaviour:
     EndTime: 0
     EnemyObject: {fileID: 4770043429259377623, guid: 601111d4212f7bb41b315059500f7b16, type: 3}
     Frequency: 5
-    SinceSpawn: 5
+    SinceSpawn: 5.1
 --- !u!1 &1806037013
 GameObject:
   m_ObjectHideFlags: 0

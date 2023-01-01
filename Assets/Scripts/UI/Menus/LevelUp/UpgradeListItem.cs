@@ -18,7 +18,7 @@ public class UpgradeListItem : LevelUpListItem
 
     protected override void SetTexture()
     {
-        this.Icon.texture = Resources.Load<Texture>($"Sprites/Stats/{this.statDefinition.Name}");
+        this.Icon.texture = Resources.Load<Texture>($"Sprites/StatIcons/{this.statDefinition.Name}");
     }
 
     protected override void SetUpgradeInfo()
