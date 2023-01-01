@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -39,6 +40,11 @@ public class PlayerUI : MonoBehaviour
         this.SetExperienceText();
         this.SetTimeText();
         this.SetDebugText();
+    }
+
+    private void AddAbility(Guid abilityGuid)
+    {
+        this.UpdateAbilities();
     }
 
     /// <summary>

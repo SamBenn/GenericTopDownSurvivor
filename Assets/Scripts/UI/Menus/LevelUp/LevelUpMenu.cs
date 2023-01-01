@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -52,6 +53,8 @@ public class LevelUpMenu : MonoBehaviour
             
             var component = obj.GetComponent<T>();
 
+            component.Menu = this;
+
             var offset = 10;
             var height = 80;
             var t = (offset * index + 1) + height * index;
@@ -67,7 +70,28 @@ public class LevelUpMenu : MonoBehaviour
 
         globalIndexes.ForEach(globalIndex =>
         {
-            // what do
+            // Just incase this needs to be referenced after init... unlikely
+            LevelUpListItem component;
+
+            if(globalIndex >= this.Abilities.Count)
+            {
+                var upgradeIndex = globalIndex - this.Abilities.Count;
+
+                var upgrade = this.Upgrades[upgradeIndex];
+                var stat = this.StatsToLevel.Stats.Where(p => p.PrimaryTag == upgrade.PrimaryTag).FirstOrDefault();
+
+                var typedComponent = CreateListItem<UpgradeListItem>(index);
+                typedComponent.Init(stat, upgrade);
+
+                component = typedComponent;
+            }
+            else
+            {
+                var typedComponent = CreateListItem<AbilityListItem>(index);
+                typedComponent.Init(this.Abilities[globalIndex]);
+
+                component = typedComponent;
+            }
 
             index++;
         });
@@ -77,10 +101,23 @@ public class LevelUpMenu : MonoBehaviour
     {
         this.StatsToLevel.LevelUpForTag(tag);
 
-        this.levelsRemaining--;
-        GameObject.FindGameObjectWithTag("GlobalManager").SendMessage("OnLeveledUp", this.levelsRemaining);
-        this.DisplayCheck();
+        this.OnSelection();
+    }
 
+    public void AddAbility(AbilityDefinition ability)
+    {
+        GameObject.FindGameObjectWithTag("GlobalManager").SendMessage("AddAbility", ability.Guid);
+
+        this.OnSelection();
+    }
+
+    private void OnSelection()
+    {
+        this.levelsRemaining--;
+
+        GameObject.FindGameObjectWithTag("GlobalManager").SendMessage("OnLeveledUp", this.levelsRemaining);
+
+        this.DisplayCheck();
         this.SetupDisplay();
     }
 

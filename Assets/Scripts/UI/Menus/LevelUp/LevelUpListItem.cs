@@ -7,12 +7,15 @@ using UnityEngine.UI;
 
 public abstract class LevelUpListItem : MonoBehaviour, IPointerClickHandler
 {
-    public RawImage AbilityIcon;
+    public RawImage Icon;
     public Text UpgradeInfo;
     public LevelUpMenu Menu { get; set; }
 
     protected void Init()
     {
+        this.Icon = gameObject.GetComponentInChildren<RawImage>();
+        this.UpgradeInfo = gameObject.GetComponentInChildren<Text>();
+
         this.SetTexture();
 
         this.SetUpgradeInfo();

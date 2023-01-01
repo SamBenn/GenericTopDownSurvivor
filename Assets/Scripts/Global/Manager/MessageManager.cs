@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,11 @@ public class MessageManager : MonoBehaviour
     private void OnLeveledUp(int levelsRemaining)
     {
         this.MessageObjects("OnLeveledUp", levelsRemaining, this.Player);
+    }
+
+    private void AddAbility(Guid abilityGuid)
+    {
+        this.MessageObjects("AddAbility", abilityGuid, this.Player, this.UI);
     }
     #endregion
 

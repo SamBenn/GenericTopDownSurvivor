@@ -1,3 +1,4 @@
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class AbilityListItem : LevelUpListItem
@@ -11,18 +12,18 @@ public class AbilityListItem : LevelUpListItem
         base.Init();
     }
 
-    public override void OnPointerClick(PointerEventData eventData)
-    {
-        throw new System.NotImplementedException();
-    }
-
     protected override void SetTexture()
     {
-        throw new System.NotImplementedException();
+        this.Icon.texture = Resources.Load<Texture>($"Sprites/Abilities/{this.abilityDefinition.Name}");
     }
 
     protected override void SetUpgradeInfo()
     {
-        throw new System.NotImplementedException();
+        this.UpgradeInfo.text = $"{this.abilityDefinition.Name}\n{this.abilityDefinition.Description}";
+    }
+
+    public override void OnPointerClick(PointerEventData eventData)
+    {
+        this.Menu.AddAbility(this.abilityDefinition);
     }
 }

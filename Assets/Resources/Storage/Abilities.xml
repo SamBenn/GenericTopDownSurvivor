@@ -14,7 +14,7 @@
         Fire
       </Tags>
       <BaseDamage>6</BaseDamage>
-      <BaseFrequency>3</BaseFrequency>
+      <BaseFrequency>2</BaseFrequency>
       <MaxPierce>0</MaxPierce>
       <AdditionalProjectiles>2</AdditionalProjectiles>
       <AdditionalProjAngle>15</AdditionalProjAngle>
