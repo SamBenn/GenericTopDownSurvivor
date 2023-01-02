@@ -4800,7 +4800,7 @@ MonoBehaviour:
     StartTime: 0
     EndTime: 9999999
     EnemyObject: {fileID: 4770043429259377623, guid: a8b7230685705594cbd08f0178de9885, type: 3}
-    Frequency: 0.2
+    Frequency: 0.01
     SinceSpawn: 0
   - Name: Faster 30-60
     StartTime: 30
@@ -4838,7 +4838,7 @@ GameObject:
   - component: {fileID: 1806037014}
   - component: {fileID: 1806037017}
   - component: {fileID: 1806037019}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: PickupHandler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
