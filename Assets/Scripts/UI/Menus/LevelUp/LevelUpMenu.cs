@@ -57,8 +57,8 @@ public class LevelUpMenu : MonoBehaviour
 
             var offset = 10;
             var height = 80;
-            var t = (offset * index + 1) + height * index;
-            obj.transform.localPosition = new Vector3(0.0f, t * -1 + 258.5f);
+            var y = (offset * index + 1) + height * index;
+            obj.transform.localPosition = new Vector3(0.0f, y * -1 + 258.5f);
 
             this.LevelUpListItems.Add(obj);
             return component;
