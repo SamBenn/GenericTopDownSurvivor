@@ -5,6 +5,7 @@ using UnityEngine;
 public class TimeManager : MonoBehaviour
 {
     public bool IsLevelingUp { get; set; }
+    public bool MenuPaused { get; set; }
 
     public void OnLevelUp(int levelsGained)
     {
@@ -17,6 +18,11 @@ public class TimeManager : MonoBehaviour
             this.IsLevelingUp = false;
     }
 
+    public void MenuPauseChanged(bool paused)
+    {
+        this.MenuPaused = paused;
+    }
+
     private void Update()
     {
         Time.timeScale = this.IsPaused() ? 0.0f : 1.0f;
@@ -24,7 +30,7 @@ public class TimeManager : MonoBehaviour
 
     private bool IsPaused()
     {
-        if (this.IsLevelingUp)
+        if (this.IsLevelingUp || this.MenuPaused)
             return true;
 
         return false;
