@@ -8,20 +8,12 @@ public class GlobalStorage : MonoBehaviour
 
     void Start()
     {
-        var otherStorages = GameObject.FindGameObjectsWithTag("GlobalStorage");
-        if (otherStorages.Length > 1)
-        {
-            GameObject.Destroy(this.gameObject);
-        }
-        else
-        {
-            DontDestroyOnLoad(this.gameObject);
-        }
+        DontDestroyOnLoad(this.gameObject);
     }
 
     public void Init()
     {
-        if(this._initialized) return;
+        if (this._initialized) return;
 
         this._initialized = true;
 

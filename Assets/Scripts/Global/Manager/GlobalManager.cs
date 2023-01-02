@@ -19,6 +19,7 @@ public class GlobalManager : MonoBehaviour
         this.UIObj = GetForTag("UI");
 
         this.Init();
+        this.InitMessageManager();
     }
 
     private void Init()
@@ -41,6 +42,17 @@ public class GlobalManager : MonoBehaviour
 
         this.EnemyManagerObj.GetComponent<EnemyManager>().GlobalStorage = this.GlobalStorageObj;
         this.EnableComponent<EnemyManager>(EnemyManagerObj);
+    }
+
+    private void InitMessageManager()
+    {
+        var messageManager = this.gameObject.GetComponent<MessageManager>();
+
+        messageManager.Player = this.PlayerObj;
+        messageManager.UI = this.UIObj;
+        // this feels gross
+        messageManager.MenuManager = this.UIObj.GetComponentInChildren<MenuManager>().gameObject;
+        messageManager.GlobalStorage = this.GlobalStorageObj;
     }
 
     private void EnableComponent<T>(GameObject obj) where T : MonoBehaviour

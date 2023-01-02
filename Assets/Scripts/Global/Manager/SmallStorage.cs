@@ -5,4 +5,9 @@ using UnityEngine;
 public class SmallStorage : MonoBehaviour
 {
     public int LevelAchieved { get; set; }
+
+    public void PlayerDied(int levelAchieved)
+    {
+        this.LevelAchieved = levelAchieved;
+    }
 }
