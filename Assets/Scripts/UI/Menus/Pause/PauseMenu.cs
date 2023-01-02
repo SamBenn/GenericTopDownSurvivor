@@ -7,9 +7,9 @@ public class PauseMenu : MonoBehaviour
 {
     public MenuManager MenuManager;
 
-    public void Quit()
+    public void Resume()
     {
-        SceneManager.LoadScene("MainMenu");
+        this.MenuManager.ActivateMenu(MenuType.None);
     }
 
     public void Status()
@@ -20,5 +20,10 @@ public class PauseMenu : MonoBehaviour
     public void Settings()
     {
         this.MenuManager.ActivateMenu(MenuType.Settings);
+    }
+
+    public void Quit()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
