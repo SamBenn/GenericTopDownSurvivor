@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
@@ -17,31 +19,62 @@ public class EnemyManager : MonoBehaviour
     {
         this.GlobalStorage = GameObject.FindGameObjectWithTag("GlobalStorage");
         this.stageSpawnPattern = this.gameObject.GetComponent<StageSpawnPattern>();
-        this.CurrentPatterns = this.stageSpawnPattern.GetPatternsFor(Time.timeSinceLevelLoad);
+
+        this.UpdateCurrentPatterns();
     }
 
     void Update()
     {
         this.timeSincePatternUpdated += Time.deltaTime * Time.timeScale;
 
-        if(timeSincePatternUpdated > 2f)
+        if (timeSincePatternUpdated > 2f)
         {
-            this.CurrentPatterns = this.stageSpawnPattern.GetPatternsFor(Time.timeSinceLevelLoad);
-            this.timeSincePatternUpdated = 0f;
+            this.UpdateCurrentPatterns();
         }
 
         this.CurrentPatterns.ForEach(p =>
         {
             p.SinceSpawn += Time.deltaTime;
-            if(p.SinceSpawn > p.Frequency)
+            if (p.SinceSpawn > p.Frequency)
             {
-                this.SpawnEnemy(p.EnemyObject);
+                var amount = p.GetAmountToSpawn();
+
+                for (int i = 0; i < amount; i++)
+                {
+                    var enemy = this.SpawnEnemy(p.EnemyObject);
+                    p.AddToTrackedEntities(enemy);
+                }
+
                 p.SinceSpawn = 0;
             }
         });
     }
 
-    private void SpawnEnemy(GameObject enemy) {
+    public void CleanupID(int id)
+    {
+        this.CurrentPatterns.ForEach(pattern => pattern.CleanupTrackedEntity(id));
+    }
+
+    private void UpdateCurrentPatterns()
+    {
+        var oldPatterns = this.CurrentPatterns;
+        this.CurrentPatterns = this.stageSpawnPattern.GetPatternsFor(Time.timeSinceLevelLoad);
+
+        oldPatterns.ForEach(old =>
+        {
+            var current = this.CurrentPatterns.Where(p => p.Guid == old.Guid).SingleOrDefault();
+
+            if(current != null)
+            {
+                current.AddToTrackedEntities(current.GetTracked());
+            }
+        });
+
+        this.timeSincePatternUpdated = 0f;
+    }
+
+    private GameObject SpawnEnemy(GameObject enemy)
+    {
         var spawnLoc = GetSpawnLocationFor(this.Player.transform.position);
 
         var newEnemy = Instantiate(enemy, spawnLoc, Quaternion.identity);
@@ -54,6 +87,8 @@ public class EnemyManager : MonoBehaviour
         var basicEnemy = newEnemy.GetComponent<BasicEnemy>();
         basicEnemy.Manager = this;
         basicEnemy.Target = Player;
+
+        return newEnemy;
     }
 
     public Vector2 GetSpawnLocationFor(Vector2 target)

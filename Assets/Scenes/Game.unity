@@ -4800,26 +4800,34 @@ MonoBehaviour:
     StartTime: 0
     EndTime: 9999999
     EnemyObject: {fileID: 4770043429259377623, guid: a8b7230685705594cbd08f0178de9885, type: 3}
-    Frequency: 0.01
+    Frequency: 0.2
     SinceSpawn: 0
+    MaxPerSpawn: 5
+    MaxOfType: 50
   - Name: Faster 30-60
     StartTime: 30
     EndTime: 60
     EnemyObject: {fileID: 4770043429259377623, guid: 721816c960a29eb4dbbd3791f8e76c08, type: 3}
     Frequency: 1
     SinceSpawn: 0
+    MaxPerSpawn: 1
+    MaxOfType: 0
   - Name: Basic 60-120
     StartTime: 60
     EndTime: 120
     EnemyObject: {fileID: 4770043429259377623, guid: a8b7230685705594cbd08f0178de9885, type: 3}
     Frequency: 0.2
     SinceSpawn: 0
+    MaxPerSpawn: 1
+    MaxOfType: 0
   - Name: Faster 90-120
     StartTime: 90
     EndTime: 120
     EnemyObject: {fileID: 4770043429259377623, guid: 721816c960a29eb4dbbd3791f8e76c08, type: 3}
     Frequency: 0.5
     SinceSpawn: 0
+    MaxPerSpawn: 1
+    MaxOfType: 0
   SpecialEvents:
   - Name: Boss
     StartTime: 60
@@ -4827,6 +4835,8 @@ MonoBehaviour:
     EnemyObject: {fileID: 4770043429259377623, guid: 601111d4212f7bb41b315059500f7b16, type: 3}
     Frequency: 5
     SinceSpawn: 5.1
+    MaxPerSpawn: 1
+    MaxOfType: 0
 --- !u!1 &1806037013
 GameObject:
   m_ObjectHideFlags: 0

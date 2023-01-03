@@ -76,9 +76,15 @@ public class Health : MonoBehaviour
             var xp = Resources.Load("Prefabs/Pickups/Experience");
             var xpObj = GameObject.Instantiate(xp, this.transform.position, Quaternion.identity);
 
-            var component = xpObj.GetComponent<ExperiencePickup>();
-            component.XpVal = this.maxHp;
-            component.Target = this.gameObject.GetComponent<BasicEnemy>().Target.transform;
+            var xpComponent = xpObj.GetComponent<ExperiencePickup>();
+            xpComponent.XpVal = this.maxHp;
+
+            var enemyComponent = this.gameObject.GetComponent<BasicEnemy>();
+            if (enemyComponent != null)
+            {
+                xpComponent.Target = enemyComponent.Target.transform;
+                enemyComponent.OnDeath();
+            }
         }
 
         this.isDead = true;

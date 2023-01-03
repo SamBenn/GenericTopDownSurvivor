@@ -76,6 +76,11 @@ public class BasicEnemy : MonoBehaviour
         transform.position = Vector2.MoveTowards(this.gameObject.transform.position, Target.transform.position, (float)this.stats.GetAppliedValueForTag(0, AbilityTag.MovementSpeed) * Time.deltaTime);
     }
 
+    public void OnDeath()
+    {
+        this.Manager.CleanupID(this.gameObject.GetInstanceID());
+    }
+
     private void Relocate()
     {
         var dist = Vector2.Distance(this.transform.position, this.Target.transform.position);

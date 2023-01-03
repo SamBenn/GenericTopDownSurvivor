@@ -75,7 +75,7 @@
       </Tags>
       <BaseDamage>1</BaseDamage>
       <Multistrike>true</Multistrike>
-      <MultistrikeTimeout>.2</MultistrikeTimeout>
+      <MultistrikeTimeout>.4</MultistrikeTimeout>
       <LocationHost>Caster</LocationHost>
     </XMLAbility>
   </Abilities>
