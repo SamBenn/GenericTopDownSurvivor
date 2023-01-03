@@ -25,8 +25,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1997943895567290197}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -0.05, y: 0.05, z: 0}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalScale: {x: -0.05, y: 0.05, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6343583280577605964}
@@ -73,8 +73,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 32abc0b669193df46a46a6a843e2b639, type: 3}
-  m_Color: {r: 0, g: 0.2625308, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: c51aeb779e4a96c41b062e87f034dd6f, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 2296372123025287131}
   - component: {fileID: 7023832252193367688}
   m_Layer: 0
-  m_Name: FasterEnemy
+  m_Name: Mundont
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -115,7 +115,7 @@ Transform:
   m_GameObject: {fileID: 4770043429259377623}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8939153386807304211}
@@ -227,25 +227,25 @@ MonoBehaviour:
   - StatType: 
     PrimaryTag: 10
     Stats:
-      FlatValue: 5
+      FlatValue: 1000
       Rating: 0
       FlatPercent: 0
   - StatType: 
     PrimaryTag: 5
     Stats:
-      FlatValue: 15
+      FlatValue: 25
       Rating: 0
       FlatPercent: 0
   - StatType: 
     PrimaryTag: 9
     Stats:
-      FlatValue: 9.8
+      FlatValue: 9.9
       Rating: 0
       FlatPercent: 0
   - StatType: 
     PrimaryTag: 8
     Stats:
-      FlatValue: 4
+      FlatValue: 2.5
       Rating: 0
       FlatPercent: 0
 --- !u!1001 &1644567885057845532

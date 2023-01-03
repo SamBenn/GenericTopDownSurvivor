@@ -4796,7 +4796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Patterns:
-  - Name: Basic Eternal
+  - Name: Crawler Eternal
     StartTime: 0
     EndTime: 9999999
     EnemyObject: {fileID: 4770043429259377623, guid: a8b7230685705594cbd08f0178de9885, type: 3}
@@ -4804,39 +4804,55 @@ MonoBehaviour:
     SinceSpawn: 0
     MaxPerSpawn: 5
     MaxOfType: 50
-  - Name: Faster 30-60
+  - Name: Doggo 30-60
     StartTime: 30
     EndTime: 60
     EnemyObject: {fileID: 4770043429259377623, guid: 721816c960a29eb4dbbd3791f8e76c08, type: 3}
-    Frequency: 1
+    Frequency: 2
     SinceSpawn: 0
     MaxPerSpawn: 1
     MaxOfType: 0
-  - Name: Basic 60-120
+  - Name: Crawler 60-120
     StartTime: 60
     EndTime: 120
     EnemyObject: {fileID: 4770043429259377623, guid: a8b7230685705594cbd08f0178de9885, type: 3}
     Frequency: 0.2
     SinceSpawn: 0
-    MaxPerSpawn: 1
-    MaxOfType: 0
-  - Name: Faster 90-120
-    StartTime: 90
-    EndTime: 120
+    MaxPerSpawn: 2
+    MaxOfType: 100
+  - Name: Stabber 75-135
+    StartTime: 75
+    EndTime: 135
+    EnemyObject: {fileID: 4770043429259377623, guid: b95ef15de84d1cf4aba93c54381c7060, type: 3}
+    Frequency: 0.5
+    SinceSpawn: 0
+    MaxPerSpawn: 2
+    MaxOfType: 25
+  - Name: Doggo 120-150
+    StartTime: 120
+    EndTime: 150
     EnemyObject: {fileID: 4770043429259377623, guid: 721816c960a29eb4dbbd3791f8e76c08, type: 3}
     Frequency: 0.5
     SinceSpawn: 0
-    MaxPerSpawn: 1
-    MaxOfType: 0
+    MaxPerSpawn: 2
+    MaxOfType: 50
+  - Name: Stabber 150-210
+    StartTime: 150
+    EndTime: 210
+    EnemyObject: {fileID: 4770043429259377623, guid: b95ef15de84d1cf4aba93c54381c7060, type: 3}
+    Frequency: 0.25
+    SinceSpawn: 0
+    MaxPerSpawn: 4
+    MaxOfType: 60
   SpecialEvents:
-  - Name: Boss
-    StartTime: 60
+  - Name: Mundo
+    StartTime: 300
     EndTime: 0
     EnemyObject: {fileID: 4770043429259377623, guid: 601111d4212f7bb41b315059500f7b16, type: 3}
     Frequency: 5
     SinceSpawn: 5.1
     MaxPerSpawn: 1
-    MaxOfType: 0
+    MaxOfType: 1
 --- !u!1 &1806037013
 GameObject:
   m_ObjectHideFlags: 0
