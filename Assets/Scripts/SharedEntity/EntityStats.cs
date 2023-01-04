@@ -101,7 +101,7 @@ public class EntityStats : MonoBehaviour
 
         if (primaryStat == null)
         {
-            Debug.LogError("No Primary stat for tag: " + tag);
+            Debug.LogError("No Primary stat for tag: " + primaryTag);
             return 0;
         }
 

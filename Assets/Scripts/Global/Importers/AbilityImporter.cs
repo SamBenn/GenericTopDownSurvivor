@@ -39,6 +39,7 @@ public class AbilityImporter : MonoBehaviour
                 Multistrike = ability.Multistrike,
                 MultistrikeTimeout = ability.MultistrikeTimeout,
                 ProjSpeed = ability.ProjSpeed,
+                InitialDistance = ability.InitialDistance,
             };
 
             var proj = Resources.Load<GameObject>($"Prefabs/Abilities/{ability.PrefabName}");
@@ -98,4 +99,5 @@ public class XMLAbility
     public float MultistrikeTimeout;
     public float ProjSpeed;
     public string LocationHost;
+    public float InitialDistance;
 }

@@ -73,6 +73,7 @@ public struct AbilityDefinition
     public LocationHost LocationHost { get; set; }
 
     public float Timeout { get; set; }
+    public float InitialDistance { get; set; }
 }
 
 public enum TargetingStyle
@@ -98,7 +99,9 @@ public enum AbilityTag
     MovementSpeed,
     Cooldown,
     Health,
-    Lightning
+    Lightning,
+    Barrier,
+    Blade
 }
 
 public enum LocationHost

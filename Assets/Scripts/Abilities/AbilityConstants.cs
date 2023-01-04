@@ -11,5 +11,6 @@ public static partial class Constants
         public static readonly Guid IceWave = new Guid("48c9aa46-527e-4079-a372-c2ddf93678a4");
         public static readonly Guid LightningArc = new Guid("4c2666fe-1697-49ab-8624-633347dab11c");
         public static readonly Guid RighteousFire = new Guid("9b00992e-59b8-4caa-a356-18898540d26b");
+        public static readonly Guid BladeBarrier = new Guid("84455e87-10ec-4875-9a1c-39665dd20c8c");
     }
 }

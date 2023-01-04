@@ -38,6 +38,11 @@
       <PrimaryTag>Lightning</PrimaryTag>
     </XMLStat>
     <XMLStat>
+      <StatType>DamageStat</StatType>
+      <Name>BladeDamage</Name>
+      <PrimaryTag>Blade</PrimaryTag>
+    </XMLStat>
+    <XMLStat>
       <StatType>UtilityStat</StatType>
       <Name>Duration</Name>
       <PrimaryTag>Duration</PrimaryTag>

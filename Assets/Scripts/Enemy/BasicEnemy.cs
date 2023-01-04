@@ -47,12 +47,12 @@ public class BasicEnemy : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        // calc attackCD
         var attackTarget = collision.gameObject;
 
         if (attackTarget.tag == "Player")
         {
             playerInTrigger = false;
+            curAttackTimeout = 0f;
         }
     }
 

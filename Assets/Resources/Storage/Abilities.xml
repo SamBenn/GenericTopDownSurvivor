@@ -68,7 +68,6 @@
       <PrimaryTag>Fire</PrimaryTag>
       <Tags>
         AreaOfEffect,
-        Duration,
         AlwaysActive,
         Damage,
         Fire
@@ -77,6 +76,27 @@
       <Multistrike>true</Multistrike>
       <MultistrikeTimeout>.4</MultistrikeTimeout>
       <LocationHost>Caster</LocationHost>
+    </XMLAbility>
+    <XMLAbility>
+      <Guid>84455e87-10ec-4875-9a1c-39665dd20c8c</Guid>
+      <Name>Blade Barrier</Name>
+      <Description>Wraps the player in a barrier of rotating blades</Description>
+      <PrefabName>BladeBarrierProj</PrefabName>
+      <PrimaryTag>Blade</PrimaryTag>
+      <Tags>
+        AlwaysActive,
+        Barrier,
+        Damage,
+        Blade
+      </Tags>
+      <BaseDamage>1</BaseDamage>
+      <MaxPierce>999</MaxPierce>
+      <Multistrike>true</Multistrike>
+      <MultistrikeTimeout>.1</MultistrikeTimeout>
+      <AdditionalProjectiles>15</AdditionalProjectiles>
+      <LocationHost>Caster</LocationHost>
+      <InitialDistance>2</InitialDistance>
+      <ProjSpeed>5</ProjSpeed>
     </XMLAbility>
   </Abilities>
 </XMLAbilityStorage>

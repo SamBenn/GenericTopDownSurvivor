@@ -204,6 +204,13 @@ public class AbilityManager : MonoBehaviour
                 damageComp.AddPierced(gameObject.GetInstanceID(), isCaster: true, timeoutOverride: info.AbilityInfo.Timeout);
             }
 
+            var barrierComp = proj.GetComponent<Barrier>();
+            if(barrierComp != null)
+            {
+                barrierComp.Target = parent;
+                barrierComp.Info = info.AbilityInfo;
+            }
+
             toReturn.Actioned = true;
             toReturn.SpawnedObjects.Add(proj);
         }
@@ -211,6 +218,17 @@ public class AbilityManager : MonoBehaviour
         for (int i = 0; i < info.AbilityInfo.AdditionalProjectiles + 1; i++)
         {
             var angle = 0f;
+            var projAnglePer = info.AbilityInfo.AdditionalProjAngle;
+
+            var tagSpecificSpawningResult = this.TagSpecificSpawning(info.AbilityInfo);
+
+            if (tagSpecificSpawningResult.Actioned)
+            {
+                if (tagSpecificSpawningResult.SpawnAngle > 0)
+                {
+                    projAnglePer = tagSpecificSpawningResult.SpawnAngle;
+                }
+            }
 
             if (i > 0)
             {
@@ -218,11 +236,29 @@ public class AbilityManager : MonoBehaviour
                 var angleIndex = (float)Math.Ceiling(i / 2.0);
 
                 // get angle based on angle index then invert depending on mod 2 of actual index
-                angle = angleIndex * info.AbilityInfo.AdditionalProjAngle * (i % 2 == 0 ? 1 : -1);
+                angle = angleIndex * projAnglePer * (i % 2 == 0 ? 1 : -1);
             }
 
             SpawnAbility(angle);
         }
+
+        return toReturn;
+    }
+
+    TagSpecificSpawningResult TagSpecificSpawning(AbilityDefinition abilityInfo)
+    {
+        var toReturn = new TagSpecificSpawningResult();
+
+        abilityInfo.Tags.ForEach(tag =>
+        {
+            switch (tag)
+            {
+                case AbilityTag.Barrier:
+                    toReturn.SpawnAngle = 360 / (abilityInfo.AdditionalProjectiles + 1);
+                    toReturn.Actioned = true;
+                    break;
+            }
+        });
 
         return toReturn;
     }
@@ -265,4 +301,10 @@ struct SpawningResult
 {
     public bool Actioned { get; set; }
     public List<GameObject> SpawnedObjects { get; set; }
+}
+
+struct TagSpecificSpawningResult
+{
+    public bool Actioned { get; set; }
+    public float SpawnAngle { get; set; }
 }
