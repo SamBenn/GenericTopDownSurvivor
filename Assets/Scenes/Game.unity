@@ -4796,9 +4796,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Patterns:
-  - Name: Crawler Eternal
-    StartTime: 0
-    EndTime: 9999999
+  - Name: Crawler 0-75
+    StartTime: -1
+    EndTime: 75
     EnemyObject: {fileID: 4770043429259377623, guid: a8b7230685705594cbd08f0178de9885, type: 3}
     Frequency: 0.2
     SinceSpawn: 0
@@ -4808,10 +4808,10 @@ MonoBehaviour:
     StartTime: 30
     EndTime: 60
     EnemyObject: {fileID: 4770043429259377623, guid: 721816c960a29eb4dbbd3791f8e76c08, type: 3}
-    Frequency: 2
+    Frequency: 4
     SinceSpawn: 0
     MaxPerSpawn: 1
-    MaxOfType: 0
+    MaxOfType: 4
   - Name: Crawler 60-120
     StartTime: 60
     EndTime: 120
@@ -4832,7 +4832,7 @@ MonoBehaviour:
     StartTime: 120
     EndTime: 150
     EnemyObject: {fileID: 4770043429259377623, guid: 721816c960a29eb4dbbd3791f8e76c08, type: 3}
-    Frequency: 0.5
+    Frequency: 1
     SinceSpawn: 0
     MaxPerSpawn: 2
     MaxOfType: 50
@@ -4844,6 +4844,14 @@ MonoBehaviour:
     SinceSpawn: 0
     MaxPerSpawn: 4
     MaxOfType: 60
+  - Name: Stabber 200-300
+    StartTime: 200
+    EndTime: 300
+    EnemyObject: {fileID: 4770043429259377623, guid: b95ef15de84d1cf4aba93c54381c7060, type: 3}
+    Frequency: 1
+    SinceSpawn: 0
+    MaxPerSpawn: 5
+    MaxOfType: 200
   SpecialEvents:
   - Name: Mundo
     StartTime: 300

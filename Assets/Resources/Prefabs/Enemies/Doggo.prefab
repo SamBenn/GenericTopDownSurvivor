@@ -245,7 +245,7 @@ MonoBehaviour:
   - StatType: 
     PrimaryTag: 8
     Stats:
-      FlatValue: 4
+      FlatValue: 3.5
       Rating: 0
       FlatPercent: 0
 --- !u!1001 &1644567885057845532
