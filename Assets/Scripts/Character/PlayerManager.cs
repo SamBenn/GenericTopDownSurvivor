@@ -26,7 +26,7 @@ public class PlayerManager : MonoBehaviour
         this.Enable();
 
         // To be rewritten once "classes" exist
-        this.abilityManager.AddAbility(Constants.Abilities.BladeBarrier);
+        this.abilityManager.AddAbility(Constants.Abilities.BladeBlast);
     }
 
     private void GetManagers()

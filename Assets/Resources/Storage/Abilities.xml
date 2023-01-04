@@ -14,7 +14,7 @@
         Fire
       </Tags>
       <BaseDamage>6</BaseDamage>
-      <BaseFrequency>2</BaseFrequency>
+      <BaseFrequency>3</BaseFrequency>
       <MaxPierce>0</MaxPierce>
       <AdditionalProjectiles>2</AdditionalProjectiles>
       <AdditionalProjAngle>15</AdditionalProjAngle>
@@ -26,7 +26,7 @@
       <Name>Ice Wave</Name>
       <Description>Shoots an ice wave at a random target</Description>
       <PrefabName>FrostwaveProj</PrefabName>
-      <TargetingStyle>Closest</TargetingStyle>
+      <TargetingStyle>RandomTarget</TargetingStyle>
       <PrimaryTag>Ice</PrimaryTag>
       <Tags>
         Projectile,
@@ -91,12 +91,29 @@
       </Tags>
       <BaseDamage>1</BaseDamage>
       <MaxPierce>999</MaxPierce>
-      <Multistrike>true</Multistrike>
-      <MultistrikeTimeout>.1</MultistrikeTimeout>
-      <AdditionalProjectiles>15</AdditionalProjectiles>
+      <AdditionalProjectiles>3</AdditionalProjectiles>
       <LocationHost>Caster</LocationHost>
       <InitialDistance>2</InitialDistance>
       <ProjSpeed>5</ProjSpeed>
+    </XMLAbility>
+    <XMLAbility>
+      <Guid>41dc2d03-150a-4ac7-933b-c5cb6cf3b91f</Guid>
+      <Name>Blade Blast</Name>
+      <Description>Fires blades at the closest enemy</Description>
+      <PrefabName>BladeBlastProj</PrefabName>
+      <TargetingStyle>Closest</TargetingStyle>
+      <PrimaryTag>Blade</PrimaryTag>
+      <Tags>
+        Damage,
+        Blade,
+        Projectile
+      </Tags>
+      <BaseDamage>3</BaseDamage>
+      <BaseFrequency>1.25</BaseFrequency>
+      <MaxPierce>3</MaxPierce>
+      <AdditionalProjectiles>0</AdditionalProjectiles>
+      <AdditionalProjAngle>15</AdditionalProjAngle>
+      <ProjSpeed>10</ProjSpeed>
     </XMLAbility>
   </Abilities>
 </XMLAbilityStorage>
