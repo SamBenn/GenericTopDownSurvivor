@@ -6,7 +6,7 @@ public class DamageStat : BasicStat
 {
     public DamageStat()
     {
-        //this.AbilityTags.Add(AbilityTag.Damage);
+        this.AbilityTags.Add(AbilityTag.Damage);
         this.ApplicationType = StatApplicationType.Multiplicative;
     }
 }

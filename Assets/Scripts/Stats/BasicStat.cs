@@ -62,22 +62,6 @@ public class BasicStat
         }
     }
 
-    protected virtual T GetCollatedValue<T>(Func<StatsFromSource, T> action)
-    {
-        dynamic toReturn = action.Invoke(this.EntityBase);
-
-        if (this.Upgrades != null && this.Upgrades.Any())
-        {
-            for (int i = 1; i < this.Level + 1; i++)
-            {
-                this.Upgrades.Where(p => p.ApplicableLevels.Contains(i)).ToList()
-                    .ForEach(upgrade => toReturn += action.Invoke(upgrade.Stats));
-            }
-        }
-
-        return toReturn;
-    }
-
     public void Import(StatForImport import)
     {
         if (import.PrimaryTag == this.PrimaryTag)
@@ -92,6 +76,29 @@ public class BasicStat
     public BasicStat Clone()
     {
         return (BasicStat)MemberwiseClone();
+    }
+
+    public bool ShouldApplyToTags(List<AbilityTag> abilityTags)
+    {
+        var toReturn = !this.AbilityTags.Except(abilityTags).Any(); ;
+
+        return toReturn;
+    }
+
+    protected virtual T GetCollatedValue<T>(Func<StatsFromSource, T> action)
+    {
+        dynamic toReturn = action.Invoke(this.EntityBase);
+
+        if (this.Upgrades != null && this.Upgrades.Any())
+        {
+            for (int i = 1; i < this.Level + 1; i++)
+            {
+                this.Upgrades.Where(p => p.ApplicableLevels.Contains(i)).ToList()
+                    .ForEach(upgrade => toReturn += action.Invoke(upgrade.Stats));
+            }
+        }
+
+        return toReturn;
     }
 }
 

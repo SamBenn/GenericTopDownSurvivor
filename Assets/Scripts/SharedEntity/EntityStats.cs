@@ -96,7 +96,7 @@ public class EntityStats : MonoBehaviour
         if(statType != null)
             statsToSearch = statsToSearch.Where(p => statType.IsAssignableFrom(p.GetType())).ToList();
 
-        var statsForTag = statsToSearch.Where(p => p.AbilityTags.Intersect(tags).Any()).ToList();
+        var statsForTag = statsToSearch.Where(p => p.ShouldApplyToTags(tags)).ToList();
         var primaryStat = statsForTag.Where(p => p.PrimaryTag == primaryTag).SingleOrDefault();
 
         if (primaryStat == null)
