@@ -77,6 +77,9 @@ public class Damage : MonoBehaviour
         var health = obj.GetComponent<Health>();
         if (health != null)
         {
+            if (health.IsDead)
+                return;
+
             health.Hit(this.GetDamage());
             this.AddPierced(obj.GetInstanceID());
         }

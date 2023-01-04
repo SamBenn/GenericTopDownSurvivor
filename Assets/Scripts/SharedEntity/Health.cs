@@ -14,7 +14,7 @@ public class Health : MonoBehaviour
     public float CurHPAsNormal => this.curHp / this.maxHp;
     public float CurHPAsPercentage => this.CurHPAsNormal * 100;
 
-    private bool isDead = false;
+    public bool IsDead { get; private set; } = false;
 
     public Action UpdateHPBar { get; set; }
 
@@ -71,7 +71,7 @@ public class Health : MonoBehaviour
             return;
         }
 
-        if (!this.isDead)
+        if (!this.IsDead)
         {
             var xp = Resources.Load("Prefabs/Pickups/Experience");
             var xpObj = GameObject.Instantiate(xp, this.transform.position, Quaternion.identity);
@@ -87,7 +87,7 @@ public class Health : MonoBehaviour
             }
         }
 
-        this.isDead = true;
+        this.IsDead = true;
 
         GameObject.Destroy(this.gameObject);
     }
