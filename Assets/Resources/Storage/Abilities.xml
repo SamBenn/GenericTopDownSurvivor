@@ -112,7 +112,7 @@
       <BaseDamage>3</BaseDamage>
       <BaseFrequency>1.25</BaseFrequency>
       <MaxPierce>3</MaxPierce>
-      <AdditionalProjectiles>0</AdditionalProjectiles>
+      <AdditionalProjectiles>2</AdditionalProjectiles>
       <AdditionalProjAngle>15</AdditionalProjAngle>
       <ProjSpeed>10</ProjSpeed>
       <Timeout>4</Timeout>

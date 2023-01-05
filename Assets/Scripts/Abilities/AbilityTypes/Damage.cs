@@ -33,7 +33,10 @@ public class Damage : MonoBehaviour
 
         if (this.Info.Timeout > 0f && this.timeout > this.Info.Timeout)
         {
-            GameObject.Destroy(gameObject);
+            if (this.Info.ProjectileBehaviour != ProjectileBehaviour.Returning)
+            {
+                GameObject.Destroy(gameObject);
+            }
         }
 
         if (timeSinceCleanupCheck >= 1f)
@@ -114,7 +117,7 @@ public class Damage : MonoBehaviour
             this.calcedDamage = (float)this.EntityStats.GetAppliedValueForTag(this.Info.BaseDamage, this.Info.PrimaryTag, this.Info.Tags);
         }
 
-        if(this.calcedDamage <= 0f)
+        if (this.calcedDamage <= 0f)
         {
             Debug.Log("damage no work pal");
         }
