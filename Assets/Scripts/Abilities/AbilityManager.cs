@@ -147,9 +147,6 @@ public class AbilityManager : MonoBehaviour
         // Vector3.positiveInfinity does not equal Vector3.positiveInfinity... Why? who knows.
         if (target.x != Vector3.positiveInfinity.x)
         {
-            var diff = target - transform.position;
-
-            // God I fucking hate Quaternions
             Vector3 objectPos = transform.position;
             target.x = target.x - objectPos.x;
             target.y = target.y - objectPos.y;
@@ -194,7 +191,7 @@ public class AbilityManager : MonoBehaviour
             if (projComp != null)
             {
                 projComp.Info = info.AbilityInfo;
-                projComp.ReturnPoint = this.transform;
+                projComp.Target = this.transform;
             }
 
             var damageComp = proj.GetComponent<Damage>();
