@@ -101,6 +101,7 @@
       <Name>Blade Blast</Name>
       <Description>Fires blades at the closest enemy</Description>
       <PrefabName>BladeBlastProj</PrefabName>
+      <ProjectileBehaviour>Returning</ProjectileBehaviour>
       <TargetingStyle>Closest</TargetingStyle>
       <PrimaryTag>Blade</PrimaryTag>
       <Tags>
@@ -114,7 +115,7 @@
       <AdditionalProjectiles>0</AdditionalProjectiles>
       <AdditionalProjAngle>15</AdditionalProjAngle>
       <ProjSpeed>10</ProjSpeed>
-      <Timeout>2</Timeout>
+      <Timeout>4</Timeout>
     </XMLAbility>
   </Abilities>
 </XMLAbilityStorage>

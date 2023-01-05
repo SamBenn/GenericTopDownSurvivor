@@ -49,27 +49,28 @@ public class AbilityImporter : MonoBehaviour
             {
                 throw new InvalidOperationException($"Ability: {ability.Name} cannot be imported due to no primary tag");
             }
-            else
-            {
-                abilityDef.PrimaryTag = Enum.Parse<AbilityTag>(ability.PrimaryTag);
-            }
 
-            if (!string.IsNullOrEmpty(ability.TargetingStyle))
-            {
-                abilityDef.TargetingStyle = Enum.Parse<TargetingStyle>(ability.TargetingStyle);
-            }
+            abilityDef.PrimaryTag = this.ParseForTag<AbilityTag>(ability.PrimaryTag);
+            abilityDef.TargetingStyle = this.ParseForTag<TargetingStyle>(ability.TargetingStyle);
+            abilityDef.LocationHost = this.ParseForTag<LocationHost>(ability.LocationHost);
+            abilityDef.ProjectileBehaviour = this.ParseForTag<ProjectileBehaviour>(ability.ProjectileBehaviour);
 
-            ability.Tags.Split(',').ToList().ForEach(p => abilityDef.Tags.Add(Enum.Parse<AbilityTag>(p)));
-
-            if (!string.IsNullOrEmpty(ability.LocationHost))
-            {
-                abilityDef.LocationHost = Enum.Parse<LocationHost>(ability.LocationHost);
-            }
+            ability.Tags.Split(',').ToList().ForEach(p => abilityDef.Tags.Add(this.ParseForTag(p, defaultOfEnum: abilityDef.PrimaryTag)));
+            abilityDef.Tags = abilityDef.Tags.Distinct().ToList();
 
             toReturn.Add(abilityDef);
         });
 
         return toReturn;
+    }
+
+    private T ParseForTag<T>(string toParse, T defaultOfEnum = default)
+        where T : struct, System.Enum
+    {
+        if (string.IsNullOrEmpty(toParse))
+            return defaultOfEnum;
+
+        return Enum.Parse<T>(toParse);
     }
 }
 
@@ -100,4 +101,5 @@ public class XMLAbility
     public float ProjSpeed;
     public string LocationHost;
     public float InitialDistance;
+    public string ProjectileBehaviour;
 }

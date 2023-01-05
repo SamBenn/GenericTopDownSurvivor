@@ -194,6 +194,7 @@ public class AbilityManager : MonoBehaviour
             if (projComp != null)
             {
                 projComp.Info = info.AbilityInfo;
+                projComp.ReturnPoint = this.transform;
             }
 
             var damageComp = proj.GetComponent<Damage>();
