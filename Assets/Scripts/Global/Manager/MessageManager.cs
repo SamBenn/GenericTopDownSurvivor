@@ -32,6 +32,11 @@ public class MessageManager : MonoBehaviour
     {
         this.MessageObjects("PlayerDied", levelAchieved, this.GlobalStorage, this.StateStorage);
     }
+
+    public void MoneyGained(int moneyGained)
+    {
+        this.MessageObjects("PlayerDied", moneyGained, this.StateStorage);
+    }
     #endregion
 
     #region Subscribers
