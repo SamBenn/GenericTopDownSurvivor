@@ -114,7 +114,7 @@ public class Damage : MonoBehaviour
         if (this.damageCalcTimeout > 1f)
         {
             this.damageCalcTimeout = 0f;
-            this.calcedDamage = (float)this.EntityStats.GetAppliedValueForTag(this.Info.BaseDamage, this.Info.PrimaryTag, this.Info.Tags);
+            this.calcedDamage = (float)this.EntityStats.GetAppliedValueForTag(this.Info.BaseDamage, this.Info.PrimaryTag, this.Info.Tags, statType: typeof(DamageStat));
         }
 
         if (this.calcedDamage <= 0f)
