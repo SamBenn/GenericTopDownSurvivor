@@ -13,5 +13,6 @@ public static partial class Constants
         public static readonly Guid RighteousFire = new Guid("9b00992e-59b8-4caa-a356-18898540d26b");
         public static readonly Guid BladeBarrier = new Guid("84455e87-10ec-4875-9a1c-39665dd20c8c");
         public static readonly Guid BladeBlast = new Guid("41dc2d03-150a-4ac7-933b-c5cb6cf3b91f");
+        public static readonly Guid SpectralBlade = new Guid("72b139a8-bbc6-46a3-ae87-3fd842ff7e76");
     }
 }

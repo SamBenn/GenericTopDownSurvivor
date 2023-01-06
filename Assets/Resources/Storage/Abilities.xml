@@ -101,7 +101,7 @@
       <Name>Blade Blast</Name>
       <Description>Fires blades at the closest enemy</Description>
       <PrefabName>BladeBlastProj</PrefabName>
-      <ProjectileBehaviour>Returning</ProjectileBehaviour>
+      <ProjectileBehaviour>Forward</ProjectileBehaviour>
       <TargetingStyle>Closest</TargetingStyle>
       <PrimaryTag>Blade</PrimaryTag>
       <Tags>
@@ -111,11 +111,32 @@
       </Tags>
       <BaseDamage>3</BaseDamage>
       <BaseFrequency>1.25</BaseFrequency>
-      <MaxPierce>3</MaxPierce>
+      <MaxPierce>0</MaxPierce>
       <AdditionalProjectiles>2</AdditionalProjectiles>
       <AdditionalProjAngle>15</AdditionalProjAngle>
       <ProjSpeed>10</ProjSpeed>
-      <Timeout>4</Timeout>
+      <Timeout>2</Timeout>
+    </XMLAbility>
+    <XMLAbility>
+      <Guid>72b139a8-bbc6-46a3-ae87-3fd842ff7e76</Guid>
+      <Name>Spectral Blade</Name>
+      <Description>Fires blades at the closest enemy that return to you</Description>
+      <PrefabName>BladeBlastProj</PrefabName>
+      <ProjectileBehaviour>Returning</ProjectileBehaviour>
+      <TargetingStyle>Closest</TargetingStyle>
+      <PrimaryTag>Blade</PrimaryTag>
+      <Tags>
+        Damage,
+        Blade,
+        Projectile
+      </Tags>
+      <BaseDamage>3</BaseDamage>
+      <BaseFrequency>1</BaseFrequency>
+      <MaxPierce>5</MaxPierce>
+      <AdditionalProjectiles>0</AdditionalProjectiles>
+      <AdditionalProjAngle>15</AdditionalProjAngle>
+      <ProjSpeed>15</ProjSpeed>
+      <Timeout>2</Timeout>
     </XMLAbility>
   </Abilities>
 </XMLAbilityStorage>
