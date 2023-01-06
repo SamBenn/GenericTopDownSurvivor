@@ -187,6 +187,7 @@ public class AbilityManager : MonoBehaviour
             }
             proj.transform.SetParent(parent);
 
+            #region Component specific work
             var projComp = proj.GetComponent<Projectile>();
             if (projComp != null)
             {
@@ -208,6 +209,20 @@ public class AbilityManager : MonoBehaviour
                 barrierComp.Target = parent;
                 barrierComp.Info = info.AbilityInfo;
             }
+            #endregion
+
+            this.EntityStats.StatsOfType<UtilityStat>(info.AbilityInfo.Tags).ForEach(stat =>
+            {
+                var utilInfo = new UtilityApplicationInfo()
+                {
+                    Object = proj,//                        need to figure this 1 out..
+                    AppliedValue = (float)EntityStats.GetAppliedValueForTag(1, stat.PrimaryTag, info.AbilityInfo.Tags)
+                };
+
+                var utilResult = stat.SpawnApplyToAbility(utilInfo);
+
+                proj = utilResult.Object;
+            });
 
             toReturn.Actioned = true;
             toReturn.SpawnedObjects.Add(proj);

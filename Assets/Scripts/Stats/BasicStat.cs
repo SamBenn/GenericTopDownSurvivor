@@ -80,7 +80,7 @@ public class BasicStat
 
     public bool ShouldApplyToTags(List<AbilityTag> abilityTags)
     {
-        var toReturn = !this.AbilityTags.Except(abilityTags).Any(); ;
+        var toReturn = !this.AbilityTags.Except(abilityTags).Any();
 
         return toReturn;
     }

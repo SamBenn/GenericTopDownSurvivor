@@ -43,13 +43,7 @@
       <PrimaryTag>Blade</PrimaryTag>
     </XMLStat>
     <XMLStat>
-      <StatType>UtilityStat</StatType>
-      <Name>Duration</Name>
-      <PrimaryTag>Duration</PrimaryTag>
-      <ApplicationType>Multiplicative</ApplicationType>
-    </XMLStat>
-    <XMLStat>
-      <StatType>UtilityStat</StatType>
+      <StatType>AreaOfEffectStat</StatType>
       <Name>AreaOfEffect</Name>
       <PrimaryTag>AreaOfEffect</PrimaryTag>
       <ApplicationType>Multiplicative</ApplicationType>

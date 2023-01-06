@@ -24,6 +24,16 @@ public class EntityStats : MonoBehaviour
         this.ApplyUpgrades();
     }
 
+    public List<T> StatsOfType<T>(List<AbilityTag> whitelist = null) where T : BasicStat
+    {
+        var toReturn = this.Stats.Where(p => typeof(T).IsAssignableFrom(p.GetType())).Cast<T>().ToList();
+
+        if(whitelist != null)
+            toReturn = toReturn.Where(p => p.ShouldApplyToTags(whitelist)).ToList();
+
+        return toReturn;
+    }
+
     public BasicStat GetStatForPrimaryTag(AbilityTag abilityTag) => this.Stats.Where(p => p.PrimaryTag == abilityTag).SingleOrDefault();
 
     public void LevelUpForTag(AbilityTag ability)
