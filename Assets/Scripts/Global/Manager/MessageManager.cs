@@ -10,6 +10,7 @@ public class MessageManager : MonoBehaviour
     public GameObject MenuManager;
     public GameObject UI;
     public GameObject GlobalStorage;
+    public GameObject StateStorage;
 
     #region Messages
     private void OnLevelUp(int levelsGained)
@@ -29,7 +30,7 @@ public class MessageManager : MonoBehaviour
 
     public void PlayerDied(int levelAchieved)
     {
-        this.MessageObjects("PlayerDied", levelAchieved, this.GlobalStorage);
+        this.MessageObjects("PlayerDied", levelAchieved, this.GlobalStorage, this.StateStorage);
     }
     #endregion
 

@@ -4922,6 +4922,14 @@ MonoBehaviour:
     SinceSpawn: 0
     MaxPerSpawn: 5
     MaxOfType: 200
+  - Name: Stabber 360-999
+    StartTime: 360
+    EndTime: 999
+    EnemyObject: {fileID: 4770043429259377623, guid: b95ef15de84d1cf4aba93c54381c7060, type: 3}
+    Frequency: 1
+    SinceSpawn: 0
+    MaxPerSpawn: 5
+    MaxOfType: 0
   SpecialEvents:
   - Name: Mundo
     StartTime: 300

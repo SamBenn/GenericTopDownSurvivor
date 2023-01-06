@@ -9,6 +9,7 @@ public class GlobalManager : MonoBehaviour
     private GameObject PlayerObj;
     private GameObject EnemyManagerObj;
     private GameObject UIObj;
+    private GameObject StateStorageObj;
 
     void Start()
     {
@@ -17,6 +18,7 @@ public class GlobalManager : MonoBehaviour
         this.PlayerObj = GetForTag("Player");
         this.EnemyManagerObj = GetForTag("EnemyManager");
         this.UIObj = GetForTag("UI");
+        this.StateStorageObj = GetForTag("StateStorage");
 
         this.Init();
         this.InitMessageManager();
@@ -53,6 +55,7 @@ public class GlobalManager : MonoBehaviour
         // this feels gross
         messageManager.MenuManager = this.UIObj.GetComponentInChildren<MenuManager>().gameObject;
         messageManager.GlobalStorage = this.GlobalStorageObj;
+        messageManager.StateStorage = this.StateStorageObj;
     }
 
     private void EnableComponent<T>(GameObject obj) where T : MonoBehaviour
