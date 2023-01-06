@@ -95,6 +95,8 @@
       <LocationHost>Caster</LocationHost>
       <InitialDistance>2</InitialDistance>
       <ProjSpeed>5</ProjSpeed>
+      <Multistrike>true</Multistrike>
+      <MultistrikeTimeout>.1</MultistrikeTimeout>
     </XMLAbility>
     <XMLAbility>
       <Guid>41dc2d03-150a-4ac7-933b-c5cb6cf3b91f</Guid>

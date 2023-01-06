@@ -147,6 +147,9 @@ public class EntityStats : MonoBehaviour
                 break;
         }
 
+        // then add outcome multi
+        toReturn *= primaryStat.OutcomeMultiplier;
+
         return toReturn;
     }
 

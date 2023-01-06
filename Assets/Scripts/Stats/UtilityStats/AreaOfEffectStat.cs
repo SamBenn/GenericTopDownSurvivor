@@ -17,6 +17,8 @@ public class AreaOfEffectStat : UtilityStat
 
         var scale = toReturn.Object.transform.localScale;
 
+        // want to include this /2 as a mutliplier in ability definition
+        Debug.Log(info.AppliedValue);
         var x = info.AppliedValue * scale.x;
         var y = info.AppliedValue * scale.y;
 

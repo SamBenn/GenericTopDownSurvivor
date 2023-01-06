@@ -215,8 +215,8 @@ public class AbilityManager : MonoBehaviour
             {
                 var utilInfo = new UtilityApplicationInfo()
                 {
-                    Object = proj,//                        need to figure this 1 out..
-                    AppliedValue = (float)EntityStats.GetAppliedValueForTag(1, stat.PrimaryTag, info.AbilityInfo.Tags)
+                    Object = proj,
+                    AppliedValue = (float)EntityStats.GetAppliedValueForTag(0, stat.PrimaryTag)
                 };
 
                 var utilResult = stat.SpawnApplyToAbility(utilInfo);

@@ -47,6 +47,7 @@
       <Name>AreaOfEffect</Name>
       <PrimaryTag>AreaOfEffect</PrimaryTag>
       <ApplicationType>Multiplicative</ApplicationType>
+      <OutcomeMultiplier>.5</OutcomeMultiplier>
     </XMLStat>
   </Stats>
 </XMLStatStorage>

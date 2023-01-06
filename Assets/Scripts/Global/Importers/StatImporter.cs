@@ -50,4 +50,5 @@ public class XMLStat
     public string PrimaryTag;
     public string ApplicationType;
     public double LogBase;
+    public double OutcomeMultiplier;
 }

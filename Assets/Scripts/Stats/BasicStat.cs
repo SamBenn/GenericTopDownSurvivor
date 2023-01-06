@@ -39,6 +39,7 @@ public class BasicStat
     /// Basis for the application log calculation
     /// </summary>
     public double LogBase = 1000;
+    public double OutcomeMultiplier = 1;
 
     public string Name { get; set; }
 
@@ -59,6 +60,11 @@ public class BasicStat
         if (stat.LogBase > 0)
         {
             this.LogBase = stat.LogBase;
+        }
+
+        if(stat.OutcomeMultiplier > 0)
+        {
+            this.OutcomeMultiplier = stat.OutcomeMultiplier;
         }
     }
 

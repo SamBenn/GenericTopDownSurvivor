@@ -21,6 +21,6 @@ public class Test : MonoBehaviour
 
     public void AddXP()
     {
-        this.Experience.AddXP(100000);
+        this.Experience.AddXP(1000);
     }
 }
