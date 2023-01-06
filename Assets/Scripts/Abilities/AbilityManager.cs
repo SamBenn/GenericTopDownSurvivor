@@ -86,9 +86,19 @@ public class AbilityManager : MonoBehaviour
                     if (spawnResult.Actioned && ability.IsAlwaysActive)
                     {
                         ability.IsActive = true;
+                        ability.Instances.AddRange(spawnResult.SpawnedObjects);
                     }
                 }
             }
+        });
+    }
+
+    private void OnLeveledUp()
+    {
+        this.SelectedAbilities.Where(p => p.IsAlwaysActive).ToList().ForEach(p => 
+        { 
+            p.CleanupInstances(); 
+            p.IsActive = false; 
         });
     }
 

@@ -12,6 +12,8 @@ public class Ability
     public bool IsActive = false;
     public bool IsAlwaysActive = false;
 
+    public List<GameObject> Instances { get; private set; } = new List<GameObject>();
+
     public Ability(AbilityDefinition definition)
     {
         this.Info = definition;
@@ -41,6 +43,16 @@ public class Ability
         }
 
         return toReturn;
+    }
+
+    public void CleanupInstances()
+    {
+        this.Instances.ForEach(instance =>
+        {
+            GameObject.Destroy(instance);
+        });
+
+        this.Instances.Clear();
     }
 }
 

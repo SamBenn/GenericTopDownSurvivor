@@ -64,8 +64,8 @@
     </XMLUpgrade>
     <XMLUpgrade>
       <PrimaryTag>AreaOfEffect</PrimaryTag>
-      <ApplicableLevels>1-10</ApplicableLevels>
-      <FlatPercent>100</FlatPercent>
+      <ApplicableLevels>2-10</ApplicableLevels>
+      <FlatPercent>20</FlatPercent>
     </XMLUpgrade>
   </Upgrades>
 </XMLUpgradeStorage>
