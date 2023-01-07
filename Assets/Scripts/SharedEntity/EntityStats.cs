@@ -12,8 +12,6 @@ public class EntityStats : MonoBehaviour
 
     public UpgradeManager UpgradeManager { get; set; }
 
-    public Dictionary<AbilityTag, int> StatTagsAndLevels => this.Stats.ToDictionary(p => p.PrimaryTag, p => p.Level);
-
     public void Init(List<BasicStat> stats)
     {
         this.Stats = stats;
@@ -28,7 +26,7 @@ public class EntityStats : MonoBehaviour
     {
         var toReturn = this.Stats.Where(p => typeof(T).IsAssignableFrom(p.GetType())).Cast<T>().ToList();
 
-        if(whitelist != null)
+        if (whitelist != null)
             toReturn = toReturn.Where(p => p.ShouldApplyToTags(whitelist)).ToList();
 
         return toReturn;
@@ -92,7 +90,21 @@ public class EntityStats : MonoBehaviour
         this.Stats.ForEach(stat => stat.ApplyUpgrades(UpgradeManager.UpgradesFor(stat.PrimaryTag)));
     }
 
-    public double GetAppliedValueForTag(double val, AbilityTag primaryTag, List<AbilityTag> tags = null, 
+    public Dictionary<AbilityTag, int> StatTagsAndLevels(StatVisibilityType visibility = StatVisibilityType.Public)
+    {
+        var visibilities = new List<StatVisibilityType>();
+
+        for(int i = (int)visibility; i >= 0; i--)
+        {
+            visibilities.Add((StatVisibilityType)i);
+        }
+
+        var stats = this.Stats.Where(p => visibilities.Contains(p.Visibility));
+
+        return stats.ToDictionary(p => p.PrimaryTag, p => p.Level);
+    }
+
+    public double GetAppliedValueForTag(double val, AbilityTag primaryTag, List<AbilityTag> tags = null,
         double additionalFlatValue = 0, int additionalRating = 0, double additionalFlatPercentage = 0f,
         Type statType = null)
     {
@@ -103,7 +115,7 @@ public class EntityStats : MonoBehaviour
 
         var statsToSearch = this.Stats;
 
-        if(statType != null)
+        if (statType != null)
             statsToSearch = statsToSearch.Where(p => statType.IsAssignableFrom(p.GetType())).ToList();
 
         var statsForTag = statsToSearch.Where(p => p.ShouldApplyToTags(tags)).ToList();

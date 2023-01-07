@@ -132,7 +132,7 @@ public class LevelUpMenu : MonoBehaviour
     {
         var manager = GameObject.FindGameObjectWithTag("UpgradeManager").GetComponent<UpgradeManager>();
 
-        this.Upgrades = manager.GetUpgradesForEntityStats(this.StatsToLevel);
+        this.Upgrades = manager.GetUpgradesForEntityStats(this.StatsToLevel, StatVisibilityType.Public);
     }
 
     private void GetAbilitiesForLevelUp()

@@ -68,7 +68,7 @@
       <Name>AdditionalProjectiles</Name>
       <PrimaryTag>AdditionalProjectiles</PrimaryTag>
       <ApplicationType>Multiplicative</ApplicationType>
-      <Visiblity>Passive</Visiblity>
+      <Visibility>Passive</Visibility>
     </XMLStat>
   </Stats>
 </XMLStatStorage>

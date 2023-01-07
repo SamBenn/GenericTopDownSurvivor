@@ -23,7 +23,7 @@ public class UpgradeManager : MonoBehaviour
         return toReturn;
     }
 
-    public List<UpgradeDefinition> GetUpgradesForEntityStats(EntityStats entityStats)
+    public List<UpgradeDefinition> GetUpgradesForEntityStats(EntityStats entityStats, StatVisibilityType statVisibility = StatVisibilityType.Public)
     {
         var toReturn = new List<UpgradeDefinition>();
 
@@ -33,7 +33,7 @@ public class UpgradeManager : MonoBehaviour
         // get weightings from entityStats/upgrades?
 
         // go to stats for levels of tags
-        var statTagsAndLevels = entityStats.StatTagsAndLevels;
+        var statTagsAndLevels = entityStats.StatTagsAndLevels(statVisibility);
 
         // get 3 (or 4) random ability tags (cannot be duplicates)
         toReturn = this.GetUpgradesForLevels(statTagsAndLevels);

@@ -69,8 +69,8 @@
     </XMLUpgrade>
     <XMLUpgrade>
       <PrimaryTag>AdditionalProjectiles</PrimaryTag>
-      <ApplicableLevels>1</ApplicableLevels>
-      <FlatValue>5</FlatValue>
+      <ApplicableLevels>2-5</ApplicableLevels>
+      <FlatValue>1</FlatValue>
     </XMLUpgrade>
   </Upgrades>
 </XMLUpgradeStorage>
