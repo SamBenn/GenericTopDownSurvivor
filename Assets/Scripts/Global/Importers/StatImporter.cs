@@ -45,6 +45,7 @@ public class XMLStatFile
 [Serializable, XmlRoot("XMLStat")]
 public class XMLStat
 {
+    public string Guid;
     public string StatType;
     public string Name;
     public string PrimaryTag;

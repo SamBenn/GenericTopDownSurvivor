@@ -42,6 +42,7 @@ public class BasicStat
     public double LogBase = 1000;
     public double OutcomeMultiplier = 1;
 
+    public Guid Guid { get; set; }
     public string Name { get; set; }
 
     public virtual void Import(XMLStat stat)
@@ -51,6 +52,8 @@ public class BasicStat
             Debug.Log("Stat xml import failed due to null import");
             return;
         }
+
+        this.Guid = new Guid(stat.Guid);
 
         this.Name = stat.Name;
         this.PrimaryTag = EnumUtility.ParseForTag<AbilityTag>(stat.PrimaryTag);

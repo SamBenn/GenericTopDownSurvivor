@@ -69,6 +69,7 @@ public class XMLUpgradeFile
 [Serializable, XmlRoot("XMLUpgrade")]
 public class XMLUpgrade
 {
+    public string Guid;
     public string PrimaryTag;
     public string ApplicableLevels;
     public int Rating;
