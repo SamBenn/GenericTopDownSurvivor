@@ -51,4 +51,5 @@ public class XMLStat
     public string ApplicationType;
     public double LogBase;
     public double OutcomeMultiplier;
+    public string Visibility;
 }

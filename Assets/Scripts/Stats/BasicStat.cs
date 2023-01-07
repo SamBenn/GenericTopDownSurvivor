@@ -25,6 +25,7 @@ public class BasicStat
     }
     public List<AbilityTag> AbilityTags { get; set; } = new List<AbilityTag>();
     public StatApplicationType ApplicationType { get; set; }
+    public StatVisibilityType Visibility { get; set; }
 
     public StatsFromSource EntityBase { get; private set; } = new StatsFromSource();
     public List<UpgradeDefinition> Upgrades { get; private set; } = new List<UpgradeDefinition>();
@@ -52,10 +53,10 @@ public class BasicStat
         }
 
         this.Name = stat.Name;
-        this.PrimaryTag = Enum.Parse<AbilityTag>(stat.PrimaryTag);
+        this.PrimaryTag = EnumUtility.ParseForTag<AbilityTag>(stat.PrimaryTag);
 
-        if (!string.IsNullOrEmpty(stat.ApplicationType))
-            this.ApplicationType = Enum.Parse<StatApplicationType>(stat.ApplicationType);
+        this.ApplicationType = EnumUtility.ParseForTag<StatApplicationType>(stat.ApplicationType);
+        this.Visibility = EnumUtility.ParseForTag<StatVisibilityType>(stat.Visibility);
 
         if (stat.LogBase > 0)
         {
@@ -121,4 +122,11 @@ public enum StatApplicationType
     Unset,
     Multiplicative,
     Divisive
+}
+
+public enum StatVisibilityType
+{
+    Public,
+    Passive,
+    Hidden
 }

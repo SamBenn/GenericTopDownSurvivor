@@ -185,6 +185,29 @@ public class AbilityManager : MonoBehaviour
         };
 
         var parent = this.projParent.transform;
+        var additionalProjectiles = info.AbilityInfo.AdditionalProjectiles;
+
+        var collatedUtilResults = new UtilityApplicationResult();
+
+        this.EntityStats.StatsOfType<UtilityStat>(info.AbilityInfo.Tags).ForEach(stat =>
+        {
+            var utilInfo = new UtilityApplicationInfo()
+            {
+                AppliedValue = (float)EntityStats.GetAppliedValueForTag(0, stat.PrimaryTag)
+            };
+
+            var utilResult = stat.SpawnApplyToAbility(utilInfo);
+
+            collatedUtilResults.Scale += utilResult.Scale;
+            collatedUtilResults.AdditionalProjectiles += utilResult.AdditionalProjectiles;
+        });
+
+        additionalProjectiles += collatedUtilResults.AdditionalProjectiles;
+
+        if(collatedUtilResults.Scale <= 0)
+        {
+            collatedUtilResults.Scale = 1f;
+        }
 
         void SpawnAbility(float additonalAngle = 0f)
         {
@@ -196,6 +219,9 @@ public class AbilityManager : MonoBehaviour
                 parent = transform;
             }
             proj.transform.SetParent(parent);
+
+            proj.transform.localScale = new Vector3(collatedUtilResults.Scale * proj.transform.localScale.x, 
+                collatedUtilResults.Scale * proj.transform.localScale.y, 1);
 
             #region Component specific work
             var projComp = proj.GetComponent<Projectile>();
@@ -221,24 +247,11 @@ public class AbilityManager : MonoBehaviour
             }
             #endregion
 
-            this.EntityStats.StatsOfType<UtilityStat>(info.AbilityInfo.Tags).ForEach(stat =>
-            {
-                var utilInfo = new UtilityApplicationInfo()
-                {
-                    Object = proj,
-                    AppliedValue = (float)EntityStats.GetAppliedValueForTag(0, stat.PrimaryTag)
-                };
-
-                var utilResult = stat.SpawnApplyToAbility(utilInfo);
-
-                proj = utilResult.Object;
-            });
-
             toReturn.Actioned = true;
             toReturn.SpawnedObjects.Add(proj);
         }
 
-        for (int i = 0; i < info.AbilityInfo.AdditionalProjectiles + 1; i++)
+        for (int i = 0; i < additionalProjectiles + 1; i++)
         {
             var angle = 0f;
             var projAnglePer = info.AbilityInfo.AdditionalProjAngle;

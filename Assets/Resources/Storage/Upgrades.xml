@@ -67,5 +67,10 @@
       <ApplicableLevels>2-10</ApplicableLevels>
       <FlatPercent>20</FlatPercent>
     </XMLUpgrade>
+    <XMLUpgrade>
+      <PrimaryTag>AdditionalProjectiles</PrimaryTag>
+      <ApplicableLevels>1</ApplicableLevels>
+      <FlatValue>5</FlatValue>
+    </XMLUpgrade>
   </Upgrades>
 </XMLUpgradeStorage>

@@ -2,52 +2,73 @@
 <XMLStatStorage>
   <Stats>
     <XMLStat>
+      <Guid>1b69833d-7ce1-42a3-a1fa-0ddeb3f309de</Guid>
       <Name>Health</Name>
       <PrimaryTag>Health</PrimaryTag>
       <ApplicationType>Multiplicative</ApplicationType>
     </XMLStat>
     <XMLStat>
+      <Guid>8a2bedeb-0c9b-4b81-9821-9c46ef76092a</Guid>
       <Name>MovementSpeed</Name>
       <PrimaryTag>MovementSpeed</PrimaryTag>
       <ApplicationType>Multiplicative</ApplicationType>
     </XMLStat>
     <XMLStat>
+      <Guid>dd74c0e9-3a8e-42b1-8a32-4db09afe4a5c</Guid>
       <Name>Cooldown</Name>
       <PrimaryTag>Cooldown</PrimaryTag>
       <ApplicationType>Divisive</ApplicationType>
     </XMLStat>
     <XMLStat>
+      <Guid>f309c5e5-8957-4dbc-a179-a8fae6b1232f</Guid>
       <StatType>DamageStat</StatType>
       <Name>GenericDamage</Name>
       <PrimaryTag>Damage</PrimaryTag>
       <ApplicationType>Multiplicative</ApplicationType>
     </XMLStat>
     <XMLStat>
+      <Guid>d0440e34-fc83-4047-bc99-c83a897f8d01</Guid>
       <StatType>DamageStat</StatType>
       <Name>FireDamage</Name>
       <PrimaryTag>Fire</PrimaryTag>
+      <ApplicationType>Multiplicative</ApplicationType>
     </XMLStat>
     <XMLStat>
+      <Guid>3adbb138-883a-489d-8e7b-156020c868fe</Guid>
       <StatType>DamageStat</StatType>
       <Name>IceDamage</Name>
       <PrimaryTag>Ice</PrimaryTag>
+      <ApplicationType>Multiplicative</ApplicationType>
     </XMLStat>
     <XMLStat>
+      <Guid>623457cf-c9d1-40d0-bc7c-aae5b054458c</Guid>
       <StatType>DamageStat</StatType>
       <Name>LightningDamage</Name>
       <PrimaryTag>Lightning</PrimaryTag>
+      <ApplicationType>Multiplicative</ApplicationType>
     </XMLStat>
     <XMLStat>
+      <Guid>1f589b47-9466-4127-b014-0f1c5a3cbf21</Guid>
       <StatType>DamageStat</StatType>
       <Name>BladeDamage</Name>
       <PrimaryTag>Blade</PrimaryTag>
+      <ApplicationType>Multiplicative</ApplicationType>
     </XMLStat>
     <XMLStat>
+      <Guid>0279788b-b682-411d-b96a-a343ec99da74</Guid>
       <StatType>AreaOfEffectStat</StatType>
       <Name>AreaOfEffect</Name>
       <PrimaryTag>AreaOfEffect</PrimaryTag>
       <ApplicationType>Multiplicative</ApplicationType>
       <OutcomeMultiplier>.5</OutcomeMultiplier>
+    </XMLStat>
+    <XMLStat>
+      <Guid>0279788b-b682-411d-b96a-a343ec99da74</Guid>
+      <StatType>AdditionalProjectilesStat</StatType>
+      <Name>AdditionalProjectiles</Name>
+      <PrimaryTag>AdditionalProjectiles</PrimaryTag>
+      <ApplicationType>Multiplicative</ApplicationType>
+      <Visiblity>Passive</Visiblity>
     </XMLStat>
   </Stats>
 </XMLStatStorage>

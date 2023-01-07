@@ -50,27 +50,18 @@ public class AbilityImporter : MonoBehaviour
                 throw new InvalidOperationException($"Ability: {ability.Name} cannot be imported due to no primary tag");
             }
 
-            abilityDef.PrimaryTag = this.ParseForTag<AbilityTag>(ability.PrimaryTag);
-            abilityDef.TargetingStyle = this.ParseForTag<TargetingStyle>(ability.TargetingStyle);
-            abilityDef.LocationHost = this.ParseForTag<LocationHost>(ability.LocationHost);
-            abilityDef.ProjectileBehaviour = this.ParseForTag<ProjectileBehaviour>(ability.ProjectileBehaviour);
+            abilityDef.PrimaryTag = EnumUtility.ParseForTag<AbilityTag>(ability.PrimaryTag);
+            abilityDef.TargetingStyle = EnumUtility.ParseForTag<TargetingStyle>(ability.TargetingStyle);
+            abilityDef.LocationHost = EnumUtility.ParseForTag<LocationHost>(ability.LocationHost);
+            abilityDef.ProjectileBehaviour = EnumUtility.ParseForTag<ProjectileBehaviour>(ability.ProjectileBehaviour);
 
-            ability.Tags.Split(',').ToList().ForEach(p => abilityDef.Tags.Add(this.ParseForTag(p, defaultOfEnum: abilityDef.PrimaryTag)));
+            ability.Tags.Split(',').ToList().ForEach(p => abilityDef.Tags.Add(EnumUtility.ParseForTag(p, defaultOfEnum: abilityDef.PrimaryTag)));
             abilityDef.Tags = abilityDef.Tags.Distinct().ToList();
 
             toReturn.Add(abilityDef);
         });
 
         return toReturn;
-    }
-
-    private T ParseForTag<T>(string toParse, T defaultOfEnum = default)
-        where T : struct, System.Enum
-    {
-        if (string.IsNullOrEmpty(toParse))
-            return defaultOfEnum;
-
-        return Enum.Parse<T>(toParse);
     }
 }
 

@@ -34,7 +34,7 @@ public class UpgradeImporter : MonoBehaviour
                 }
             };
 
-            upgrade.PrimaryTag = Enum.Parse<AbilityTag>(p.PrimaryTag);
+            upgrade.PrimaryTag = EnumUtility.ParseForTag<AbilityTag>(p.PrimaryTag);
             p.ApplicableLevels.Split(',').ToList().ForEach(level =>
             {
                 var isRange = level.Contains("-");

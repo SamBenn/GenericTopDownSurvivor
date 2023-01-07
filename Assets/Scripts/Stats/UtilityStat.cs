@@ -5,26 +5,36 @@ using UnityEngine;
 
 public abstract class UtilityStat : BasicStat
 {
-    public abstract UtilityApplicationResult TargettingApplyToAbility(UtilityApplicationInfo info);
-    public abstract UtilityApplicationResult SpawnApplyToAbility(UtilityApplicationInfo info);
+    public virtual UtilityApplicationResult TargettingApplyToAbility(UtilityApplicationInfo info)
+    {
+        var toReturn = new UtilityApplicationResult(info);
+
+        return toReturn;
+    }
+
+    public virtual UtilityApplicationResult SpawnApplyToAbility(UtilityApplicationInfo info)
+    {
+        var toReturn = new UtilityApplicationResult(info);
+
+        return toReturn;
+    }
 }
 
 public class UtilityApplicationInfo
 {
-    public GameObject Object { get; set; }
-
     public float AppliedValue { get; set; }
 }
 
 public class UtilityApplicationResult
 {
-    public GameObject Object { get; set; }
+    public int AdditionalProjectiles { get; set; }
+    public float Scale { get; set; }
 
+    public UtilityApplicationResult() { }
     public UtilityApplicationResult(UtilityApplicationInfo info)
+        : this()
     {
         if (info == null)
             throw new ArgumentNullException("info cannot be null when creating UtilityApplicationResult");
-
-        this.Object = info.Object;
     }
 }

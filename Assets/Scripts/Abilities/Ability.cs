@@ -113,7 +113,8 @@ public enum AbilityTag
     Health,
     Lightning,
     Barrier,
-    Blade
+    Blade,
+    AdditionalProjectiles
 }
 
 public enum LocationHost
