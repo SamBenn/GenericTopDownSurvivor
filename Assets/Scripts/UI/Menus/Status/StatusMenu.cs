@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class StatusMenu : BaseSubMenu
@@ -10,7 +11,7 @@ public class StatusMenu : BaseSubMenu
 
     private void OnEnable()
     {
-        var statsToRender = this.EntityStats.Stats;
+        var statsToRender = this.EntityStats.Stats.Where(p => p.Visibility == StatVisibilityType.Public).ToList();
          
         var index = 0;
         statsToRender.ForEach(stat =>
