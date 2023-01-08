@@ -27,9 +27,17 @@ public class PassiveTree : MonoBehaviour
         });
     }
 
+    public int GetLevelForStat(Guid stat)
+    {
+        if (this.StateStorage.PassiveLevels.ContainsKey(stat))
+            return this.StateStorage.PassiveLevels[stat];
+
+        return 0;
+    }
+
     public bool LevelUpStat(int cost, Guid statGuid, int level)
     {
-        if(this.StateStorage.Money < cost)
+        if (this.StateStorage.Money < cost)
         {
             return false;
         }
