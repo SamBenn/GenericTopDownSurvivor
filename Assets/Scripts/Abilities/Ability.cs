@@ -114,7 +114,8 @@ public enum AbilityTag
     Lightning,
     Barrier,
     Blade,
-    AdditionalProjectiles
+    AdditionalProjectiles,
+    Pierce
 }
 
 public enum LocationHost

@@ -9,8 +9,10 @@
       <TargetingStyle>Closest</TargetingStyle>
       <PrimaryTag>Fire</PrimaryTag>
       <Tags>
+        AdditionalProjectiles,
         Projectile,
         Damage,
+        Pierce,
         Fire
       </Tags>
       <BaseDamage>6</BaseDamage>
@@ -29,6 +31,7 @@
       <TargetingStyle>RandomTarget</TargetingStyle>
       <PrimaryTag>Ice</PrimaryTag>
       <Tags>
+        AdditionalProjectiles,
         Projectile,
         Damage,
         Ice
@@ -49,6 +52,7 @@
       <TargetingStyle>RandomTarget</TargetingStyle>
       <PrimaryTag>Lightning</PrimaryTag>
       <Tags>
+        AdditionalProjectiles,
         Duration,
         Damage,
         Lightning
@@ -84,6 +88,7 @@
       <PrefabName>BladeBarrierProj</PrefabName>
       <PrimaryTag>Blade</PrimaryTag>
       <Tags>
+        AdditionalProjectiles,
         AlwaysActive,
         Barrier,
         Damage,
@@ -107,6 +112,7 @@
       <TargetingStyle>Closest</TargetingStyle>
       <PrimaryTag>Blade</PrimaryTag>
       <Tags>
+        AdditionalProjectiles,
         Damage,
         Blade,
         Projectile

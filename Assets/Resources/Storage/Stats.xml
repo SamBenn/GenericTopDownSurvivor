@@ -70,5 +70,13 @@
       <ApplicationType>Multiplicative</ApplicationType>
       <Visibility>Passive</Visibility>
     </XMLStat>
+    <XMLStat>
+      <Guid>9a977fa5-2d00-4741-ad86-92bc93854d24</Guid>
+      <StatType>PierceStat</StatType>
+      <Name>Pierce</Name>
+      <PrimaryTag>Pierce</PrimaryTag>
+      <ApplicationType>Multiplicative</ApplicationType>
+      <Visibility>Passive</Visibility>
+    </XMLStat>
   </Stats>
 </XMLStatStorage>

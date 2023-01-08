@@ -20,5 +20,6 @@ public static partial class Constants
 
         // passive stats
         public static Guid P_AdditionalProjectiles { get; } = new Guid("7f7f0756-0273-4af5-889b-01d78c89d5e4");
+        public static Guid P_Pierce { get; } = new Guid("9a977fa5-2d00-4741-ad86-92bc93854d24");
     }
 }

@@ -59,16 +59,16 @@
     </XMLUpgrade>
     <XMLUpgrade>
       <PrimaryTag>AreaOfEffect</PrimaryTag>
-      <ApplicableLevels>1</ApplicableLevels>
-      <FlatValue>2</FlatValue>
-    </XMLUpgrade>
-    <XMLUpgrade>
-      <PrimaryTag>AreaOfEffect</PrimaryTag>
       <ApplicableLevels>2-10</ApplicableLevels>
       <FlatPercent>20</FlatPercent>
     </XMLUpgrade>
     <XMLUpgrade>
       <PrimaryTag>AdditionalProjectiles</PrimaryTag>
+      <ApplicableLevels>2-6</ApplicableLevels>
+      <FlatValue>1</FlatValue>
+    </XMLUpgrade>
+    <XMLUpgrade>
+      <PrimaryTag>Pierce</PrimaryTag>
       <ApplicableLevels>2-6</ApplicableLevels>
       <FlatValue>1</FlatValue>
     </XMLUpgrade>

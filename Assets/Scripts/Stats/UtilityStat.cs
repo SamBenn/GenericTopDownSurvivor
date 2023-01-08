@@ -22,12 +22,15 @@ public abstract class UtilityStat : BasicStat
 
 public class UtilityApplicationInfo
 {
-    public float AppliedValue { get; set; }
+    public List<BasicStat> AllStats { get; set; } = new List<BasicStat>();
+    public UtilityStat ActiveStat { get; set; }
+    public AbilityDefinition SpawningAbility { get; set; }
 }
 
 public class UtilityApplicationResult
 {
     public int AdditionalProjectiles { get; set; }
+    public int Pierce { get; set; }
     public float Scale { get; set; }
 
     public UtilityApplicationResult() { }

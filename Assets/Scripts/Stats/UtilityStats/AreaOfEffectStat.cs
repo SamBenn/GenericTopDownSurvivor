@@ -15,14 +15,7 @@ public class AreaOfEffectStat : UtilityStat
     {
         var toReturn = new UtilityApplicationResult(info);
 
-        //var scale = toReturn.Object.transform.localScale;
-
-        //var x = info.AppliedValue * scale.x;
-        //var y = info.AppliedValue * scale.y;
-
-        //toReturn.Object.transform.localScale = new Vector3(x, y, 1);
-
-        toReturn.Scale = info.AppliedValue;
+        toReturn.Scale = (float)StatUtilities.GetAppliedValueForTag(info.AllStats, 2, info.ActiveStat.PrimaryTag);
 
         return toReturn;
     }
