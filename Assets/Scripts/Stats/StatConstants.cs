@@ -5,7 +5,7 @@ using UnityEngine;
 
 public static partial class Constants
 {
-    public static class StatConstants
+    public static class Stats
     {
         // public stats
         public static Guid Health { get; } = new Guid("1b69833d-7ce1-42a3-a1fa-0ddeb3f309de");
