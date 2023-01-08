@@ -5,16 +5,17 @@ using UnityEngine;
 
 public static class ReflectionUtility
 {
-    public static T ReflectPropertyFromObject<T>(Type T2, string propertyName, object obj = null)
+    public static T ReflectPropertyFromObject<T>(Type type, string propertyName, object obj = null)
     {
         var toReturn = default(T);
 
         if (string.IsNullOrEmpty(propertyName))
             return toReturn;
 
-        var property = T2.GetProperty(propertyName);
+        var property = type.GetProperty(propertyName);
 
-        toReturn = (T)property.GetValue(obj, null);
+        if (property != null)
+            toReturn = (T)property.GetValue(obj);
 
         return toReturn;
     }

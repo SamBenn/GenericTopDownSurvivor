@@ -776,7 +776,7 @@ MonoBehaviour:
   Icon: {fileID: 1409579071}
   LevelText: {fileID: 1551669861}
   PassiveTree: {fileID: 300837022}
-  StatGuidString: 7f7f0756-0273-4af5-889b-01d78c89d5e4
+  StatName: P_AdditionalProjectiles
   MinLevel: 1
   MaxLevel: 6
   CurLevel: 1

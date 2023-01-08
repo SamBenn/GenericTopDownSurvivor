@@ -14,7 +14,6 @@ public class PassiveTreeNode : MonoBehaviour, IPointerClickHandler
     public PassiveTree PassiveTree;
 
     public string StatName;
-    public string StatGuidString = Guid.Empty.ToString();
     public Guid StatGuid;
     public int MinLevel = 0;
     public int MaxLevel = 0;
@@ -28,7 +27,7 @@ public class PassiveTreeNode : MonoBehaviour, IPointerClickHandler
 
     private void Start()
     {
-        this.StatGuid = new Guid(this.StatGuidString);
+        this.StatGuid = ReflectionUtility.ReflectPropertyFromObject<Guid>(typeof(Constants.StatConstants), this.StatName);
 
         this.CurLevel = this.PassiveTree.GetLevelForStat(this.StatGuid) + 1;
         if (this.CurLevel <= 0)
