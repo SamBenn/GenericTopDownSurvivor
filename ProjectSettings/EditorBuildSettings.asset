@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 06f3919eb742d3148b564084be6dea7b
+  - enabled: 1
+    path: Assets/Scenes/PassiveTree.unity
+    guid: c43e9c5a19d723e40a62aaaf1e68a3da
   m_configObjects: {}

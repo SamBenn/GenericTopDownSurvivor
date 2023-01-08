@@ -63,7 +63,7 @@
       <OutcomeMultiplier>.5</OutcomeMultiplier>
     </XMLStat>
     <XMLStat>
-      <Guid>0279788b-b682-411d-b96a-a343ec99da74</Guid>
+      <Guid>7f7f0756-0273-4af5-889b-01d78c89d5e4</Guid>
       <StatType>AdditionalProjectilesStat</StatType>
       <Name>AdditionalProjectiles</Name>
       <PrimaryTag>AdditionalProjectiles</PrimaryTag>

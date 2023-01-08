@@ -13,6 +13,7 @@ public class PassiveTreeNode : MonoBehaviour, IPointerClickHandler
 
     public PassiveTree PassiveTree;
 
+    public string StatGuidString = Guid.Empty.ToString();
     public Guid StatGuid;
     public int MinLevel = 0;
     public int MaxLevel = 0;
@@ -21,25 +22,32 @@ public class PassiveTreeNode : MonoBehaviour, IPointerClickHandler
 
     public int CostPerLevel = 200;
 
-    public int DisplayLevel => this.CurLevel;
+    public int DisplayLevel => this.CurLevel - 1;
+    public int DisplayMaxLevel => this.MaxLevel - 1;
 
     private void Start()
     {
+        this.CurLevel = this.MinLevel;
+        this.StatGuid = new Guid(this.StatGuidString);
         this.SetupText();
     }
 
     private void SetupText()
     {
-        this.LevelText.text = $"{this.DisplayLevel}/{this.MaxLevel}";
+        this.LevelText.text = $"{this.DisplayLevel}/{this.DisplayMaxLevel}";
     }
 
     public void LevelUp()
     {
         if (this.CurLevel < this.MaxLevel)
         {
-            this.CurLevel++;
-            this.PassiveTree.LevelUpStat(this.CostPerLevel, this.StatGuid, this.CurLevel);
-            this.SetupText();
+            var hasLeveled = this.PassiveTree.LevelUpStat(this.CostPerLevel, this.StatGuid, this.CurLevel);
+
+            if (hasLeveled)
+            {
+                this.CurLevel++;
+                this.SetupText();
+            }
         }
     }
 

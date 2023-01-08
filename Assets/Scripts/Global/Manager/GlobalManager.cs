@@ -32,9 +32,11 @@ public class GlobalManager : MonoBehaviour
         var upgradeManager = this.UpgradeManagerObj.GetComponent<UpgradeManager>();
         upgradeManager.Init(this.GlobalStorageObj.GetComponent<UpgradeStorage>().Upgrades);
 
+        var stateStorage = this.StateStorageObj.GetComponent<StateStorage>();
+
         var playerStats = this.PlayerObj.GetComponent<EntityStats>();
         playerStats.UpgradeManager = upgradeManager;
-        playerStats.Init(this.GlobalStorageObj.GetComponent<StatStorage>().DefaultStats);
+        playerStats.Init(this.GlobalStorageObj.GetComponent<StatStorage>().DefaultStats, stateStorage.PassiveLevels);
 
         this.PlayerObj.GetComponent<AbilityManager>().Init(this.GlobalStorageObj.GetComponent<AbilityStorage>().Abilities);
         this.EnableComponent<PlayerManager>(PlayerObj);

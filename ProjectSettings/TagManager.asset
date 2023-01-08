@@ -15,6 +15,7 @@ TagManager:
   - GlobalManager
   - Pickup
   - StateStorage
+  - PassiveNode
   layers:
   - Default
   - TransparentFX

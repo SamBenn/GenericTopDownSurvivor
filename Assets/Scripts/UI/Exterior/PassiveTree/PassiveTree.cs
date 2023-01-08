@@ -13,7 +13,7 @@ public class PassiveTree : MonoBehaviour
 
     private void Start()
     {
-        this.StateStorageObj = GameObject.FindGameObjectWithTag("StateManager");
+        this.StateStorageObj = GameObject.FindGameObjectWithTag("StateStorage");
         this.StateStorage = StateStorageObj.GetComponent<StateStorage>();
 
         this.Nodes = GameObject.FindGameObjectsWithTag("PassiveNode").Select(p => p.GetComponent<PassiveTreeNode>()).ToList();
@@ -42,6 +42,8 @@ public class PassiveTree : MonoBehaviour
         }
 
         this.StateStorage.PassiveLevels.Add(statGuid, level);
+
+        gameObject.SendMessageUpwards("SetupDisplay", SendMessageOptions.DontRequireReceiver);
 
         return true;
     }

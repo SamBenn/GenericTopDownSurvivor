@@ -12,14 +12,16 @@ public class EntityStats : MonoBehaviour
 
     public UpgradeManager UpgradeManager { get; set; }
 
-    public void Init(List<BasicStat> stats)
+    public void Init(List<BasicStat> stats, Dictionary<Guid, int> statLevels = null)
     {
         this.Stats = stats;
 
         this.StatImport = this.gameObject.GetComponent<StatImport>();
 
         this.ImportStats();
-        this.ApplyUpgrades();
+        this.AddUpgradesToStats();
+
+        this.ApplyStatLevels(statLevels);
     }
 
     public List<T> StatsOfType<T>(List<AbilityTag> whitelist = null) where T : BasicStat
@@ -82,7 +84,7 @@ public class EntityStats : MonoBehaviour
         });
     }
 
-    private void ApplyUpgrades()
+    private void AddUpgradesToStats()
     {
         if (this.UpgradeManager == null)
             return;
@@ -90,11 +92,22 @@ public class EntityStats : MonoBehaviour
         this.Stats.ForEach(stat => stat.ApplyUpgrades(UpgradeManager.UpgradesFor(stat.PrimaryTag)));
     }
 
+    private void ApplyStatLevels(Dictionary<Guid, int> levels)
+    {
+        levels?.ToList().ForEach(statLevel =>
+        {
+            var statToLevel = this.Stats.Where(stat => stat.Guid == statLevel.Key).SingleOrDefault();
+
+            if (statToLevel != null)
+                statToLevel.Level = statLevel.Value + 1;
+        });
+    }
+
     public Dictionary<AbilityTag, int> StatTagsAndLevels(StatVisibilityType visibility = StatVisibilityType.Public)
     {
         var visibilities = new List<StatVisibilityType>();
 
-        for(int i = (int)visibility; i >= 0; i--)
+        for (int i = (int)visibility; i >= 0; i--)
         {
             visibilities.Add((StatVisibilityType)i);
         }
