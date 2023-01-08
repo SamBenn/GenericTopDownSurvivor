@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class StateStorage : MonoBehaviour
 {
-    public int Money = 0;
-    public Dictionary<Guid, int> PassiveLevels = new Dictionary<Guid, int>();
+    public int Money { get; private set; } = 4000;
+    public Dictionary<Guid, int> PassiveLevels { get; private set; } = new Dictionary<Guid, int>();
 
     void Start()
     {
@@ -20,7 +20,7 @@ public class StateStorage : MonoBehaviour
         this.Money += levels * 100;
     }
 
-    void MoneyGained(int money)
+    public void MoneyGained(int money)
     {
         this.Money += money;
     }

@@ -185,7 +185,7 @@ public class AbilityManager : MonoBehaviour
         };
 
         var parent = this.projParent.transform;
-        var additionalProjectiles = info.AbilityInfo.AdditionalProjectiles;
+        var additionalProjectiles = 0;
 
         var collatedUtilResults = new UtilityApplicationResult();
 
@@ -202,6 +202,7 @@ public class AbilityManager : MonoBehaviour
 
             collatedUtilResults.Scale += utilResult.Scale;
             collatedUtilResults.AdditionalProjectiles += utilResult.AdditionalProjectiles;
+            collatedUtilResults.MaxPierce += utilResult.MaxPierce;
         });
 
         additionalProjectiles += collatedUtilResults.AdditionalProjectiles;
@@ -239,6 +240,7 @@ public class AbilityManager : MonoBehaviour
                 damageComp.EntityStats = this.EntityStats;
                 damageComp.Info = info.AbilityInfo;
                 damageComp.AddPierced(gameObject.GetInstanceID(), isCaster: true, timeoutOverride: info.AbilityInfo.Timeout);
+                damageComp.MaxPierce = collatedUtilResults.MaxPierce;
             }
 
             var barrierComp = proj.GetComponent<Barrier>();

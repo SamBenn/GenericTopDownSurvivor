@@ -19,6 +19,7 @@ public class Damage : MonoBehaviour
 
     private int pierceCount = 0;
     private Dictionary<int, float> piercedEntities = new Dictionary<int, float>();
+    public int MaxPierce;
 
     void Update()
     {
@@ -96,7 +97,10 @@ public class Damage : MonoBehaviour
         {
             pierceCount++;
 
-            if (pierceCount >= this.Info.MaxPierce)
+            if(this.MaxPierce < this.Info.MaxPierce) 
+                this.MaxPierce = this.Info.MaxPierce;
+
+            if (pierceCount >= this.MaxPierce)
                 GameObject.Destroy(gameObject);
         }
     }

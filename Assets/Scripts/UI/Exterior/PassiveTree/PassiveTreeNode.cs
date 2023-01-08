@@ -25,20 +25,16 @@ public class PassiveTreeNode : MonoBehaviour, IPointerClickHandler
     public int DisplayLevel => this.CurLevel - 1;
     public int DisplayMaxLevel => this.MaxLevel - 1;
 
-    private void Start()
+    public void Init()
     {
         this.StatGuid = ReflectionUtility.ReflectPropertyFromObject<Guid>(typeof(Constants.Stats), this.StatName);
-
-        this.CurLevel = this.PassiveTree.GetLevelForStat(this.StatGuid) + 1;
-        if (this.CurLevel <= 0)
-            this.CurLevel = MinLevel;
 
         this.SetupText();
     }
 
-    private void SetupText()
+    public void SetupText()
     {
-        this.LevelText.text = $"{this.DisplayLevel}/{this.DisplayMaxLevel}";
+        this.LevelText.text = $"{this.DisplayLevel}/{this.DisplayMaxLevel}\nCost: {this.CostPerLevel}";
     }
 
     public void LevelUp()

@@ -8,7 +8,9 @@ public class PierceStat : UtilityStat
     {
         var toReturn = base.SpawnApplyToAbility(info);
 
-        toReturn.Pierce = 0;
+        var val = (float)StatUtilities.GetAppliedValueForTag(info.AllStats, info.SpawningAbility.MaxPierce, info.ActiveStat.PrimaryTag);
+
+        toReturn.MaxPierce = Mathf.FloorToInt(val);
 
         return toReturn;
     }

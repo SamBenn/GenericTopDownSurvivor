@@ -74,7 +74,8 @@
         AreaOfEffect,
         AlwaysActive,
         Damage,
-        Fire
+        Fire,
+        Pierce
       </Tags>
       <BaseDamage>1</BaseDamage>
       <Multistrike>true</Multistrike>
@@ -92,7 +93,8 @@
         AlwaysActive,
         Barrier,
         Damage,
-        Blade
+        Blade,
+        Pierce
       </Tags>
       <BaseDamage>1</BaseDamage>
       <MaxPierce>999</MaxPierce>
@@ -115,7 +117,8 @@
         AdditionalProjectiles,
         Damage,
         Blade,
-        Projectile
+        Projectile,
+        Pierce
       </Tags>
       <BaseDamage>3</BaseDamage>
       <BaseFrequency>1.25</BaseFrequency>
@@ -137,7 +140,8 @@
         AdditionalProjectiles,
         Damage,
         Blade,
-        Projectile
+        Projectile,
+        Pierce
       </Tags>
       <BaseDamage>3</BaseDamage>
       <BaseFrequency>1</BaseFrequency>

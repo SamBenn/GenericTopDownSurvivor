@@ -22,8 +22,12 @@ public class PassiveTree : MonoBehaviour
         {
             p.PassiveTree = this;
 
+            p.Init();
+
             if (this.StateStorage.PassiveLevels.ContainsKey(p.StatGuid))
-                p.CurLevel = this.StateStorage.PassiveLevels[p.StatGuid];
+                p.CurLevel = this.StateStorage.PassiveLevels[p.StatGuid] + 1;
+
+            p.SetupText();
         });
     }
 
@@ -42,7 +46,7 @@ public class PassiveTree : MonoBehaviour
             return false;
         }
 
-        this.StateStorage.Money -= cost;
+        this.StateStorage.MoneyGained(cost * -1);
 
         if (this.StateStorage.PassiveLevels.ContainsKey(statGuid))
         {

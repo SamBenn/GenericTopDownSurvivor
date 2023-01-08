@@ -30,7 +30,7 @@ public class UtilityApplicationInfo
 public class UtilityApplicationResult
 {
     public int AdditionalProjectiles { get; set; }
-    public int Pierce { get; set; }
+    public int MaxPierce { get; set; }
     public float Scale { get; set; }
 
     public UtilityApplicationResult() { }
