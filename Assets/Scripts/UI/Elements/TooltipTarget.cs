@@ -6,30 +6,21 @@ using UnityEngine.UI;
 
 public class TooltipTarget : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    private GameObject tooltipPrefab;
-    private GameObject tooltip;
-
     private TooltipOptions options;
 
     public void SetupTooltip(TooltipOptions options)
     {
-        this.tooltipPrefab = Resources.Load<GameObject>("Prefabs/UI/TooltipPrefab");
-
         this.options = options;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        var ui = GameObject.FindGameObjectWithTag("UI");
-        var obj = GameObject.Instantiate(tooltipPrefab, ui.transform);
-        var tooltip = obj.GetComponent<Tooltip>();
-
-        tooltip.Init(this.options);
+        Tooltip.Show(this.options);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        GameObject.Destroy(tooltip);
+        Tooltip.Hide();
     }
 }
 
