@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5401963500359946005}
   - component: {fileID: 5401963500359946004}
+  - component: {fileID: 4829095228486433238}
   m_Layer: 5
   m_Name: AbilityInfo
   m_TagString: Untagged
@@ -52,6 +53,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AbilityImage: {fileID: 5401963500589561164}
   AbilityText: {fileID: 0}
+--- !u!114 &4829095228486433238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5401963500359946006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b66b521c24ae5a44085bf100c0cc0528, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5401963500589561166
 GameObject:
   m_ObjectHideFlags: 0

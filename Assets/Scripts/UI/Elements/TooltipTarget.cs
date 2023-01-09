@@ -8,7 +8,7 @@ public class TooltipTarget : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 {
     private TooltipOptions options;
 
-    public void SetupTooltip(TooltipOptions options)
+    void SetupTooltip(TooltipOptions options)
     {
         this.options = options;
     }
