@@ -13,12 +13,12 @@ public class GlobalManager : MonoBehaviour
 
     void Start()
     {
-        this.GlobalStorageObj = GetForTag("GlobalStorage");
-        this.UpgradeManagerObj = GetForTag("UpgradeManager");
-        this.PlayerObj = GetForTag("Player");
-        this.EnemyManagerObj = GetForTag("EnemyManager");
-        this.UIObj = GetForTag("UI");
-        this.StateStorageObj = GetForTag("StateStorage");
+        this.GlobalStorageObj = GetForTag(Tags.GlobalStorage);
+        this.UpgradeManagerObj = GetForTag(Tags.UpgradeManager);
+        this.PlayerObj = GetForTag(Tags.Player);
+        this.EnemyManagerObj = GetForTag(Tags.EnemyManager);
+        this.UIObj = GetForTag(Tags.UI);
+        this.StateStorageObj = GetForTag(Tags.StateStorage);
 
         this.Init();
         this.InitMessageManager();

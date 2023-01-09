@@ -13,7 +13,7 @@ public class PassiveTree : MonoBehaviour
 
     private void Start()
     {
-        this.StateStorageObj = GameObject.FindGameObjectWithTag("StateStorage");
+        this.StateStorageObj = GameObject.FindGameObjectWithTag(Tags.StateStorage);
         this.StateStorage = StateStorageObj.GetComponent<StateStorage>();
 
         this.Nodes = GameObject.FindGameObjectsWithTag("PassiveNode").Select(p => p.GetComponent<PassiveTreeNode>()).ToList();

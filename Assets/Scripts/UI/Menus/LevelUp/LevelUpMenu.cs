@@ -25,7 +25,7 @@ public class LevelUpMenu : MonoBehaviour
     {
         this.levelsRemaining = levelsRemaining;
         this.gameObject.SetActive(true);
-        this.StatsToLevel = GameObject.FindGameObjectWithTag("Player").GetComponent<EntityStats>();
+        this.StatsToLevel = GameObject.FindGameObjectWithTag(Tags.Player).GetComponent<EntityStats>();
 
         this.SetupDisplay();
     }
@@ -106,7 +106,7 @@ public class LevelUpMenu : MonoBehaviour
 
     public void AddAbility(AbilityDefinition ability)
     {
-        GameObject.FindGameObjectWithTag("GlobalManager").SendMessage("AddAbility", ability.Guid);
+        GameObject.FindGameObjectWithTag(Tags.GlobalManager).SendMessage(Messages.AddAbility, ability.Guid);
 
         this.OnSelection();
     }
@@ -115,7 +115,7 @@ public class LevelUpMenu : MonoBehaviour
     {
         this.levelsRemaining--;
 
-        GameObject.FindGameObjectWithTag("GlobalManager").SendMessage("OnLeveledUp", this.levelsRemaining);
+        GameObject.FindGameObjectWithTag(Tags.GlobalManager).SendMessage(Messages.OnLeveledUp, this.levelsRemaining);
 
         this.DisplayCheck();
         this.SetupDisplay();
@@ -130,14 +130,14 @@ public class LevelUpMenu : MonoBehaviour
 
     private void GetUpgradesForLevelUp()
     {
-        var manager = GameObject.FindGameObjectWithTag("UpgradeManager").GetComponent<UpgradeManager>();
+        var manager = GameObject.FindGameObjectWithTag(Tags.UpgradeManager).GetComponent<UpgradeManager>();
 
         this.Upgrades = manager.GetUpgradesForEntityStats(this.StatsToLevel, StatVisibilityType.Public);
     }
 
     private void GetAbilitiesForLevelUp()
     {
-        var manager = GameObject.FindGameObjectWithTag("Player").GetComponent<AbilityManager>();
+        var manager = GameObject.FindGameObjectWithTag(Tags.Player).GetComponent<AbilityManager>();
 
         this.Abilities = manager.GetAbilitiesForSelection();
     }

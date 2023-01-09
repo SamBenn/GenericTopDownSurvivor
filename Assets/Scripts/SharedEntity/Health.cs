@@ -67,7 +67,7 @@ public class Health : MonoBehaviour
         if (gameObject.tag == "Player")
         {
             SceneManager.LoadScene("GameOver");
-            GameObject.FindGameObjectWithTag("GlobalManager").SendMessage("PlayerDied", this.gameObject.GetComponent<Experience>().CurrentLevel);
+            GameObject.FindGameObjectWithTag(Tags.GlobalManager).SendMessage(Messages.PlayerDied, this.gameObject.GetComponent<Experience>().CurrentLevel);
             return;
         }
 

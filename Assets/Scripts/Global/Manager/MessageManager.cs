@@ -15,27 +15,27 @@ public class MessageManager : MonoBehaviour
     #region Messages
     private void OnLevelUp(int levelsGained)
     {
-        this.MessageObjects("OnLevelUp", levelsGained, this.MenuManager);
+        this.MessageObjects(Messages.OnLevelUp, levelsGained, this.MenuManager);
     }
 
     private void OnLeveledUp(int levelsRemaining)
     {
-        this.MessageObjects("OnLeveledUp", levelsRemaining, this.Player);
+        this.MessageObjects(Messages.OnLeveledUp, levelsRemaining, this.Player);
     }
 
     private void AddAbility(Guid abilityGuid)
     {
-        this.MessageObjects("AddAbility", abilityGuid, this.Player, this.UI);
+        this.MessageObjects(Messages.AddAbility, abilityGuid, this.Player, this.UI);
     }
 
     public void PlayerDied(int levelAchieved)
     {
-        this.MessageObjects("PlayerDied", levelAchieved, this.GlobalStorage, this.StateStorage);
+        this.MessageObjects(Messages.PlayerDied, levelAchieved, this.GlobalStorage, this.StateStorage);
     }
 
     public void MoneyGained(int moneyGained)
     {
-        this.MessageObjects("PlayerDied", moneyGained, this.StateStorage);
+        this.MessageObjects(Messages.MoneyGained, moneyGained, this.StateStorage);
     }
     #endregion
 
@@ -45,4 +45,18 @@ public class MessageManager : MonoBehaviour
         gameObjects.ToList().ForEach(p => p.SendMessage(message, data));
     }
     #endregion
+}
+
+
+public static class Messages
+{
+    public static readonly string OnLevelUp = "OnLevelUp";
+    public static readonly string OnLeveledUp = "OnLeveledUp";
+    public static readonly string AddAbility = "AddAbility";
+    public static readonly string PlayerDied = "PlayerDied";
+    public static readonly string MoneyGained = "MoneyGained";
+
+    // Non global
+    public static readonly string SetupTooltip = "SetupTooltip";
+    public static readonly string MenuPauseChanged = "MenuPauseChanged";
 }

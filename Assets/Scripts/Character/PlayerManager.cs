@@ -31,7 +31,7 @@ public class PlayerManager : MonoBehaviour
 
     private void GetManagers()
     {
-        this.upgradeManager = GameObject.FindGameObjectWithTag("UpgradeManager").GetComponent<UpgradeManager>();
+        this.upgradeManager = GameObject.FindGameObjectWithTag(Tags.UpgradeManager).GetComponent<UpgradeManager>();
     }
 
     private void GatherClasses()

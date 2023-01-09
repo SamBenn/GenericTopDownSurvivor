@@ -9,7 +9,7 @@ public class MainMenuStartupManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (!GameObject.FindGameObjectWithTag("StateStorage"))
+        if (!GameObject.FindGameObjectWithTag(Tags.StateStorage))
         {
             GameObject.Instantiate(StateStoragePrefab);
         }

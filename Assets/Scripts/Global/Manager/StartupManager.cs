@@ -6,7 +6,7 @@ public class StartupManager : MonoBehaviour
 {
     void Start()
     {
-        if (GameObject.FindGameObjectWithTag("GlobalStorage") == null)
+        if (GameObject.FindGameObjectWithTag(Tags.GlobalStorage) == null)
             this.InitGlobalStorage();
 
         this.InitGlobalManager();

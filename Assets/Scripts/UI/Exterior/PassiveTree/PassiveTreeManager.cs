@@ -12,7 +12,7 @@ public class PassiveTreeManager : MonoBehaviour
 
     private void Start()
     {
-        this.StateStorage = GameObject.FindGameObjectWithTag("StateStorage").GetComponent<StateStorage>();
+        this.StateStorage = GameObject.FindGameObjectWithTag(Tags.StateStorage).GetComponent<StateStorage>();
 
         this.SetupDisplay();
     }

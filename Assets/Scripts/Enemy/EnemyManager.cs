@@ -17,7 +17,7 @@ public class EnemyManager : MonoBehaviour
 
     private void Start()
     {
-        this.GlobalStorage = GameObject.FindGameObjectWithTag("GlobalStorage");
+        this.GlobalStorage = GameObject.FindGameObjectWithTag(Tags.GlobalStorage);
         this.stageSpawnPattern = this.gameObject.GetComponent<StageSpawnPattern>();
 
         this.UpdateCurrentPatterns();

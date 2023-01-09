@@ -9,7 +9,7 @@ public class Test : MonoBehaviour
 
     void Start()
     {
-        var playerObj = GameObject.FindGameObjectWithTag("Player");
+        var playerObj = GameObject.FindGameObjectWithTag(Tags.Player);
         this.PlayerHP = playerObj.GetComponent<Health>();
         this.Experience = playerObj.GetComponent<Experience>();
     }

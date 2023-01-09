@@ -35,7 +35,7 @@ public class MenuManager : MonoBehaviour
         this.SetActiveForType(oldActive, false);
         this.SetActiveForType(ActiveMenu, true);
 
-        GameObject.FindGameObjectWithTag("GlobalManager").SendMessage("MenuPauseChanged", this.ActiveMenu != MenuType.None);
+        GameObject.FindGameObjectWithTag(Tags.GlobalManager).SendMessage(Messages.MenuPauseChanged, this.ActiveMenu != MenuType.None);
     }
 
     private void EscapePressed()
