@@ -13,8 +13,10 @@ public class PassiveTreeNode : MonoBehaviour, IPointerClickHandler
 
     public PassiveTree PassiveTree;
 
+    public string DisplayText;
+
     public string StatName;
-    public Guid StatGuid;
+    public Guid StatGuid { get; private set; }
     public int MinLevel = 0;
     public int MaxLevel = 0;
 
@@ -30,6 +32,14 @@ public class PassiveTreeNode : MonoBehaviour, IPointerClickHandler
         this.StatGuid = ReflectionUtility.ReflectPropertyFromObject<Guid>(typeof(Constants.Stats), this.StatName);
 
         this.SetupText();
+
+        var tooltipOptions = new TooltipOptions
+        {
+            Title = this.StatName,
+            Text = $"{this.DisplayText}\nLevel: {this.LevelText.text}"
+        };
+
+        this.SendMessage(Constants.Messages.SetupTooltip, tooltipOptions);
     }
 
     public void SetupText()

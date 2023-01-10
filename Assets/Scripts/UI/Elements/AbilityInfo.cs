@@ -21,16 +21,18 @@ public class AbilityInfo : MonoBehaviour
         this.tooltipOptions = new TooltipOptions()
         {
             Title = this.Ability.Info.Name,
-            Text = this.Ability.Info.Description,
+            Text = $"{this.Ability.Info.Description}\n{this.GetTagText()}",
         };
 
         this.gameObject.SendMessage(Constants.Messages.SetupTooltip, this.tooltipOptions);
     }
 
-    public void GetTooltipText()
+    public string GetTagText()
     {
         var text = "Tags:";
 
-        this.Ability.Info.Tags.ForEach(p => text += $" {p}");
+        this.Ability.Info.Tags.ForEach(p => text += $" {p},");
+
+        return text;
     }
 }

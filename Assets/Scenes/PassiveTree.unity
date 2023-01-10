@@ -365,6 +365,7 @@ GameObject:
   m_Component:
   - component: {fileID: 251212863}
   - component: {fileID: 251212864}
+  - component: {fileID: 251212865}
   m_Layer: 5
   m_Name: PassiveNode
   m_TagString: PassiveNode
@@ -409,11 +410,24 @@ MonoBehaviour:
   Icon: {fileID: 1581492450}
   LevelText: {fileID: 1141444287}
   PassiveTree: {fileID: 300837022}
+  DisplayText: Increases number of projectiles by 1 per level
   StatName: P_AdditionalProjectiles
   MinLevel: 1
   MaxLevel: 5
   CurLevel: 1
   CostPerLevel: 1500
+--- !u!114 &251212865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251212862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b66b521c24ae5a44085bf100c0cc0528, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &300837020
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,6 +524,103 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &537588122
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 838505239}
+    m_Modifications:
+    - target: {fileID: 7797501830104505026, guid: 61d2fcb52b1f4fd43b44cf5219d15205, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797501830104505026, guid: 61d2fcb52b1f4fd43b44cf5219d15205, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797501830104505026, guid: 61d2fcb52b1f4fd43b44cf5219d15205, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797501830104505026, guid: 61d2fcb52b1f4fd43b44cf5219d15205, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797501830104505026, guid: 61d2fcb52b1f4fd43b44cf5219d15205, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797501830104505026, guid: 61d2fcb52b1f4fd43b44cf5219d15205, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797501830104505026, guid: 61d2fcb52b1f4fd43b44cf5219d15205, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797501830104505026, guid: 61d2fcb52b1f4fd43b44cf5219d15205, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797501830104505026, guid: 61d2fcb52b1f4fd43b44cf5219d15205, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797501830104505026, guid: 61d2fcb52b1f4fd43b44cf5219d15205, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797501830104505026, guid: 61d2fcb52b1f4fd43b44cf5219d15205, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797501830104505026, guid: 61d2fcb52b1f4fd43b44cf5219d15205, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797501830104505026, guid: 61d2fcb52b1f4fd43b44cf5219d15205, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797501830104505026, guid: 61d2fcb52b1f4fd43b44cf5219d15205, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797501830104505026, guid: 61d2fcb52b1f4fd43b44cf5219d15205, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797501830104505026, guid: 61d2fcb52b1f4fd43b44cf5219d15205, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797501830104505026, guid: 61d2fcb52b1f4fd43b44cf5219d15205, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797501830104505026, guid: 61d2fcb52b1f4fd43b44cf5219d15205, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797501830104505026, guid: 61d2fcb52b1f4fd43b44cf5219d15205, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797501830104505026, guid: 61d2fcb52b1f4fd43b44cf5219d15205, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797501830104505026, guid: 61d2fcb52b1f4fd43b44cf5219d15205, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797501830104505027, guid: 61d2fcb52b1f4fd43b44cf5219d15205, type: 3}
+      propertyPath: m_Name
+      value: Tooltip
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 61d2fcb52b1f4fd43b44cf5219d15205, type: 3}
 --- !u!1 &694992300
 GameObject:
   m_ObjectHideFlags: 0
@@ -663,6 +774,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 713053209}
   m_CullTransparentMesh: 1
+--- !u!224 &802047307 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7797501830104505026, guid: 61d2fcb52b1f4fd43b44cf5219d15205, type: 3}
+  m_PrefabInstance: {fileID: 537588122}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &838505234
 GameObject:
   m_ObjectHideFlags: 0
@@ -774,6 +890,7 @@ RectTransform:
   - {fileID: 713053210}
   - {fileID: 1914761738}
   - {fileID: 300837021}
+  - {fileID: 802047307}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -792,6 +909,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1018430909}
   - component: {fileID: 1018430910}
+  - component: {fileID: 1018430911}
   m_Layer: 5
   m_Name: PassiveNode
   m_TagString: PassiveNode
@@ -836,11 +954,24 @@ MonoBehaviour:
   Icon: {fileID: 1409579071}
   LevelText: {fileID: 1551669861}
   PassiveTree: {fileID: 300837022}
+  DisplayText: Increases the amount of enemies your abilities pierce by 1 per level
   StatName: P_Pierce
   MinLevel: 1
   MaxLevel: 5
   CurLevel: 1
   CostPerLevel: 500
+--- !u!114 &1018430911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018430908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b66b521c24ae5a44085bf100c0cc0528, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1141444285
 GameObject:
   m_ObjectHideFlags: 0
