@@ -18,7 +18,7 @@ public class AbilityManager : MonoBehaviour
 
     private void Start()
     {
-        this.projParent = GameObject.FindGameObjectWithTag(Tags.ProjectileParent);
+        this.projParent = GameObject.FindGameObjectWithTag(Constants.Tags.ProjectileParent);
     }
 
     public void Init(List<AbilityDefinition> abilities)

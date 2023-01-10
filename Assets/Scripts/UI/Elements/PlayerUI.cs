@@ -26,7 +26,7 @@ public class PlayerUI : MonoBehaviour
     {
         this.abilityInfoPrefab = Resources.Load<GameObject>("Prefabs/UI/AbilityInfo");
 
-        this.player = GameObject.FindGameObjectWithTag(Tags.Player);
+        this.player = GameObject.FindGameObjectWithTag(Constants.Tags.Player);
 
         this.stats = player.GetComponent<EntityStats>();
         this.experience = player.GetComponent<Experience>();

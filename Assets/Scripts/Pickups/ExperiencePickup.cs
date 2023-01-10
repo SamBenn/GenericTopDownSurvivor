@@ -8,7 +8,7 @@ public class ExperiencePickup : Pickup
 
     public override void ApplyPickup()
     {
-        var player = GameObject.FindGameObjectWithTag(Tags.Player);
+        var player = GameObject.FindGameObjectWithTag(Constants.Tags.Player);
         var xp = player.GetComponent<Experience>();
 
         xp.AddXP(this.XpVal);

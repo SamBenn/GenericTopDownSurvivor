@@ -10,7 +10,7 @@ public class GameOver : MonoBehaviour
 
     private void Start()
     {
-        var levels = GameObject.FindGameObjectWithTag(Tags.GlobalStorage).GetComponent<SmallStorage>().LevelAchieved;
+        var levels = GameObject.FindGameObjectWithTag(Constants.Tags.GlobalStorage).GetComponent<SmallStorage>().LevelAchieved;
 
         levelsAchieved.text = $"Level achieved: {levels}";
     }

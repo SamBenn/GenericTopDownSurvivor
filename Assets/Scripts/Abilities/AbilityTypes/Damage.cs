@@ -42,7 +42,7 @@ public class Damage : MonoBehaviour
 
         if (timeSinceCleanupCheck >= 1f)
         {
-            var player = GameObject.FindGameObjectWithTag(Tags.Player);
+            var player = GameObject.FindGameObjectWithTag(Constants.Tags.Player);
             if (player == null)
             {
                 GameObject.Destroy(gameObject);

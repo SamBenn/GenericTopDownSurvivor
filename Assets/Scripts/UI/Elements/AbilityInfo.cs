@@ -24,7 +24,7 @@ public class AbilityInfo : MonoBehaviour
             Text = this.Ability.Info.Description,
         };
 
-        this.gameObject.SendMessage(Messages.SetupTooltip, this.tooltipOptions);
+        this.gameObject.SendMessage(Constants.Messages.SetupTooltip, this.tooltipOptions);
     }
 
     public void GetTooltipText()
