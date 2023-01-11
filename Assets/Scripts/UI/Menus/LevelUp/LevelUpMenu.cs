@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
@@ -78,7 +79,7 @@ public class LevelUpMenu : MonoBehaviour
                 var upgradeIndex = globalIndex - this.Abilities.Count;
 
                 var upgrade = this.Upgrades[upgradeIndex];
-                var stat = this.StatsToLevel.Stats.Where(p => p.PrimaryTag == upgrade.PrimaryTag).FirstOrDefault();
+                var stat = this.StatsToLevel.Stats.Where(p => p.Guid == upgrade.StatGuid).SingleOrDefault();
 
                 var typedComponent = CreateListItem<UpgradeListItem>(index);
                 typedComponent.Init(stat, upgrade);
@@ -97,9 +98,9 @@ public class LevelUpMenu : MonoBehaviour
         });
     }
 
-    public void LevelUpTag(AbilityTag tag)
+    public void LevelUpStat(Guid guid)
     {
-        this.StatsToLevel.LevelUpForTag(tag);
+        this.StatsToLevel.LevelUpForGuid(guid);
 
         this.OnSelection();
     }

@@ -2,73 +2,73 @@
 <XMLUpgradeStorage>
   <Upgrades>
     <XMLUpgrade>
-      <PrimaryTag>MovementSpeed</PrimaryTag>
+      <Stat>MovementSpeed</Stat>
       <ApplicableLevels>2-5</ApplicableLevels>
       <FlatPercent>20</FlatPercent>
     </XMLUpgrade>
     <XMLUpgrade>
-      <PrimaryTag>Health</PrimaryTag>
+      <Stat>Health</Stat>
       <ApplicableLevels>2-5</ApplicableLevels>
       <FlatValue>10</FlatValue>
     </XMLUpgrade>
     <XMLUpgrade>
-      <PrimaryTag>Health</PrimaryTag>
+      <Stat>Health</Stat>
       <ApplicableLevels>6-10</ApplicableLevels>
       <FlatPercent>10</FlatPercent>
     </XMLUpgrade>
     <XMLUpgrade>
-      <PrimaryTag>Cooldown</PrimaryTag>
+      <Stat>Cooldown</Stat>
       <ApplicableLevels>2-99</ApplicableLevels>
       <Rating>1</Rating>
       <FlatPercent>20</FlatPercent>
     </XMLUpgrade>
     <XMLUpgrade>
-      <PrimaryTag>Damage</PrimaryTag>
+      <Stat>GenericDamage</Stat>
       <ApplicableLevels>2-99</ApplicableLevels>
       <Rating>1</Rating>
     </XMLUpgrade>
     <XMLUpgrade>
-      <PrimaryTag>Ice</PrimaryTag>
+      <Stat>IceDamage</Stat>
       <ApplicableLevels>2,3</ApplicableLevels>
       <FlatValue>1</FlatValue>
     </XMLUpgrade>
     <XMLUpgrade>
-      <PrimaryTag>Ice</PrimaryTag>
+      <Stat>IceDamage</Stat>
       <ApplicableLevels>4-6</ApplicableLevels>
       <Rating>1</Rating>
     </XMLUpgrade>
     <XMLUpgrade>
-      <PrimaryTag>Ice</PrimaryTag>
+      <Stat>IceDamage</Stat>
       <ApplicableLevels>7-10</ApplicableLevels>
       <FlatPercent>10</FlatPercent>
     </XMLUpgrade>
     <XMLUpgrade>
-      <PrimaryTag>Fire</PrimaryTag>
+      <Stat>FireDamage</Stat>
       <ApplicableLevels>2,3</ApplicableLevels>
       <FlatValue>1</FlatValue>
     </XMLUpgrade>
     <XMLUpgrade>
-      <PrimaryTag>Fire</PrimaryTag>
+      <Stat>FireDamage</Stat>
       <ApplicableLevels>4-6</ApplicableLevels>
       <Rating>1</Rating>
     </XMLUpgrade>
     <XMLUpgrade>
-      <PrimaryTag>Fire</PrimaryTag>
+      <Stat>FireDamage</Stat>
       <ApplicableLevels>7-10</ApplicableLevels>
       <FlatPercent>10</FlatPercent>
     </XMLUpgrade>
     <XMLUpgrade>
-      <PrimaryTag>AreaOfEffect</PrimaryTag>
+      <Stat>AreaOfEffect</Stat>
       <ApplicableLevels>2-10</ApplicableLevels>
       <FlatPercent>20</FlatPercent>
     </XMLUpgrade>
     <XMLUpgrade>
-      <PrimaryTag>AdditionalProjectiles</PrimaryTag>
+      <Stat>P_AdditionalProjectiles</Stat>
       <ApplicableLevels>2-6</ApplicableLevels>
       <FlatValue>1</FlatValue>
     </XMLUpgrade>
     <XMLUpgrade>
-      <PrimaryTag>Pierce</PrimaryTag>
+      <Stat>P_Pierce</Stat>
       <ApplicableLevels>2-6</ApplicableLevels>
       <FlatValue>1</FlatValue>
     </XMLUpgrade>

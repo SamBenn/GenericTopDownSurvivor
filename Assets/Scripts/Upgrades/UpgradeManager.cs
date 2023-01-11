@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -16,9 +17,9 @@ public class UpgradeManager : MonoBehaviour
         this.Upgrades = upgrades;
     }
 
-    public List<UpgradeDefinition> UpgradesFor(AbilityTag tag)
+    public List<UpgradeDefinition> UpgradesFor(Guid statGuid)
     {
-        var toReturn = this.Upgrades.Where(p => p.PrimaryTag == tag).ToList();
+        var toReturn = this.Upgrades.Where(p => p.StatGuid == statGuid).ToList();
 
         return toReturn;
     }
@@ -41,13 +42,13 @@ public class UpgradeManager : MonoBehaviour
         return toReturn;
     }
 
-    private List<UpgradeDefinition> GetUpgradesForLevels(Dictionary<AbilityTag, int> tagLevelDict)
+    private List<UpgradeDefinition> GetUpgradesForLevels(Dictionary<Guid, int> tagLevelDict)
     {
         var upgradesToChooseFrom = new List<UpgradeDefinition>();
 
         tagLevelDict.ToList().ForEach(tagLevelPair =>
         {
-            var upgrades = this.Upgrades.Where(p => p.PrimaryTag == tagLevelPair.Key)
+            var upgrades = this.Upgrades.Where(p => p.StatGuid == tagLevelPair.Key)
                                         .Where(p => p.ApplicableLevels.Contains(tagLevelPair.Value + 1))
                                         .ToList();
 
@@ -60,7 +61,7 @@ public class UpgradeManager : MonoBehaviour
 
 public struct UpgradeDefinition
 {
-    public AbilityTag PrimaryTag { get; set; }
+    public Guid StatGuid { get; set; }
     public List<int> ApplicableLevels { get; set; }
     public StatsFromSource Stats { get; set; }
 }

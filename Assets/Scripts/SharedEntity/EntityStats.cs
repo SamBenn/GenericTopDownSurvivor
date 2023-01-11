@@ -36,9 +36,9 @@ public class EntityStats : MonoBehaviour
 
     public BasicStat GetStatForPrimaryTag(AbilityTag abilityTag) => this.Stats.Where(p => p.PrimaryTag == abilityTag).SingleOrDefault();
 
-    public void LevelUpForTag(AbilityTag ability)
+    public void LevelUpForGuid(Guid guid)
     {
-        var toLevel = this.Stats.Where(p => p.PrimaryTag == ability).SingleOrDefault();
+        var toLevel = this.Stats.Where(p => p.Guid == guid).SingleOrDefault();
 
         if (toLevel == null)
             return;
@@ -89,7 +89,7 @@ public class EntityStats : MonoBehaviour
         if (this.UpgradeManager == null)
             return;
 
-        this.Stats.ForEach(stat => stat.ApplyUpgrades(UpgradeManager.UpgradesFor(stat.PrimaryTag)));
+        this.Stats.ForEach(stat => stat.ApplyUpgrades(UpgradeManager.UpgradesFor(stat.Guid)));
     }
 
     private void ApplyStatLevels(Dictionary<Guid, int> levels)
@@ -103,7 +103,7 @@ public class EntityStats : MonoBehaviour
         });
     }
 
-    public Dictionary<AbilityTag, int> StatTagsAndLevels(StatVisibilityType visibility = StatVisibilityType.Public)
+    public Dictionary<Guid, int> StatTagsAndLevels(StatVisibilityType visibility = StatVisibilityType.Public)
     {
         var visibilities = new List<StatVisibilityType>();
 
@@ -114,6 +114,6 @@ public class EntityStats : MonoBehaviour
 
         var stats = this.Stats.Where(p => visibilities.Contains(p.Visibility));
 
-        return stats.ToDictionary(p => p.PrimaryTag, p => p.Level);
+        return stats.ToDictionary(p => p.Guid, p => p.Level);
     }
 }

@@ -40,6 +40,6 @@ public class UpgradeListItem : LevelUpListItem
 
     public override void OnPointerClick(PointerEventData eventData)
     {
-        this.Menu.LevelUpTag(this.upgradeDefinition.PrimaryTag);
+        this.Menu.LevelUpStat(this.upgradeDefinition.StatGuid);
     }
 }

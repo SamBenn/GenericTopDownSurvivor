@@ -25,6 +25,7 @@ public class UpgradeImporter : MonoBehaviour
         {
             var upgrade = new UpgradeDefinition
             {
+                StatGuid = ReflectionUtility.ReflectPropertyFromObject<Guid>(typeof(Constants.Stats), p.Stat),
                 ApplicableLevels = new List<int>(),
                 Stats = new StatsFromSource
                 {
@@ -34,7 +35,7 @@ public class UpgradeImporter : MonoBehaviour
                 }
             };
 
-            upgrade.PrimaryTag = EnumUtility.ParseForTag<AbilityTag>(p.PrimaryTag);
+            //upgrade.PrimaryTag = EnumUtility.ParseForTag<AbilityTag>(p.PrimaryTag);
             p.ApplicableLevels.Split(',').ToList().ForEach(level =>
             {
                 var isRange = level.Contains("-");
@@ -69,8 +70,7 @@ public class XMLUpgradeFile
 [Serializable, XmlRoot("XMLUpgrade")]
 public class XMLUpgrade
 {
-    public string Guid;
-    public string PrimaryTag;
+    public string Stat;
     public string ApplicableLevels;
     public int Rating;
     public float FlatValue;
