@@ -24,9 +24,9 @@ public class AreaOfEffectStat : UtilityStat
     {
         var toReturn = base.GetInfoForUpgrade(upgrade);
 
-        toReturn += TextForVal("Flat size", upgrade.Stats.FlatValue.ToString(), preVal: "+");
+        toReturn += TextForVal("Size", upgrade.Stats.FlatValue.ToString(), preVal: "+");
         toReturn += TextForVal("Size rating", upgrade.Stats.Rating.ToString(), preVal: "+");
-        toReturn += TextForVal("Size percentage", upgrade.Stats.FlatPercent.ToString(), preVal: "+", postVal: "%");
+        toReturn += TextForVal("Size", upgrade.Stats.FlatPercent.ToString(), preVal: "+", postVal: "%");
 
         return toReturn;
     }
