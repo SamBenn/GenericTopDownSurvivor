@@ -23,19 +23,7 @@ public class UpgradeListItem : LevelUpListItem
 
     protected override void SetUpgradeInfo()
     {
-        var text = $"{this.statDefinition.Name}:";
-
-        void AddTextForVal(string label, string value)
-        {
-            if (value != 0.ToString())
-                text += $"\n{label}: {value}";
-        }
-
-        AddTextForVal("Flat Value", this.upgradeDefinition.Stats.FlatValue.ToString());
-        AddTextForVal("Rating", this.upgradeDefinition.Stats.Rating.ToString());
-        AddTextForVal("Flat Percent", this.upgradeDefinition.Stats.FlatPercent.ToString());
-
-        this.UpgradeInfo.text = text;
+        this.UpgradeInfo.text = this.statDefinition.GetInfoForUpgrade(upgradeDefinition);
     }
 
     public override void OnPointerClick(PointerEventData eventData)

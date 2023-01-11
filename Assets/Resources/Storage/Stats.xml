@@ -4,18 +4,23 @@
     <XMLStat>
       <Guid>1b69833d-7ce1-42a3-a1fa-0ddeb3f309de</Guid>
       <Name>Health</Name>
+      <Description>Defines the maximum health of your character</Description>
       <PrimaryTag>Health</PrimaryTag>
       <ApplicationType>Multiplicative</ApplicationType>
     </XMLStat>
     <XMLStat>
       <Guid>8a2bedeb-0c9b-4b81-9821-9c46ef76092a</Guid>
       <Name>MovementSpeed</Name>
+      <PublicName>Movement Speed</PublicName>
+      <Description>Defines the speed of your character</Description>
       <PrimaryTag>MovementSpeed</PrimaryTag>
       <ApplicationType>Multiplicative</ApplicationType>
     </XMLStat>
     <XMLStat>
       <Guid>dd74c0e9-3a8e-42b1-8a32-4db09afe4a5c</Guid>
       <Name>Cooldown</Name>
+      <PublicName>Cooldown Reduction</PublicName>
+      <Description>Reduces the time between ability activation</Description>
       <PrimaryTag>Cooldown</PrimaryTag>
       <ApplicationType>Divisive</ApplicationType>
     </XMLStat>
@@ -23,6 +28,8 @@
       <Guid>f309c5e5-8957-4dbc-a179-a8fae6b1232f</Guid>
       <StatType>DamageStat</StatType>
       <Name>GenericDamage</Name>
+      <PublicName>Damage</PublicName>
+      <Description>Increases the damage of all of your abilities</Description>
       <PrimaryTag>Damage</PrimaryTag>
       <ApplicationType>Multiplicative</ApplicationType>
     </XMLStat>
@@ -30,6 +37,8 @@
       <Guid>d0440e34-fc83-4047-bc99-c83a897f8d01</Guid>
       <StatType>DamageStat</StatType>
       <Name>FireDamage</Name>
+      <PublicName>Fire Damage</PublicName>
+      <Description>Increases the damage of all of your Fire based abilities</Description>
       <PrimaryTag>Fire</PrimaryTag>
       <ApplicationType>Multiplicative</ApplicationType>
     </XMLStat>
@@ -37,6 +46,8 @@
       <Guid>3adbb138-883a-489d-8e7b-156020c868fe</Guid>
       <StatType>DamageStat</StatType>
       <Name>IceDamage</Name>
+      <PublicName>Ice Damage</PublicName>
+      <Description>Increases the damage of all of your Ice based abilities</Description>
       <PrimaryTag>Ice</PrimaryTag>
       <ApplicationType>Multiplicative</ApplicationType>
     </XMLStat>
@@ -44,6 +55,8 @@
       <Guid>623457cf-c9d1-40d0-bc7c-aae5b054458c</Guid>
       <StatType>DamageStat</StatType>
       <Name>LightningDamage</Name>
+      <PublicName>Lightning Damage</PublicName>
+      <Description>Increases the damage of all of your Lightning based abilities</Description>
       <PrimaryTag>Lightning</PrimaryTag>
       <ApplicationType>Multiplicative</ApplicationType>
     </XMLStat>
@@ -51,6 +64,8 @@
       <Guid>1f589b47-9466-4127-b014-0f1c5a3cbf21</Guid>
       <StatType>DamageStat</StatType>
       <Name>BladeDamage</Name>
+      <PublicName>Blade Damage</PublicName>
+      <Description>Increases the damage of all of your Blade based abilities</Description>
       <PrimaryTag>Blade</PrimaryTag>
       <ApplicationType>Multiplicative</ApplicationType>
     </XMLStat>
@@ -58,6 +73,8 @@
       <Guid>0279788b-b682-411d-b96a-a343ec99da74</Guid>
       <StatType>AreaOfEffectStat</StatType>
       <Name>AreaOfEffect</Name>
+      <PublicName>Area of Effect</PublicName>
+      <Description>Increases the size of all of your area of effect abilities</Description>
       <PrimaryTag>AreaOfEffect</PrimaryTag>
       <ApplicationType>Multiplicative</ApplicationType>
       <OutcomeMultiplier>.5</OutcomeMultiplier>
@@ -66,6 +83,8 @@
       <Guid>7f7f0756-0273-4af5-889b-01d78c89d5e4</Guid>
       <StatType>AdditionalProjectilesStat</StatType>
       <Name>AdditionalProjectiles</Name>
+      <PublicName>Additional Projectiles</PublicName>
+      <Description>Increases the number of projectiles fired by your abilities</Description>
       <PrimaryTag>AdditionalProjectiles</PrimaryTag>
       <ApplicationType>Multiplicative</ApplicationType>
       <Visibility>Passive</Visibility>
@@ -74,6 +93,8 @@
       <Guid>9a977fa5-2d00-4741-ad86-92bc93854d24</Guid>
       <StatType>PierceStat</StatType>
       <Name>Pierce</Name>
+      <PublicName>Projectile Pierce</PublicName>
+      <Description>Increases the number of enemies your projectiles will hit before breaking</Description>
       <PrimaryTag>Pierce</PrimaryTag>
       <ApplicationType>Multiplicative</ApplicationType>
       <Visibility>Passive</Visibility>

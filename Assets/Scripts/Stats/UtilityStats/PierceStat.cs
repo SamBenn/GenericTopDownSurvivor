@@ -14,4 +14,13 @@ public class PierceStat : UtilityStat
 
         return toReturn;
     }
+
+    public override string GetInfoForUpgrade(UpgradeDefinition upgrade)
+    {
+        var toReturn = base.GetInfoForUpgrade(upgrade);
+
+        toReturn += TextForVal("Pierce count", upgrade.Stats.FlatValue.ToString(), preVal: "+");
+
+        return toReturn;
+    }
 }

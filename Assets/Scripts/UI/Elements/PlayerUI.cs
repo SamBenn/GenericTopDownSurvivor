@@ -97,7 +97,7 @@ public class PlayerUI : MonoBehaviour
 
             this.stats.Stats.ForEach(p =>
             {
-                text += $"{p.Name} - FV: {p.CollatedFlatValue} FR: {p.CollatedRating} FP: {p.CollatedFlatPercent}%\n";
+                text += $"{p.PublicName} - FV: {p.CollatedFlatValue} FR: {p.CollatedRating} FP: {p.CollatedFlatPercent}%\n";
             });
 
             this.DebugText.text = text;

@@ -48,6 +48,8 @@ public class XMLStat
     public string Guid;
     public string StatType;
     public string Name;
+    public string PublicName;
+    public string Description;
     public string PrimaryTag;
     public string ApplicationType;
     public double LogBase;

@@ -19,4 +19,15 @@ public class AreaOfEffectStat : UtilityStat
 
         return toReturn;
     }
+
+    public override string GetInfoForUpgrade(UpgradeDefinition upgrade)
+    {
+        var toReturn = base.GetInfoForUpgrade(upgrade);
+
+        toReturn += TextForVal("Flat size", upgrade.Stats.FlatValue.ToString(), preVal: "+");
+        toReturn += TextForVal("Size rating", upgrade.Stats.Rating.ToString(), preVal: "+");
+        toReturn += TextForVal("Size percentage", upgrade.Stats.FlatPercent.ToString(), preVal: "+", postVal: "%");
+
+        return toReturn;
+    }
 }

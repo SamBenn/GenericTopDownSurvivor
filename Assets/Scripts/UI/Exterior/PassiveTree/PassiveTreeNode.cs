@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -13,10 +14,9 @@ public class PassiveTreeNode : MonoBehaviour, IPointerClickHandler
 
     public PassiveTree PassiveTree;
 
-    public string DisplayText;
-
     public string StatName;
     public Guid StatGuid { get; private set; }
+    public BasicStat Stat { get; private set; }
     public int MinLevel = 0;
     public int MaxLevel = 0;
 
@@ -27,16 +27,20 @@ public class PassiveTreeNode : MonoBehaviour, IPointerClickHandler
     public int DisplayLevel => this.CurLevel - 1;
     public int DisplayMaxLevel => this.MaxLevel - 1;
 
-    public void Init()
+    public void Init(List<BasicStat> allStats)
     {
         this.StatGuid = ReflectionUtility.ReflectPropertyFromObject<Guid>(typeof(Constants.Stats), this.StatName);
+        this.Stat = allStats.Where(p => p.Guid == this.StatGuid).SingleOrDefault();
+
+        if (this.Stat == null)
+            throw new InvalidOperationException($"Stat cannot be found for name: {this.StatName}, it reflected guid: {this.StatGuid}");
 
         this.SetupText();
 
         var tooltipOptions = new TooltipOptions
         {
-            Title = this.StatName,
-            Text = $"{this.DisplayText}\nLevel: {this.LevelText.text}"
+            Title = this.Stat.PublicName,
+            Text = $"{this.Stat.Description}\nLevel: {this.LevelText.text}"
         };
 
         this.SendMessage(Constants.Messages.SetupTooltip, tooltipOptions);

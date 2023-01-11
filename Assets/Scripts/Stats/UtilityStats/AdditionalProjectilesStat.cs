@@ -14,4 +14,14 @@ public class AdditionalProjectilesStat : UtilityStat
 
         return toReturn;
     }
+
+    public override string GetInfoForUpgrade(UpgradeDefinition upgrade)
+    {
+        var toReturn = base.GetInfoForUpgrade(upgrade);
+
+        toReturn += TextForVal("Additional projectiles", upgrade.Stats.FlatValue.ToString(), preVal: "+");
+        toReturn += TextForVal("Increased projectiles", upgrade.Stats.FlatPercent.ToString(), preVal: "+", postVal: "%");
+
+        return toReturn;
+    }
 }

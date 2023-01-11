@@ -6,23 +6,23 @@ using UnityEngine;
 
 public class PassiveTree : MonoBehaviour
 {
-    private GameObject StateStorageObj;
     private StateStorage StateStorage;
+    private StatStorage StatStorage;
 
     private List<PassiveTreeNode> Nodes;
 
     private void Start()
     {
-        this.StateStorageObj = GameObject.FindGameObjectWithTag(Constants.Tags.StateStorage);
-        this.StateStorage = StateStorageObj.GetComponent<StateStorage>();
+        this.StateStorage = GameObject.FindGameObjectWithTag(Constants.Tags.StateStorage).GetComponent<StateStorage>();
+        this.StatStorage = GameObject.FindGameObjectWithTag(Constants.Tags.GlobalStorage).GetComponent<StatStorage>();
 
-        this.Nodes = GameObject.FindGameObjectsWithTag("PassiveNode").Select(p => p.GetComponent<PassiveTreeNode>()).ToList();
+        this.Nodes = this.gameObject.GetComponentsInChildren<PassiveTreeNode>().ToList();
 
         this.Nodes.ForEach(p =>
         {
             p.PassiveTree = this;
 
-            p.Init();
+            p.Init(this.StatStorage.DefaultStats);
 
             if (this.StateStorage.PassiveLevels.ContainsKey(p.StatGuid))
                 p.CurLevel = this.StateStorage.PassiveLevels[p.StatGuid] + 1;

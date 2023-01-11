@@ -44,6 +44,8 @@ public class BasicStat
 
     public Guid Guid { get; set; }
     public string Name { get; set; }
+    public string PublicName { get; private set; }
+    public string Description { get; private set; }
 
     public virtual void Import(XMLStat stat)
     {
@@ -56,6 +58,10 @@ public class BasicStat
         this.Guid = new Guid(stat.Guid);
 
         this.Name = stat.Name;
+
+        this.PublicName = string.IsNullOrEmpty(stat.PublicName) ? this.Name : stat.PublicName;
+        this.Description = stat.Description;
+
         this.PrimaryTag = EnumUtility.ParseForTag<AbilityTag>(stat.PrimaryTag);
 
         this.ApplicationType = EnumUtility.ParseForTag<StatApplicationType>(stat.ApplicationType);
@@ -95,6 +101,12 @@ public class BasicStat
         return toReturn;
     }
 
+    public virtual string GetInfoForUpgrade(UpgradeDefinition upgrade)
+    {
+        var text = $"{this.PublicName}:\n{this.Description}";
+        return text;
+    }
+
     protected virtual T GetCollatedValue<T>(Func<StatsFromSource, T> action)
     {
         dynamic toReturn = action.Invoke(this.EntityBase);
@@ -109,6 +121,14 @@ public class BasicStat
         }
 
         return toReturn;
+    }
+
+    protected string TextForVal(string label, string value, string preVal = "", string postVal = "")
+    {
+        if (value != 0.ToString())
+            return $"\n{label}: {preVal}{value}{postVal}";
+
+        return string.Empty;
     }
 }
 
