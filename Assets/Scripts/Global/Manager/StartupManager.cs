@@ -6,15 +6,7 @@ public class StartupManager : MonoBehaviour
 {
     void Start()
     {
-        if (GameObject.FindGameObjectWithTag(Constants.Tags.GlobalStorage) == null)
-            this.InitGlobalStorage();
-
         this.InitGlobalManager();
-    }
-
-    private void InitGlobalStorage()
-    {
-        this.LoadAndInstantiate("GlobalStorage");
     }
 
     private void InitGlobalManager()
@@ -24,7 +16,6 @@ public class StartupManager : MonoBehaviour
 
     private void LoadAndInstantiate(string prefabName)
     {
-
         var prefab = Resources.Load<GameObject>($"Prefabs/Global/{prefabName}");
         GameObject.Instantiate(prefab);
     }

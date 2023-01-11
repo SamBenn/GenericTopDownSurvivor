@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StateStoragePrefab: {fileID: 5236364816306044920, guid: f336e2620b8375443a96762ee564b4af, type: 3}
+  GlobalStoragePrefab: {fileID: 4688487823373940608, guid: d6c2b73ff3719d946b2b3a329dba57af, type: 3}
 --- !u!4 &359925994
 Transform:
   m_ObjectHideFlags: 0
