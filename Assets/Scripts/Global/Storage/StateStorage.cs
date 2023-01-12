@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class StateStorage : MonoBehaviour
 {
-    public int Money { get; private set; } = 200000;
+    public int Money { get; private set; } = 0;
     public Dictionary<Guid, int> PassiveLevels { get; private set; } = new Dictionary<Guid, int>();
 
     void Start()
