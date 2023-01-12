@@ -54,6 +54,18 @@ public class Ability
 
         this.Instances.Clear();
     }
+
+    public string InfoForAbility(EntityStats stats)
+    {
+        var infoString = string.Empty;
+
+        this.Info.Tags.ForEach(tag =>
+        {
+
+        });
+
+        return infoString;
+    }
 }
 
 public struct AbilityDefinition
