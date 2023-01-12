@@ -26,7 +26,7 @@ public class PlayerManager : MonoBehaviour
         this.Enable();
 
         // To be rewritten once "classes" exist
-        this.abilityManager.AddAbility(Constants.Abilities.LightningArc);
+        this.abilityManager.AddAbility(Constants.Abilities.SpectralBlade);
     }
 
     private void GetManagers()

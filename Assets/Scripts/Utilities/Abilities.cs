@@ -19,7 +19,7 @@ public static class AbilityUtility
         switch (tag)
         {
             case AbilityTag.Damage:
-                AddLine("Damage", stats.GetAppliedValueForTag(ability.Info.BaseDamage, tag, ability.Info.Tags));
+                AddLine("Damage", stats.GetAppliedValueForTag(ability.Info.BaseDamage, tag, ability.Info.Tags, statType: typeof(DamageStat)));
                 break;
 
             case AbilityTag.Cooldown:
