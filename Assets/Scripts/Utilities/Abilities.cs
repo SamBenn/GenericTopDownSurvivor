@@ -27,7 +27,7 @@ public static class AbilityUtility
                 break;
 
             case AbilityTag.AdditionalProjectiles:
-                AddLine("Projectiles", stats.GetAppliedValueForTag(ability.Info.AdditionalProjectiles, tag) + 1);
+                AddLine("Projectiles", stats.GetAppliedValueForTag(ability.Info.AdditionalProjectiles, tag));
                 AddLine("Additional Projectile Angle", ability.Info.AdditionalProjAngle);
                 break;
 

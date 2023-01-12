@@ -15,4 +15,9 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("PassiveTree");
     }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }
