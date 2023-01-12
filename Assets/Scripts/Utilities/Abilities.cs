@@ -12,7 +12,7 @@ public static class AbilityUtility
         {
             if (!string.IsNullOrEmpty(label))
             {
-                toReturn = $"\n{label}: {val}";
+                toReturn += $"\n{label}: {val}";
             }
         }
 
@@ -27,12 +27,16 @@ public static class AbilityUtility
                 break;
 
             case AbilityTag.AdditionalProjectiles:
-                AddLine("Projectiles", stats.GetAppliedValueForTag(ability.Info.AdditionalProjectiles, tag));
+                AddLine("Projectiles", stats.GetAppliedValueForTag(ability.Info.AdditionalProjectiles, tag) + 1);
                 AddLine("Additional Projectile Angle", ability.Info.AdditionalProjAngle);
                 break;
 
             case AbilityTag.AreaOfEffect:
-                AddLine("Projectiles", stats.GetAppliedValueForTag(2, tag));
+                AddLine("Area multiplier", stats.GetAppliedValueForTag(2, tag));
+                break;
+
+            case AbilityTag.Pierce:
+                AddLine("Pierce Count", stats.GetAppliedValueForTag(ability.Info.MaxPierce, tag));
                 break;
         }
 

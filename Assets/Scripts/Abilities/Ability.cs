@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Ability
@@ -59,9 +60,12 @@ public class Ability
     {
         var infoString = string.Empty;
 
-        this.Info.Tags.ForEach(tag =>
-        {
+        var orderedTags = this.Info.Tags.ToDictionary(p => (int)p, p => p)
+            .OrderBy(p => p.Key).Select(p => p.Value).ToList();
 
+        orderedTags.ForEach(tag =>
+        {
+            infoString += AbilityUtility.InfoForTag(tag, this, stats);
         });
 
         return infoString;

@@ -47,6 +47,8 @@ public class BasicStat
     public string PublicName { get; private set; }
     public string Description { get; private set; }
 
+    public virtual float DefaultFlatVal => 0;
+
     public virtual void Import(XMLStat stat)
     {
         if (stat == null)

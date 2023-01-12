@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AreaOfEffectStat : UtilityStat
 {
+    public override float DefaultFlatVal => 2;
+
     public override UtilityApplicationResult TargettingApplyToAbility(UtilityApplicationInfo info)
     {
         var toReturn = new UtilityApplicationResult(info);
@@ -15,7 +17,7 @@ public class AreaOfEffectStat : UtilityStat
     {
         var toReturn = new UtilityApplicationResult(info);
 
-        toReturn.Scale = (float)StatUtilities.GetAppliedValueForTag(info.AllStats, 2, info.ActiveStat.PrimaryTag);
+        toReturn.Scale = (float)StatUtilities.GetAppliedValueForTag(info.AllStats, 0, info.ActiveStat.PrimaryTag);
 
         return toReturn;
     }

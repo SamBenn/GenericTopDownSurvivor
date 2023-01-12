@@ -260,7 +260,7 @@ public class AbilityManager : MonoBehaviour
             var angle = 0f;
             var projAnglePer = info.AbilityInfo.AdditionalProjAngle;
 
-            var tagSpecificSpawningResult = this.TagSpecificSpawning(info.AbilityInfo);
+            var tagSpecificSpawningResult = this.TagSpecificSpawning(info.AbilityInfo, collatedUtilResults);
 
             if (tagSpecificSpawningResult.Actioned)
             {
@@ -285,7 +285,7 @@ public class AbilityManager : MonoBehaviour
         return toReturn;
     }
 
-    TagSpecificSpawningResult TagSpecificSpawning(AbilityDefinition abilityInfo)
+    TagSpecificSpawningResult TagSpecificSpawning(AbilityDefinition abilityInfo, UtilityApplicationResult collatedUtilityApplication)
     {
         var toReturn = new TagSpecificSpawningResult();
 
@@ -294,7 +294,7 @@ public class AbilityManager : MonoBehaviour
             switch (tag)
             {
                 case AbilityTag.Barrier:
-                    toReturn.SpawnAngle = 360 / (abilityInfo.AdditionalProjectiles + 1);
+                    toReturn.SpawnAngle = 360 / (collatedUtilityApplication.AdditionalProjectiles + 1);
                     toReturn.Actioned = true;
                     break;
             }

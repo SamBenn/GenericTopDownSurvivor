@@ -38,7 +38,7 @@ public static class StatUtilities
             return 0;
         }
 
-        var flatValue = additionalFlatValue;
+        var flatValue = primaryStat.DefaultFlatVal + additionalFlatValue;
         var rating = additionalRating;
         var flatPercent = additionalFlatPercentage;
 

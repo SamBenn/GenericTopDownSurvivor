@@ -14,11 +14,30 @@ public class StatusMenu : BaseSubMenu
 
     private void OnEnable()
     {
+        this.SetupTabs();
+
         this.ClickIndex(0);
+    }
+
+    private void SetupTabs()
+    {
+        Tabs.ForEach(t => t.SetActive(false));
+        var index = 0;
+        this.AbilityManager.SelectedAbilities.ForEach(ability =>
+        {
+            var tab = this.Tabs[index];
+            tab.SetActive(true);
+            tab.GetComponentInChildren<RawImage>().texture = Resources.Load<Texture>($"Sprites/AbilityIcons/{ability.Info.Name}");
+
+            index++;
+        });
     }
 
     private void ClickIndex(int index)
     {
+        if(index >= Tabs.Count)
+            return;
+
         var ability = this.AbilityManager.SelectedAbilities[index];
 
         this.SetText(ability);
