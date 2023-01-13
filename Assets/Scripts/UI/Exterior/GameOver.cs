@@ -15,9 +15,9 @@ public class GameOver : MonoBehaviour
         //var stateStorage = globalStorageObj.GetComponent<StateStorage>();
 
         var levels = smallStorage.LevelAchieved;
-        var moneyDiff = "shrug";
+        var moneyDiff = levels * 100;
 
-        levelsAchieved.text = $"Level achieved: {levels}\nMoney earned: {moneyDiff}";
+        levelsAchieved.text = $"Level achieved: {levels}\nMoney earned: (atleast) {moneyDiff}";
     }
 
     public void MainMenu()
