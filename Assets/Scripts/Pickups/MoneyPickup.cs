@@ -6,6 +6,14 @@ public class MoneyPickup : Pickup
 {
     public int MoneyVal = 10;
 
+    public override void Init(PickupOptions pickupOptions)
+    {
+        base.Init(pickupOptions);
+
+        if (pickupOptions.Val > 0)
+            this.MoneyVal = (int)pickupOptions.Val;
+    }
+
     public override void ApplyPickup()
     {
         Target.SendMessage(Constants.Messages.MoneyGained, this.MoneyVal);

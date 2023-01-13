@@ -7,6 +7,11 @@ public class Pickup : MonoBehaviour
 {
     public Transform Target;
 
+    public virtual void Init(PickupOptions pickupOptions)
+    {
+        this.Target = pickupOptions.Target;
+    }
+
     private void Update()
     {
         if(Vector2.Distance(this.transform.position, Target.position) < 2.5f)

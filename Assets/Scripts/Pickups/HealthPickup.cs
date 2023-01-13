@@ -1,10 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class HealthPickup : Pickup
 {
     public float HPVal = 20;
+
+    public override void Init(PickupOptions pickupOptions)
+    {
+        base.Init(pickupOptions);
+
+        if (pickupOptions.Val > 0)
+            this.HPVal = (float)pickupOptions.Val;
+    }
 
     public override void ApplyPickup()
     {

@@ -16,28 +16,22 @@ public class PickupDropper : MonoBehaviour
 
         var obj = GameObject.Instantiate(pickupToDrop.GameObject, this.transform.position, Quaternion.identity);
 
-        var pickupComp = obj.GetComponent<Pickup>();
-        if(pickupComp != null)
-        {
-            pickupComp.Target = options.Target;
-        }
-
         var xpComp = obj.GetComponent<ExperiencePickup>();
-        if(xpComp != null)
+        if (xpComp != null)
         {
-            xpComp.XpVal = (float)options.Val;
+            xpComp.Init(options);
         }
 
         var healthComp = obj.GetComponent<HealthPickup>();
         if (healthComp != null)
         {
-            healthComp.HPVal = (float)options.Val;
+            healthComp.Init(options);
         }
 
         var moneyComp = obj.GetComponent<MoneyPickup>();
         if (moneyComp != null)
         {
-            moneyComp.MoneyVal = (int)options.Val;
+            moneyComp.Init(options);
         }
     }
 }

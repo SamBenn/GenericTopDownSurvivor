@@ -23,6 +23,9 @@ public class Health : MonoBehaviour
         if (this.EntityStats == null)
         {
             this.EntityStats = gameObject.GetComponent<EntityStats>();
+
+            if (EntityStats == null)
+                this.maxHp = this.BaseHP;
         }
 
         this.curHp = this.maxHp;
@@ -31,6 +34,9 @@ public class Health : MonoBehaviour
     public void Heal(float hp)
     {
         this.curHp += hp;
+
+        if (this.curHp > this.maxHp)
+            this.curHp = this.maxHp;
 
         if (UpdateHPBar != null)
             this.UpdateHPBar();
@@ -94,6 +100,9 @@ public class Health : MonoBehaviour
 
                 enemyComponent.OnDeath();
             }
+
+            if (pickupOptions.Target == null)
+                pickupOptions.Target = GameObject.FindGameObjectWithTag(Constants.Tags.Player).transform;
 
             this.SendMessage(Constants.Messages.OnDeath, pickupOptions, SendMessageOptions.DontRequireReceiver);
         }
