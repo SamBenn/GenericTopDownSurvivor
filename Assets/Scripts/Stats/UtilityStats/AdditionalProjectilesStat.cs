@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AdditionalProjectilesStat : UtilityStat
 {
-    public override float DefaultFlatVal => 1;
+    public override float DefaultFlatVal => 0;
     public override UtilityApplicationResult SpawnApplyToAbility(UtilityApplicationInfo info)
     {
         var toReturn = base.SpawnApplyToAbility(info);

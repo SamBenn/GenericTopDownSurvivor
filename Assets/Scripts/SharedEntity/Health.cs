@@ -28,6 +28,14 @@ public class Health : MonoBehaviour
         this.curHp = this.maxHp;
     }
 
+    public void Heal(float hp)
+    {
+        this.curHp += hp;
+
+        if (UpdateHPBar != null)
+            this.UpdateHPBar();
+    }
+
     public void Hit(float dmg)
     {
         this.curHp -= dmg;
@@ -73,18 +81,21 @@ public class Health : MonoBehaviour
 
         if (!this.IsDead)
         {
-            var xp = Resources.Load("Prefabs/Pickups/Experience");
-            var xpObj = GameObject.Instantiate(xp, this.transform.position, Quaternion.identity);
-
-            var xpComponent = xpObj.GetComponent<ExperiencePickup>();
-            xpComponent.XpVal = this.maxHp;
+            var pickupOptions = new PickupOptions();
 
             var enemyComponent = this.gameObject.GetComponent<BasicEnemy>();
             if (enemyComponent != null)
             {
-                xpComponent.Target = enemyComponent.Target.transform;
+                pickupOptions.Target = enemyComponent.Target.transform;
+                pickupOptions.Val = enemyComponent.DefaultXPVal * enemyComponent.XPMulti;
+
+                if (pickupOptions.Val <= 0)
+                    pickupOptions.Val = this.maxHp * enemyComponent.XPMulti;
+
                 enemyComponent.OnDeath();
             }
+
+            this.SendMessage(Constants.Messages.OnDeath, pickupOptions, SendMessageOptions.DontRequireReceiver);
         }
 
         this.IsDead = true;

@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 842297399440096808}
   - component: {fileID: 2296372123025287131}
   - component: {fileID: 7023832252193367688}
+  - component: {fileID: -1742745727521170755}
   m_Layer: 0
   m_Name: Stabber
   m_TagString: Enemy
@@ -137,6 +138,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Manager: {fileID: 0}
   Target: {fileID: 0}
+  DefaultXPVal: 0
+  XPMulti: 1
 --- !u!114 &2615016804274184673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,6 +251,21 @@ MonoBehaviour:
       FlatValue: 1.5
       Rating: 0
       FlatPercent: 0
+--- !u!114 &-1742745727521170755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4770043429259377623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a0c12a50c93f73428658bca720b241d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Droppables:
+  - Weight: 1
+    GameObject: {fileID: 2731078312121512992, guid: c8f391c263ab82a4790c7021d75256d2, type: 3}
 --- !u!1001 &1644567885057845532
 PrefabInstance:
   m_ObjectHideFlags: 0

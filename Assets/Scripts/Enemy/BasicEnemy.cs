@@ -16,6 +16,9 @@ public class BasicEnemy : MonoBehaviour
 
     bool playerInTrigger = false;
 
+    public float DefaultXPVal;
+    public float XPMulti = 1;
+
     private void Start()
     {
         this.stats = this.gameObject.GetComponent<EntityStats>();

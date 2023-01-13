@@ -15,5 +15,7 @@ public static partial class Constants
         // Non global
         public static readonly string SetupTooltip = "SetupTooltip";
         public static readonly string MenuPauseChanged = "MenuPauseChanged";
+        public static readonly string Heal = "Heal";
+        public static readonly string OnDeath = "OnDeath";
     }
 }

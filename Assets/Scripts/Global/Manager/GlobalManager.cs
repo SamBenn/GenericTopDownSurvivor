@@ -40,7 +40,7 @@ public class GlobalManager : MonoBehaviour
 
         this.PlayerObj.GetComponent<AbilityManager>().Init(this.GlobalStorageObj.GetComponent<AbilityStorage>().Abilities);
         this.EnableComponent<PlayerManager>(PlayerObj);
-        this.PlayerObj.GetComponent<PlayerManager>().Init();
+        this.PlayerObj.GetComponent<PlayerManager>().Init(this.StateStorageObj);
 
         this.EnableComponent<PlayerUI>(UIObj);
 

@@ -10,6 +10,7 @@ public class PlayerManager : MonoBehaviour
 
     // Local Info
     private StatStorage statStorage;
+    private GameObject stateStorage;
 
     private CharacterController controller;
     private AbilityManager abilityManager;
@@ -18,15 +19,17 @@ public class PlayerManager : MonoBehaviour
 
     private bool hasDelayStarted = false;
 
-    public void Init()
+    public void Init(GameObject stateStorageObj)
     {
+        this.stateStorage = stateStorageObj;
+
         this.GetManagers();
         this.GatherClasses();
         this.ApplyToChildren();
         this.Enable();
 
         // To be rewritten once "classes" exist
-        this.abilityManager.AddAbility(Constants.Abilities.RighteousFire);
+        this.abilityManager.AddAbility(Constants.Abilities.SpectralBlade);
     }
 
     private void GetManagers()
@@ -64,5 +67,10 @@ public class PlayerManager : MonoBehaviour
             return;
 
         this.health.UpdateHPBar();
+    }
+
+    private void MoneyGained(int money)
+    {
+        this.stateStorage.SendMessage(Constants.Messages.MoneyGained, money);
     }
 }
