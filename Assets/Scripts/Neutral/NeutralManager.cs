@@ -35,7 +35,6 @@ public class NeutralManager : MonoBehaviour
         var location = GetSpawnLocationFor(this.Target.position);
 
         var instance = GameObject.Instantiate(prefab, location, Quaternion.identity);
-        Debug.Log($"{instance.name} Spawned");
         instance.transform.SetParent(this.transform);
     }
 
