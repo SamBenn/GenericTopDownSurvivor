@@ -93,9 +93,7 @@ public class EnemyManager : MonoBehaviour
 
     public Vector2 GetSpawnLocationFor(Vector2 target)
     {
-        var angle = (double)UnityEngine.Random.Range(0, 360);
-        var dirVector = new Vector2((float)Math.Cos(angle), (float)Math.Sin(angle));
-        var toReturn = target + dirVector * 15f;
+        var toReturn = VectorUtil.GetRandomLocationFromTarget(target, 15f);
         return toReturn;
     }
 }
