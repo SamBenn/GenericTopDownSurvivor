@@ -66,7 +66,7 @@ public class EnemyManager : MonoBehaviour
 
             if(current != null)
             {
-                current.AddToTrackedEntities(current.GetTracked());
+                current.AddToTrackedEntities(old.GetTracked());
             }
         });
 
