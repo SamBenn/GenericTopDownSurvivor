@@ -154,6 +154,8 @@
       <AdditionalProjAngle>15</AdditionalProjAngle>
       <ProjSpeed>15</ProjSpeed>
       <Timeout>2</Timeout>
+      <Multistrike>true</Multistrike>
+      <MultistrikeTimeout>.2</MultistrikeTimeout>
     </XMLAbility>
   </Abilities>
 </XMLAbilityStorage>

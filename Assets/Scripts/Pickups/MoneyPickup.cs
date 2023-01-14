@@ -16,7 +16,7 @@ public class MoneyPickup : Pickup
 
     public override void ApplyPickup()
     {
-        Target.SendMessage(Constants.Messages.MoneyGained, this.MoneyVal);
+        GameObject.FindGameObjectWithTag(Constants.Tags.GlobalManager).SendMessage(Constants.Messages.MoneyGained, this.MoneyVal);
 
         base.ApplyPickup();
     }

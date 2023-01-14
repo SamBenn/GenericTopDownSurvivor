@@ -46,6 +46,8 @@ public class GlobalManager : MonoBehaviour
 
         this.EnemyManagerObj.GetComponent<EnemyManager>().GlobalStorage = this.GlobalStorageObj;
         this.EnableComponent<EnemyManager>(EnemyManagerObj);
+
+        this.GlobalStorageObj.GetComponent<SmallStorage>().MoneyAtStart = stateStorage.Money;
     }
 
     private void InitMessageManager()

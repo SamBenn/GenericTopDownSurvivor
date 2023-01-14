@@ -28,21 +28,26 @@ public class MessageManager : MonoBehaviour
         this.MessageObjects(Constants.Messages.AddAbility, abilityGuid, this.Player, this.UI);
     }
 
-    public void PlayerDied(int levelAchieved)
+    private void PlayerDied(int levelAchieved)
     {
         this.MessageObjects(Constants.Messages.PlayerDied, levelAchieved, this.GlobalStorage, this.StateStorage);
     }
 
-    public void MoneyGained(int moneyGained)
+    private void MoneyGained(int moneyGained)
     {
-        this.MessageObjects(Constants.Messages.MoneyGained, moneyGained, this.StateStorage);
+        this.MessageObjects(Constants.Messages.MoneyGained, moneyGained, this.StateStorage, this.UI);
+    }
+
+    private void GameStart()
+    {
+        //this.MessageObjects(Constants.Messages.GameStart, null, this.StateStorage);
     }
     #endregion
 
     #region Subscribers
     private void MessageObjects(string message, object data, params GameObject[] gameObjects)
     {
-        gameObjects.ToList().ForEach(p => p.SendMessage(message, data));
+        gameObjects.ToList().ForEach(p => p.SendMessage(message, data, SendMessageOptions.DontRequireReceiver));
     }
     #endregion
 }

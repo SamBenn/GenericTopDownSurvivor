@@ -11,6 +11,7 @@ public static partial class Constants
         public static readonly string AddAbility = "AddAbility";
         public static readonly string PlayerDied = "PlayerDied";
         public static readonly string MoneyGained = "MoneyGained";
+        public static readonly string GameStart = "GameStart";
 
         // Non global
         public static readonly string SetupTooltip = "SetupTooltip";

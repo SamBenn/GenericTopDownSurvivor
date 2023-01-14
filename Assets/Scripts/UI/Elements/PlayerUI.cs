@@ -15,6 +15,9 @@ public class PlayerUI : MonoBehaviour
     public Text DebugText;
     public Text ExperienceText;
     public Text TimeText;
+    public Text MoneyText;
+
+    private int money = 0;
 
     public GameObject abilityWrapper;
     private GameObject abilityInfoPrefab;
@@ -107,5 +110,17 @@ public class PlayerUI : MonoBehaviour
             this.DebugText.enabled = false;
         }
 
+    }
+
+    private void MoneyGained(int amount)
+    {
+        this.money += amount;
+
+        this.SetMoneyText();
+    }
+
+    private void SetMoneyText()
+    {
+        this.MoneyText.text = $"Money earned: {this.money}";
     }
 }

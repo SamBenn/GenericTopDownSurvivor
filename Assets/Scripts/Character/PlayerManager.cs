@@ -68,9 +68,4 @@ public class PlayerManager : MonoBehaviour
 
         this.health.UpdateHPBar();
     }
-
-    private void MoneyGained(int money)
-    {
-        this.stateStorage.SendMessage(Constants.Messages.MoneyGained, money);
-    }
 }

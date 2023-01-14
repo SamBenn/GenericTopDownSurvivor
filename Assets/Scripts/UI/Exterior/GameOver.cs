@@ -12,12 +12,12 @@ public class GameOver : MonoBehaviour
     {
         var globalStorageObj = GameObject.FindGameObjectWithTag(Constants.Tags.GlobalStorage);
         var smallStorage = globalStorageObj.GetComponent<SmallStorage>();
-        //var stateStorage = globalStorageObj.GetComponent<StateStorage>();
+        var stateStorage = GameObject.FindGameObjectWithTag(Constants.Tags.StateStorage).GetComponent<StateStorage>();
 
         var levels = smallStorage.LevelAchieved;
-        var moneyDiff = levels * 100;
+        var moneyDiff = stateStorage.Money - smallStorage.MoneyAtStart;
 
-        levelsAchieved.text = $"Level achieved: {levels}\nMoney earned: (atleast) {moneyDiff}";
+        levelsAchieved.text = $"Level achieved: {levels}\nMoney earned: {moneyDiff}";
     }
 
     public void MainMenu()
