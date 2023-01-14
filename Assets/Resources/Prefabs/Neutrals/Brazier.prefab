@@ -147,10 +147,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Droppables:
-  - Weight: 1
+  - Weight: 50
     GameObject: {fileID: 2731078312121512992, guid: aad0d74774a04fb4db5804701ae60835, type: 3}
-  - Weight: 1
+  - Weight: 100
     GameObject: {fileID: 2731078312121512992, guid: 82fa1bc717b94aa4ab7461bc6b24be7c, type: 3}
+  - Weight: 10
+    GameObject: {fileID: 2731078312121512992, guid: 2ba04d6f9ede1ca4bb8e823499f4bca1, type: 3}
+  - Weight: 1
+    GameObject: {fileID: 2731078312121512992, guid: aa7ac367696d4c74b96140d0513de5df, type: 3}
 --- !u!58 &7686263987063063931
 CircleCollider2D:
   m_ObjectHideFlags: 0

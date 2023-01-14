@@ -9,7 +9,7 @@ public class PickupDropper : MonoBehaviour
 
     private void OnDeath(PickupOptions options)
     {
-        var pickupToDrop = Droppables.GetRandom();
+        var pickupToDrop = Droppables.GetWeightedRandom();
 
         if (pickupToDrop.GameObject == null)
             return;
@@ -43,8 +43,10 @@ public struct PickupOptions
 }
 
 [Serializable]
-public struct PickupDropable
+public struct PickupDropable : IWeighted
 {
-    public float Weight;
+    public int Weight;
     public GameObject GameObject;
+
+    int IWeighted.Weight => this.Weight;
 }

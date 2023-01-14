@@ -9,10 +9,12 @@ public static class RandomUtil
     {
         int[] result = new int[count];
         List<int> numbersInOrder = new List<int>();
+
         for (var i = min; i < max; i++)
         {
             numbersInOrder.Add(i);
         }
+
         for (var i = 0; i < count; i++)
         {
             var randomIndex = UnityEngine.Random.Range(0, numbersInOrder.Count);
@@ -36,6 +38,7 @@ public static class RandomUtil
                 indexes.Add(i);
             }
         }
+
         for (var i = 0; i < count; i++)
         {
             var randomIndex = UnityEngine.Random.Range(0, indexes.Count);
@@ -51,5 +54,5 @@ public static class RandomUtil
 
 public interface IWeighted
 {
-    public float Weight { get; set; }
+    public int Weight { get; }
 }
