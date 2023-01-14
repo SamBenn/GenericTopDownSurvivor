@@ -16,6 +16,7 @@ public class PlayerManager : MonoBehaviour
     private AbilityManager abilityManager;
     private EntityStats entityStats;
     private Health health;
+    private FactionState factionState;
 
     private bool hasDelayStarted = false;
 
@@ -43,6 +44,7 @@ public class PlayerManager : MonoBehaviour
         this.abilityManager = gameObject.GetComponent<AbilityManager>();
         this.entityStats = gameObject.GetComponent<EntityStats>();
         this.health = gameObject.GetComponent<Health>();
+        this.factionState = gameObject.GetComponent<FactionState>();
     }
 
     private void ApplyToChildren()
@@ -51,6 +53,7 @@ public class PlayerManager : MonoBehaviour
 
         this.controller.EntityStats = this.entityStats;
         this.abilityManager.EntityStats = this.entityStats;
+        this.abilityManager.FactionState = this.factionState;
         this.health.EntityStats = this.entityStats;
     }
 

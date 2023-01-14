@@ -7,6 +7,7 @@ using UnityEngine;
 public class AbilityManager : MonoBehaviour
 {
     public EntityStats EntityStats { get; set; }
+    public FactionState FactionState { get; set; }
 
     private List<Ability> _abilities = new List<Ability>();
 
@@ -239,8 +240,10 @@ public class AbilityManager : MonoBehaviour
             {
                 damageComp.EntityStats = this.EntityStats;
                 damageComp.Info = info.AbilityInfo;
-                damageComp.AddPierced(gameObject.GetInstanceID(), isCaster: true, timeoutOverride: info.AbilityInfo.Timeout);
+                damageComp.AddPierced(gameObject.GetInstanceID(), ignoreCount: true, timeoutOverride: info.AbilityInfo.Timeout);
                 damageComp.MaxPierce = collatedUtilResults.MaxPierce;
+                //need to make this more flexible
+                damageComp.faction = this.FactionState.GetFactions[0].Key;
             }
 
             var barrierComp = proj.GetComponent<Barrier>();
