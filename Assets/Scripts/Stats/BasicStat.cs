@@ -49,6 +49,8 @@ public class BasicStat
 
     public virtual float DefaultFlatVal => 0;
 
+    private List<StatsFromEffectSource> effects = new List<StatsFromEffectSource>();
+
     public virtual void Import(XMLStat stat)
     {
         if (stat == null)
@@ -96,6 +98,28 @@ public class BasicStat
         return (BasicStat)MemberwiseClone();
     }
 
+    public void AddEffect(StatsFromEffectSource effect)
+    {
+        this.effects.Add(effect);
+    }
+
+    public void RemoveEffect(int instanceId)
+    {
+        var index = -1;
+
+        for (int i = 0; i < this.effects.Count; i++)
+        {
+            if (this.effects[i].InstanceId == instanceId)
+            {
+                index = i;
+                break;
+            }
+        }
+
+        if(index > -1)
+            this.effects.RemoveAt(index);
+    }
+
     public bool ShouldApplyToTags(List<AbilityTag> abilityTags)
     {
         var toReturn = !this.AbilityTags.Except(abilityTags).Any();
@@ -120,6 +144,11 @@ public class BasicStat
                 this.Upgrades.Where(p => p.ApplicableLevels.Contains(i)).ToList()
                     .ForEach(upgrade => toReturn += action.Invoke(upgrade.Stats));
             }
+        }
+
+        if (this.effects.Any())
+        {
+            this.effects.ForEach(effect => toReturn += action.Invoke(effect.Stats));
         }
 
         return toReturn;

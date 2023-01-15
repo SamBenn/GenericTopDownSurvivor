@@ -906,6 +906,8 @@ GameObject:
   m_Component:
   - component: {fileID: 256066004}
   - component: {fileID: 256066005}
+  - component: {fileID: 256066006}
+  - component: {fileID: 256066007}
   m_Layer: 0
   m_Name: Triangle
   m_TagString: Untagged
@@ -985,6 +987,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &256066006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256066003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d983484c626ac4345ad1b1bc5afe9aa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effects:
+  - {fileID: 0}
+--- !u!58 &256066007
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256066003}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &290303278
 GameObject:
   m_ObjectHideFlags: 0
@@ -5295,7 +5327,7 @@ MonoBehaviour:
   TimeText: {fileID: 1707210099}
   MoneyText: {fileID: 2053291571}
   abilityWrapper: {fileID: 1769176354}
-  ShowDebugText: 0
+  ShowDebugText: 1
 --- !u!114 &1730068623
 MonoBehaviour:
   m_ObjectHideFlags: 0
