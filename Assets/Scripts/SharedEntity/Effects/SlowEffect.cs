@@ -10,4 +10,9 @@ public class SlowEffect : TaggedEffect
     {
         FlatPercent = -50
     };
+
+    public override void ApplyToGameObject(GameObject go)
+    {
+        go.AddComponent(this);
+    }
 }

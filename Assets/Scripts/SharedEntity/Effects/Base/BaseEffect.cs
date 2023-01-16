@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Effect : MonoBehaviour
+public abstract class BaseEffect : MonoBehaviour
 {
     public virtual float MaxDuration => 5f;
 
@@ -16,6 +16,8 @@ public abstract class Effect : MonoBehaviour
     }
 
     protected abstract void Init();
+
+    public abstract void ApplyToGameObject(GameObject go);
 }
 
 

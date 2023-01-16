@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TaggedEffect : Effect
+public abstract class TaggedEffect : BaseEffect
 {
     public virtual AbilityTag AbilityTag => AbilityTag.None;
 
