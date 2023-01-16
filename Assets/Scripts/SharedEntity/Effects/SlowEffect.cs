@@ -13,6 +13,14 @@ public class SlowEffect : TaggedEffect
 
     public override void ApplyToGameObject(GameObject go)
     {
+        var existing = go.GetComponent<SlowEffect>();
+
+        if (existing != null)
+        {
+            existing.Refresh();
+            return;
+        }
+
         go.AddComponent(this);
     }
 }

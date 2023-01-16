@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEngine;
 using System.Numerics;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 
 public class BasicStat
 {
@@ -76,7 +77,7 @@ public class BasicStat
             this.LogBase = stat.LogBase;
         }
 
-        if(stat.OutcomeMultiplier > 0)
+        if (stat.OutcomeMultiplier > 0)
         {
             this.OutcomeMultiplier = stat.OutcomeMultiplier;
         }
@@ -95,7 +96,34 @@ public class BasicStat
 
     public BasicStat Clone()
     {
-        return (BasicStat)MemberwiseClone();
+        var basicStat = new BasicStat()
+        {
+            PrimaryTag = this.PrimaryTag,
+            AbilityTags = this.AbilityTags,
+            ApplicationType = this.ApplicationType,
+            Visibility = this.Visibility,
+            EntityBase = new StatsFromSource
+            {
+                FlatValue = this.EntityBase.FlatValue,
+                Rating = this.EntityBase.Rating,
+                FlatPercent = this.EntityBase.FlatPercent,
+            },
+            Upgrades = this.Upgrades.Select(upgrade => new UpgradeDefinition
+            {
+                ApplicableLevels = upgrade.ApplicableLevels,
+                StatGuid = upgrade.StatGuid,
+                Stats = upgrade.Stats,
+            }).ToList(),
+            Level = this.Level,
+            LogBase = this.LogBase,
+            OutcomeMultiplier = this.OutcomeMultiplier,
+            Guid = this.Guid,
+            Name = this.Name,
+            PublicName = this.PublicName,
+            Description = this.Description,
+        };
+
+        return basicStat;
     }
 
     public void AddEffect(StatsFromEffectSource effect)
@@ -116,7 +144,7 @@ public class BasicStat
             }
         }
 
-        if(index > -1)
+        if (index > -1)
             this.effects.RemoveAt(index);
     }
 

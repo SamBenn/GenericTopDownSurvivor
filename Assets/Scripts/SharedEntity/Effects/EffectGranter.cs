@@ -12,6 +12,8 @@ public class EffectGranter : MonoBehaviour
 
     private Dictionary<int, float> effectedTargets = new Dictionary<int, float>();
 
+    public Faction Faction;
+
     private float delta = 0f;
 
     private void Start()
@@ -26,8 +28,14 @@ public class EffectGranter : MonoBehaviour
         if (effectedTargets.ContainsKey(otherObj.GetInstanceID()))
             return;
 
+        this.AddPierced(otherObj.GetInstanceID());
+
+        if (!FactionUtil.ShouldApply(this.Faction, otherObj))
+        {
+            return;
+        }
+
         this.effectsToGrant.ForEach(e => e.ApplyToGameObject(otherObj));
-        this.effectedTargets.Add(otherObj.GetInstanceID(), this.delta + .5f);
     }
 
     private void Update()
@@ -45,5 +53,10 @@ public class EffectGranter : MonoBehaviour
             if (p.Value < delta)
                 this.effectedTargets.Remove(p.Key);
         });
+    }
+
+    private void AddPierced(int instanceId)
+    {
+        this.effectedTargets.Add(instanceId, this.delta + .1f);
     }
 }

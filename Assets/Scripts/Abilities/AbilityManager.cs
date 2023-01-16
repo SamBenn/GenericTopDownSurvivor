@@ -243,7 +243,7 @@ public class AbilityManager : MonoBehaviour
                 damageComp.AddPierced(gameObject.GetInstanceID(), ignoreCount: true, timeoutOverride: info.AbilityInfo.Timeout);
                 damageComp.MaxPierce = collatedUtilResults.MaxPierce;
                 //need to make this more flexible
-                damageComp.faction = this.FactionState.GetFactions[0].Key;
+                damageComp.Faction = this.FactionState.GetFactions[0].Key;
             }
 
             var barrierComp = proj.GetComponent<Barrier>();
@@ -251,6 +251,13 @@ public class AbilityManager : MonoBehaviour
             {
                 barrierComp.Target = parent;
                 barrierComp.Info = info.AbilityInfo;
+            }
+
+            var effectGranter = proj.GetComponent<EffectGranter>();
+            if(effectGranter != null)
+            {
+                //need to make this more flexible
+                effectGranter.Faction = this.FactionState.GetFactions[0].Key;
             }
             #endregion
 

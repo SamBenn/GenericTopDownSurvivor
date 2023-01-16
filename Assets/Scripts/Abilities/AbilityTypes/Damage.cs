@@ -21,7 +21,7 @@ public class Damage : MonoBehaviour
     private Dictionary<int, float> piercedEntities = new Dictionary<int, float>();
     public int MaxPierce;
 
-    public Faction faction;
+    public Faction Faction;
 
     void Update()
     {
@@ -80,14 +80,10 @@ public class Damage : MonoBehaviour
         if (this.piercedEntities.ContainsKey(obj.GetInstanceID()))
             return;
 
-        var factionState = obj.GetComponent<FactionState>();
-        if (factionState != null)
+        if (!FactionUtil.ShouldApply(this.Faction, obj))
         {
-            if (factionState.IsAlly(this.faction))
-            {
-                this.AddPierced(obj.GetInstanceID(), ignoreCount: true, this.Info.Timeout);
-                return;
-            }
+            this.AddPierced(obj.GetInstanceID(), ignoreCount: true, this.Info.Timeout);
+            return;
         }
 
         var health = obj.GetComponent<Health>();
@@ -109,7 +105,7 @@ public class Damage : MonoBehaviour
         {
             pierceCount++;
 
-            if(this.MaxPierce < this.Info.MaxPierce) 
+            if (this.MaxPierce < this.Info.MaxPierce)
                 this.MaxPierce = this.Info.MaxPierce;
 
             if (pierceCount >= this.MaxPierce)
