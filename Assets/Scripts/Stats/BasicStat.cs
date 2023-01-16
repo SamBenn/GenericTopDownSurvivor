@@ -94,34 +94,35 @@ public class BasicStat
         this.Upgrades = upgrades;
     }
 
-    public BasicStat Clone()
+    public virtual BasicStat Clone()
     {
-        var basicStat = new BasicStat()
+        var type = this.GetType();
+
+        var basicStat = (BasicStat)Activator.CreateInstance(type);
+
+        basicStat.PrimaryTag = this.PrimaryTag;
+        basicStat.AbilityTags = this.AbilityTags;
+        basicStat.ApplicationType = this.ApplicationType;
+        basicStat.Visibility = this.Visibility;
+        basicStat.EntityBase = new StatsFromSource
         {
-            PrimaryTag = this.PrimaryTag,
-            AbilityTags = this.AbilityTags,
-            ApplicationType = this.ApplicationType,
-            Visibility = this.Visibility,
-            EntityBase = new StatsFromSource
-            {
-                FlatValue = this.EntityBase.FlatValue,
-                Rating = this.EntityBase.Rating,
-                FlatPercent = this.EntityBase.FlatPercent,
-            },
-            Upgrades = this.Upgrades.Select(upgrade => new UpgradeDefinition
-            {
-                ApplicableLevels = upgrade.ApplicableLevels,
-                StatGuid = upgrade.StatGuid,
-                Stats = upgrade.Stats,
-            }).ToList(),
-            Level = this.Level,
-            LogBase = this.LogBase,
-            OutcomeMultiplier = this.OutcomeMultiplier,
-            Guid = this.Guid,
-            Name = this.Name,
-            PublicName = this.PublicName,
-            Description = this.Description,
+            FlatValue = this.EntityBase.FlatValue,
+            Rating = this.EntityBase.Rating,
+            FlatPercent = this.EntityBase.FlatPercent,
         };
+        basicStat.Upgrades = this.Upgrades.Select(upgrade => new UpgradeDefinition
+        {
+            ApplicableLevels = upgrade.ApplicableLevels,
+            StatGuid = upgrade.StatGuid,
+            Stats = upgrade.Stats,
+        }).ToList();
+        basicStat.Level = this.Level;
+        basicStat.LogBase = this.LogBase;
+        basicStat.OutcomeMultiplier = this.OutcomeMultiplier;
+        basicStat.Guid = this.Guid;
+        basicStat.Name = this.Name;
+        basicStat.PublicName = this.PublicName;
+        basicStat.Description = this.Description;
 
         return basicStat;
     }

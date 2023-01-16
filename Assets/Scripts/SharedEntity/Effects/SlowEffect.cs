@@ -15,6 +15,8 @@ public class SlowEffect : TaggedEffect
     {
         var existing = go.GetComponent<SlowEffect>();
 
+        Debug.Log($"existing state: {existing} for {go.GetInstanceID()}");
+
         if (existing != null)
         {
             existing.Refresh();

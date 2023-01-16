@@ -30,7 +30,7 @@ public class PlayerManager : MonoBehaviour
         this.Enable();
 
         // To be rewritten once "classes" exist
-        this.abilityManager.AddAbility(Constants.Abilities.SpectralBlade);
+        this.abilityManager.AddAbility(Constants.Abilities.IceWave);
     }
 
     private void GetManagers()
