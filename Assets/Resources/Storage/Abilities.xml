@@ -16,7 +16,7 @@
         Pierce,
         Fire
       </Tags>
-      <BaseDamage>6</BaseDamage>
+      <BaseDamage>2</BaseDamage>
       <BaseFrequency>3</BaseFrequency>
       <MaxPierce>0</MaxPierce>
       <AdditionalProjectiles>2</AdditionalProjectiles>

@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 5503288534191250514}
   - component: {fileID: 8011272634828649371}
   - component: {fileID: 7003441281100251850}
+  - component: {fileID: 5061095508490892518}
   m_Layer: 0
   m_Name: FireballProj
   m_TagString: Projectile
@@ -133,6 +134,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EntityStats: {fileID: 0}
+  MaxPierce: 0
+  Faction: 0
 --- !u!114 &5503288534191250514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,6 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33d733fef589a1740a6d634ff1baa68f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Target: {fileID: 0}
 --- !u!61 &8011272634828649371
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -192,3 +196,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5061095508490892518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6534894714431624602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d983484c626ac4345ad1b1bc5afe9aa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Effects: 01000000
+  Faction: 0

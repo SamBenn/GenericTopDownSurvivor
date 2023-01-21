@@ -12,6 +12,7 @@ public class EffectHost : MonoBehaviour
         Debug.Log($"EffectHost effects: {components.Count}");
 
         EffectsUtil.SetEffects(components);
+        components.ForEach(p => GameObject.Destroy(p));
         GameObject.Destroy(this);
     }
 }

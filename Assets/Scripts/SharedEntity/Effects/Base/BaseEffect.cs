@@ -32,13 +32,31 @@ public abstract class BaseEffect : MonoBehaviour
     {
         this.timeoutDuration += Time.deltaTime;
 
-        if(this.timeoutDuration > this.MaxDuration)
+        if (this.timeoutDuration > this.MaxDuration)
             GameObject.Destroy(this);
     }
 
     public void Refresh()
     {
         this.timeoutDuration = 0f;
+    }
+
+    protected bool ShouldAddTo<T>(GameObject go, T effect = null)
+        where T : BaseEffect
+    {
+        if (go.TryGetComponent<T>(out var existing))
+        {
+            if (existing is IStackableEffect)
+            {
+                var stackableExisting = existing as IStackableEffect;
+                stackableExisting.AddStack();
+            }
+
+            existing.Refresh();
+            return false;
+        }
+
+        return true;
     }
 }
 
@@ -53,6 +71,7 @@ public enum EffectBehaviour
 public interface IStackableEffect
 {
     public int Stack { get; }
+    public int MaxStack { get; }
 
     public void AddStack();
 }

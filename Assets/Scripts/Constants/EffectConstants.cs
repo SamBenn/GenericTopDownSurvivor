@@ -28,7 +28,8 @@ public static partial class Constants
 
         public enum EffectBinding
         {
-            Slow
+            Slow,
+            Burning,
         }
     }
 }

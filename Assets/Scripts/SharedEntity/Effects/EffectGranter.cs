@@ -24,6 +24,8 @@ public class EffectGranter : MonoBehaviour
     private void OnTriggerStay2D(Collider2D other)
     {
         var otherObj = other.gameObject;
+        if (otherObj.tag == Constants.Tags.Projectile) 
+            return;
 
         if (effectedTargets.ContainsKey(otherObj.GetInstanceID()))
             return;
@@ -57,6 +59,6 @@ public class EffectGranter : MonoBehaviour
 
     private void AddPierced(int instanceId)
     {
-        this.effectedTargets.Add(instanceId, this.delta + .1f);
+        this.effectedTargets.Add(instanceId, this.delta + .5f);
     }
 }

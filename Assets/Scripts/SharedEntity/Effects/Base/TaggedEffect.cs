@@ -27,7 +27,10 @@ public abstract class TaggedEffect : BaseEffect
         this.EntityStats = this.gameObject.GetComponent<EntityStats>();
 
         if(EntityStats == null)
+        {
             GameObject.Destroy(this);
+            return;
+        }
 
         var stat = this.EntityStats.GetStatForPrimaryTag(this.AbilityTag);
 
