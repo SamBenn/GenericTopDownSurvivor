@@ -22,8 +22,6 @@ public class EntityStats : MonoBehaviour
         this.AddUpgradesToStats();
 
         this.ApplyStatLevels(statLevels);
-
-        Debug.Log($"Entity Stats for: {gameObject.name} ({gameObject.GetInstanceID()},{this.GetInstanceID()})");
     }
 
     public List<T> StatsOfType<T>(List<AbilityTag> whitelist = null) where T : BasicStat

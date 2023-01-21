@@ -1,16 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Constants.Effect;
 
 public abstract class BaseEffect : MonoBehaviour
 {
     public virtual float MaxDuration => 5f;
     protected float timeoutDuration = 0f;
 
+    public abstract EffectBinding EffectBinding { get; }
     public virtual EffectBehaviour EffectBehaviour => EffectBehaviour.Unset;
 
     private void Start()
     {
+        if (this.gameObject.name == Constants.GameObjects.Names.EffectHost)
+            return;
+
         this.Init();
     }
 

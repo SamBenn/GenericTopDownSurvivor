@@ -18,7 +18,7 @@ public class EffectGranter : MonoBehaviour
 
     private void Start()
     {
-        this.effectsToGrant = this.Effects.Select(e => Constants.Effect.GetEffectInstanceForEnum(e)).ToList();
+        this.effectsToGrant = this.Effects.Select(e => EffectsUtil.GetEffect(e)).ToList();
     }
 
     private void OnTriggerStay2D(Collider2D other)

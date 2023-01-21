@@ -14,6 +14,9 @@ public abstract class TaggedEffect : BaseEffect
 
     private void OnDestroy()
     {
+        if (this.EntityStats == null)
+            return;
+
         var stat = this.EntityStats.GetStatForPrimaryTag(this.AbilityTag);
 
         stat.RemoveEffect(this.GetInstanceID());
