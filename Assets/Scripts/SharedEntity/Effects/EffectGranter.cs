@@ -21,7 +21,7 @@ public class EffectGranter : MonoBehaviour
         this.effectsToGrant = this.Effects.Select(e => EffectsUtil.GetEffect(e)).ToList();
     }
 
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         var otherObj = other.gameObject;
         if (otherObj.tag == Constants.Tags.Projectile) 
